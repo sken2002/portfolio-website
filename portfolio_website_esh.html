@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Eshwar Nevedh — Data, Strategy & Sound</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  /* WHIPLASH AESTHETIC: Deep shadows, brassy golds, studio warmth */
+  --bg-deep:     #0c0a09; 
+  --bg-mid:      #15110e; 
+  --bg-card:     #1e1814; 
+  --bg-hover:    #261e19;
+  --accent-gold: #e5a93d; 
+  --accent-muted:#8a7a6c; 
+  --text-p:      #ece7e1; 
+  --text-s:      #a89f91;
+  --text-dim:    #736a5f;
+  --border:      rgba(229, 169, 61, 0.12);
+  --border-h:    rgba(229, 169, 61, 0.3);
+  
+  /* Fonts */
+  --serif-h: 'Cormorant Garamond', Georgia, serif;
+  --serif-p: 'Lora', Georgia, serif;
+  --mono:    'JetBrains Mono', monospace;
+  --ease:    cubic-bezier(0.25, 1, 0.5, 1); 
+}
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body { 
+  background: var(--bg-deep); 
+  color: var(--text-p); 
+  font-family: var(--serif-p); 
+  font-size: 1.08rem;
+  line-height: 1.8; 
+  overflow-x: hidden; 
+}
+
+/* NAV */
+nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:1.5rem 5rem; display:flex; justify-content:space-between; align-items:center; transition:background .4s, border-color .4s; border-bottom:1px solid transparent; }
+nav.scrolled { background:rgba(12,10,9,.95); border-bottom-color:var(--border); backdrop-filter:blur(16px); }
+.logo { font-family:var(--serif-h); font-size:1.5rem; font-weight:500; color:var(--text-p); text-decoration:none; letter-spacing:.02em; }
+.logo span { color:var(--accent-gold); font-style: italic; }
+.nav-links { display:flex; gap:3rem; list-style:none; }
+.nav-links a { font-family:var(--mono); font-size:.65rem; letter-spacing:.15em; text-transform:uppercase; color:var(--text-s); text-decoration:none; transition:color .3s; }
+.nav-links a:hover { color:var(--accent-gold); }
+
+/* HERO */
+#hero { position:relative; height:100vh; min-height:720px; display:flex; align-items:center; overflow:hidden; }
+#hc { position:absolute; inset:0; width:100%; height:100%; opacity: 0.8; }
+.hero-inner { position:relative; z-index:2; max-width:1240px; margin:0 auto; padding:0 5rem; width:100%; }
+.hero-layout { display:flex; align-items:center; justify-content:space-between; gap:5rem; }
+.hero-text-content { flex:1; }
+
+/* 5-CARD INTERACTIVE STACK */
+.hero-img-wrap { position:relative; width:340px; height:420px; flex-shrink:0; opacity:0; animation:up 1.2s var(--ease) .6s forwards; perspective: 1200px; }
+.card-stack { position:relative; width:100%; height:100%; animation: ambient-float 8s ease-in-out infinite; }
+.card-stack img { 
+  position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; 
+  border-radius:16px; border:1px solid rgba(229, 169, 61, 0.3); 
+  box-shadow:0 12px 32px rgba(0,0,0,0.8); 
+  transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease), filter 0.6s var(--ease), z-index 0s; 
+  transform-origin: bottom center; 
+  cursor: pointer;
+}
+
+/* Default 'messy' stack state */
+.card-stack img:nth-child(1) { transform:rotate(-2deg) translateY(0); z-index:5; filter: brightness(1); }
+.card-stack img:nth-child(2) { transform:rotate(1.5deg) translateY(2px); z-index:4; filter: brightness(0.85); }
+.card-stack img:nth-child(3) { transform:rotate(-1deg) translateY(4px); z-index:3; filter: brightness(0.75); }
+.card-stack img:nth-child(4) { transform:rotate(2.5deg) translateY(6px); z-index:2; filter: brightness(0.65); }
+.card-stack img:nth-child(5) { transform:rotate(-1.5deg) translateY(8px); z-index:1; filter: brightness(0.55); }
+
+/* Fan out state */
+.card-stack:hover img:nth-child(1) { transform:rotate(-20deg) translateX(-65px) translateY(-10px); filter: brightness(0.7); }
+.card-stack:hover img:nth-child(2) { transform:rotate(-10deg) translateX(-30px) translateY(-5px); filter: brightness(0.7); }
+.card-stack:hover img:nth-child(3) { transform:rotate(0deg) translateX(0) translateY(0); filter: brightness(0.7); }
+.card-stack:hover img:nth-child(4) { transform:rotate(10deg) translateX(30px) translateY(-5px); filter: brightness(0.7); }
+.card-stack:hover img:nth-child(5) { transform:rotate(20deg) translateX(65px) translateY(-10px); filter: brightness(0.7); }
+
+/* SPOTLIGHT (Specific Hover) */
+.card-stack img:hover { 
+  z-index: 10 !important; 
+  filter: brightness(1.15) !important; 
+  box-shadow: 0 24px 50px rgba(229, 169, 61, 0.2), 0 10px 20px rgba(0,0,0,0.9) !important; 
+}
+.card-stack:hover img:nth-child(1):hover { transform:rotate(-20deg) translateX(-65px) translateY(-30px) scale(1.08); }
+.card-stack:hover img:nth-child(2):hover { transform:rotate(-10deg) translateX(-30px) translateY(-30px) scale(1.08); }
+.card-stack:hover img:nth-child(3):hover { transform:rotate(0deg) translateX(0) translateY(-30px) scale(1.08); }
+.card-stack:hover img:nth-child(4):hover { transform:rotate(10deg) translateX(30px) translateY(-30px) scale(1.08); }
+.card-stack:hover img:nth-child(5):hover { transform:rotate(20deg) translateX(65px) translateY(-30px) scale(1.08); }
+
+/* HERO TEXT ANIMATIONS */
+.hero-wave-tag { font-family:var(--mono); font-size:.65rem; letter-spacing:.18em; text-transform:uppercase; color:var(--accent-gold); margin-bottom:1.5rem; opacity:0; animation:up 1s var(--ease) .3s forwards; }
+h1.hero-h { font-family:var(--serif-h); font-size:clamp(3.5rem, 6.5vw, 6.5rem); font-weight:500; line-height:1; letter-spacing:-.02em; margin-bottom:1.5rem; opacity:0; animation:up 1s var(--ease) .5s forwards; }
+h1.hero-h em { font-style:italic; color:var(--accent-gold); display:block; font-weight:400; animation: studio-pulse 4s ease-in-out infinite; }
+h1.hero-h .name-roots { display:block; font-size:.25em; font-style:normal; font-weight:400; color:var(--text-s); letter-spacing:.15em; margin-top:.8rem; font-family:var(--mono); text-transform:uppercase; }
+.hero-sub { color:var(--text-s); max-width:540px; margin-bottom:3rem; opacity:0; animation:up 1s var(--ease) .7s forwards; }
+.hero-sub strong { color:var(--text-p); font-weight:500; }
+.hero-tags { display:flex; flex-wrap:wrap; gap:.6rem; margin-bottom:3rem; opacity:0; animation:up 1s var(--ease) .85s forwards; }
+.hero-tag { font-family:var(--mono); font-size:.6rem; letter-spacing:.1em; text-transform:uppercase; padding:.35rem .9rem; border:1px solid var(--border); color:var(--text-s); border-radius:20px; transition: border-color 0.4s, color 0.4s; }
+.hero-tag:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
+
+.hero-ctas { display:flex; gap:1.2rem; flex-wrap:wrap; opacity:0; animation:up 1s var(--ease) 1s forwards; }
+.btn-p { padding:.85rem 2.2rem; background:var(--accent-gold); color:#000; border:none; font-family:var(--mono); font-size:.65rem; letter-spacing:.15em; text-transform:uppercase; text-decoration:none; transition:background .3s, transform .3s, box-shadow .3s; border-radius:30px; font-weight: 600; box-shadow: 0 0 20px rgba(229, 169, 61, 0.15); }
+.btn-p:hover { background:#f5b84c; transform:translateY(-2px) scale(1.02); box-shadow: 0 8px 25px rgba(229, 169, 61, 0.4); }
+.btn-s { padding:.85rem 2.2rem; background:transparent; color:var(--text-p); border:1px solid var(--accent-gold); font-family:var(--mono); font-size:.65rem; letter-spacing:.15em; text-transform:uppercase; text-decoration:none; transition:border-color .3s, background .3s, transform .3s; border-radius:30px; }
+.btn-s:hover { background:rgba(229, 169, 61, 0.1); transform:translateY(-2px) scale(1.02); color:var(--accent-gold); }
+
+/* DUAL IDENTITY */
+#dual { padding:0; background:var(--bg-mid); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.dual-grid { display:grid; grid-template-columns:1fr 1fr; }
+.dual-side { padding:5rem; position:relative; overflow:hidden; transition:background .4s; }
+.dual-side:first-child { border-right:1px solid var(--border); }
+.dual-side:hover { background:var(--bg-card); }
+.dual-label { font-family:var(--mono); font-size:.65rem; letter-spacing:.2em; text-transform:uppercase; margin-bottom:1.5rem; color:var(--accent-muted); }
+.dual-side.creative .dual-label { color:var(--accent-gold); }
+.dual-title { font-family:var(--serif-h); font-size:2.5rem; font-weight:500; line-height:1.2; margin-bottom:1rem; }
+.dual-body { color:var(--text-s); }
+
+/* SHARED SECTION STYLES & REVEALS */
+section { position:relative; }
+.inner { max-width:1240px; margin:0 auto; padding:0 5rem; }
+.s-label { font-family:var(--mono); font-size:.65rem; letter-spacing:.2em; text-transform:uppercase; color:var(--accent-muted); margin-bottom:1rem; display:flex; align-items:center; gap:.75rem; }
+.s-label::before { content:''; width:24px; height:1px; background:var(--accent-muted); }
+.s-label.sand { color:var(--accent-gold); }
+.s-label.sand::before { background:var(--accent-gold); }
+.s-title { font-family:var(--serif-h); font-size:clamp(2.5rem, 4vw, 3.5rem); font-weight:500; line-height:1.1; margin-bottom:1rem; }
+.s-title em { font-style:italic; color:var(--accent-gold); font-weight:400; }
+.s-desc { color:var(--text-s); max-width:600px; margin-bottom:4rem; font-size:1.1rem; }
+
+/* Global Reveal Classes */
+.reveal { opacity: 0; transform: translateY(30px) scale(0.98); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+.reveal.vis { opacity: 1; transform: translateY(0) scale(1); }
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+
+/* WORK */
+#work { padding:8rem 0; background:var(--bg-deep); }
+.work-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
+.cf { background:var(--bg-card); padding:3.5rem; border-radius:16px; border:1px solid var(--border); transition:transform .5s var(--ease), border-color .5s, box-shadow .5s; position:relative; overflow:hidden; }
+.cf:hover { transform:translateY(-8px); border-color:var(--border-h); box-shadow: 0 15px 40px rgba(0,0,0,0.6); }
+.cf-in { position:relative; z-index:1; }
+.cf-tag { font-family:var(--mono); font-size:.6rem; letter-spacing:.15em; text-transform:uppercase; color:var(--accent-muted); margin-bottom:1.5rem; }
+.cf-num { font-family:var(--serif-h); font-size:3rem; font-style:italic; color:var(--border-h); line-height:1; margin-bottom:1rem; }
+
+.cf-header { display:flex; align-items:center; gap:1.2rem; margin-bottom:1.2rem; }
+.cf-logo { width:48px; height:48px; border-radius:10px; object-fit:contain; background:#ffffff; padding:6px; border:1px solid var(--border); box-shadow:0 4px 12px rgba(0,0,0,0.5); }
+.cf-org { font-family:var(--mono); font-size:.65rem; color:var(--accent-gold); letter-spacing:.1em; margin-bottom:.3rem; text-transform:uppercase; }
+.cf-title { font-family:var(--serif-h); font-size:1.6rem; font-weight:500; line-height:1.1; margin:0; }
+
+.cf-body { color:var(--text-s); margin-bottom:1.5rem; }
+.cf-body li { margin-left:1.5rem; margin-bottom:.5rem; }
+.cf.wide { grid-column:1/-1; }
+.wide-inner { display:grid; grid-template-columns:1fr 1fr; gap:4rem; }
+
+/* PROJECTS */
+#projects { padding:8rem 0; background:var(--bg-mid); }
+.proj-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:2rem; }
+.pj-link { text-decoration:none; color:inherit; display:block; height:100%; }
+.pj { background:var(--bg-card); padding:2rem; border-radius:16px; border:1px solid var(--border); transition:transform .5s var(--ease), border-color .5s, box-shadow .5s; height:100%; display:flex; flex-direction:column; }
+.pj:hover { transform:translateY(-8px); border-color:var(--accent-gold); box-shadow: 0 15px 40px rgba(0,0,0,0.6); }
+
+/* ✨ THE VIGNETTE & BLENDED EDGE IMAGES ✨ */
+.pj-img-wrap {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 1.8rem;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background: var(--bg-card);
+}
+
+/* This ::after element creates the soft inner shadow that blurs the image into the background */
+.pj-img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  box-shadow: inset 0 0 45px 15px var(--bg-card); /* Massive inner shadow matching card color */
+  pointer-events: none; /* Allows hover to pass through to the image */
+  transition: box-shadow 0.6s var(--ease);
+}
+
+.pj-img-wrap img {
+  width: 100%;
+  height: 100%;
+  opacity: 0.65;
+  filter: grayscale(40%) contrast(1.15) brightness(0.9);
+  transition: opacity 0.6s var(--ease), filter 0.6s var(--ease), transform 0.8s var(--ease);
+  will-change: transform;
+}
+
+/* Elegant slow-zoom and vignette reveal on hover */
+.pj:hover .pj-img-wrap img {
+  opacity: 0.95;
+  filter: grayscale(0%) contrast(1.05) brightness(1);
+  transform: scale(1.05); 
+}
+.pj:hover .pj-img-wrap::after {
+  box-shadow: inset 0 0 20px 5px var(--bg-card); /* Shadow pulls back to reveal more image */
+}
+
+/* Sizing Utilities */
+.img-cover { object-fit: cover; }
+.img-contain { object-fit: contain; padding: 2rem; }
+
+.pj-status { font-family:var(--mono); font-size:.6rem; letter-spacing:.15em; text-transform:uppercase; margin-bottom:1rem; color:var(--accent-gold); }
+.pj-title { font-family:var(--serif-h); font-size:1.6rem; font-weight:500; margin-bottom:.8rem; line-height:1.2; color:var(--text-p); }
+.pj-body { color:var(--text-s); margin-bottom:1.5rem; flex-grow:1; font-size:.95rem; }
+
+/* TIMELINE */
+#about { padding:8rem 0; background:var(--bg-deep); }
+.trail-wrap { position:relative; margin-top:4rem; }
+.trail-items { display:flex; flex-direction:column; gap:2rem; }
+.ti { background:var(--bg-card); border:1px solid var(--border); padding:3.5rem; border-radius:16px; transition:border-color .5s, transform .5s var(--ease); }
+.ti:hover { border-color:var(--accent-gold); transform:translateX(8px); } /* Shifts right slightly instead of up */
+.ti-year { font-family:var(--mono); font-size:.65rem; color:var(--accent-muted); letter-spacing:.15em; margin-bottom:.8rem; }
+.ti-role { font-family:var(--serif-h); font-size:1.8rem; font-weight:500; margin-bottom:.4rem; }
+.ti-org { font-family:var(--mono); font-size:.7rem; color:var(--accent-gold); letter-spacing:.1em; margin-bottom:1rem; text-transform:uppercase; }
+
+/* CREATIVE */
+#creative { padding:8rem 0; background:var(--bg-mid); }
+.cr-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
+.cr-card { background:var(--bg-card); padding:4rem; border-radius:16px; border:1px solid var(--border); transition:transform .5s var(--ease), box-shadow .5s; }
+.cr-card:hover { transform:translateY(-8px); border-color:var(--accent-gold); box-shadow: 0 15px 40px rgba(0,0,0,0.6); }
+.cr-title { font-family:var(--serif-h); font-size:2rem; font-weight:500; margin-bottom:1rem; color:var(--accent-gold); }
+.cr-body { color:var(--text-s); margin-bottom:1.5rem; font-size: 1.05rem; }
+
+/* ROOTS */
+#roots { padding:8rem 0; background:var(--text-p); color:var(--bg-deep); }
+#roots .s-label { color:var(--accent-muted); }
+#roots .s-label::before { background:var(--accent-muted); }
+#roots .s-title { color:var(--bg-deep); }
+#roots .s-title em { color:var(--accent-gold); }
+#roots .s-desc { color:var(--bg-hover); }
+.roots-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
+.root-card { background:#f5f0ea; padding:4rem; border-radius:16px; border:1px solid rgba(0,0,0,0.08); transition:box-shadow .5s var(--ease), transform .5s var(--ease); }
+.root-card:hover { box-shadow:0 20px 40px rgba(0,0,0,0.12); transform:translateY(-8px); }
+.root-place { font-family:var(--mono); font-size:.65rem; letter-spacing:.15em; text-transform:uppercase; color:var(--accent-muted); margin-bottom:1.2rem; }
+.root-title { font-family:var(--serif-h); font-size:2rem; font-weight:500; margin-bottom:1rem; }
+.root-body { color:#4a4641; font-size: 1.05rem; }
+
+/* CONTACT */
+#contact { padding:10rem 0; background:var(--bg-deep); text-align:center; }
+.contact-in { max-width:800px; margin:0 auto; padding:0 5rem; }
+.contact-q { font-family:var(--serif-h); font-size:clamp(2.2rem, 3vw, 3.5rem); font-weight:400; font-style:italic; line-height:1.2; color:var(--text-p); margin-bottom:1.5rem; animation: studio-pulse 5s ease-in-out infinite; }
+.contact-sub { color:var(--text-s); margin-bottom:4rem; font-size:1.15rem; }
+.contact-links { display:flex; justify-content:center; gap:1.5rem; flex-wrap:wrap; }
+.cl { font-family:var(--mono); font-size:.7rem; letter-spacing:.15em; text-transform:uppercase; color:var(--text-p); text-decoration:none; padding:1.2rem 3rem; border:1px solid var(--border-h); border-radius:40px; transition:background .4s, border-color .4s, transform .4s, box-shadow .4s; }
+.cl:hover { background:rgba(229,169,61,0.1); border-color:var(--accent-gold); color:var(--accent-gold); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(229,169,61,0.2); }
+
+/* KEYFRAMES FOR ELEGANT ANIMATIONS */
+@keyframes up { from{opacity:0; transform:translateY(30px)} to{opacity:1; transform:translateY(0)} }
+@keyframes ambient-float { 
+  0%, 100% { transform: translateY(0); } 
+  50% { transform: translateY(-12px); } 
+}
+@keyframes studio-pulse {
+  0%, 100% { text-shadow: 0 0 15px rgba(229, 169, 61, 0.1); }
+  50% { text-shadow: 0 0 35px rgba(229, 169, 61, 0.5); }
+}
+
+@media(max-width:960px){
+  nav { padding:1.2rem 2rem; } .nav-links { display:none; }
+  .inner, .hero-inner, .contact-in { padding:0 2rem; }
+  .hero-layout { flex-direction:column-reverse; text-align:center; gap:3rem; margin-top: 4rem; }
+  .hero-wave-tag { justify-content:center; }
+  .hero-wave-tag::before { display:none; }
+  .hero-tags, .hero-ctas { justify-content:center; }
+  h1.hero-h { font-size:3rem; }
+  
+  .hero-img-wrap { width:260px; height:320px; }
+  .card-stack:hover img:nth-child(1) { transform:rotate(-15deg) translateX(-35px); }
+  .card-stack:hover img:nth-child(2) { transform:rotate(-7deg) translateX(-15px); }
+  .card-stack:hover img:nth-child(4) { transform:rotate(7deg) translateX(15px); }
+  .card-stack:hover img:nth-child(5) { transform:rotate(15deg) translateX(35px); }
+  
+  .dual-grid, .work-grid, .cf.wide .wide-inner, .proj-grid, .cr-grid, .roots-grid { grid-template-columns:1fr; }
+  .dual-side:first-child { border-right:none; border-bottom:1px solid var(--border); }
+  .dual-side, .cf, .pj, .ti, .cr-card, .root-card { padding: 2.5rem; }
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#hero" class="logo">Eshwar <span>Nevedh</span></a>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#about">Journey</a></li>
+    <li><a href="#creative">Creative</a></li>
+    <li><a href="#roots">Roots</a></li>
+    <li><a href="#contact">Say Hi</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <canvas id="hc"></canvas>
+  <div class="hero-inner">
+    <div class="hero-layout">
+      <div class="hero-text-content">
+        <p class="hero-wave-tag">Eshwar Nevedh · MAM 2026 · London Business School</p>
+        <h1 class="hero-h">
+          Data Nerd.<br/>
+          <em>Creative Soul.</em>
+          <span class="name-roots">எஷ்வர் நேவேத் &nbsp;·&nbsp; ഈശ്വർ നേവേദ്</span>
+        </h1>
+        <p class="hero-sub">
+          Welcome. I am <strong>Eshwar</strong>: a Data and AI consultant, synthesizer player in a band, video editor with a YouTube following, and a Tamil-Malayali who has always lived within earshot of the sea.
+          There is more to my story than the resume. Scroll down and find out.
+        </p>
+        <div class="hero-tags">
+          <span class="hero-tag">Data &amp; AI</span>
+          <span class="hero-tag">Sports Strategy</span>
+          <span class="hero-tag">Keyboardist</span>
+          <span class="hero-tag">Video Editor</span>
+          <span class="hero-tag">LBS MAM 2026</span>
+          <span class="hero-tag">Writer</span>
+        </div>
+        <div class="hero-ctas">
+          <a href="#work" class="btn-p">View Selected Work</a>
+          <a href="#creative" class="btn-s">Explore The Creative</a>
+        </div>
+      </div>
+      
+      <div class="hero-img-wrap">
+        <div class="card-stack">
+          <img src="portrait-lbs-eshwar.jpg" alt="Eshwar Professional Portrait" />
+          <img src="meandarsenal.jpeg" alt="Me and Arsenal" />
+          <img src="meandey.jpeg" alt="Me and EY" />
+          <img src="meandkeys.jpeg" alt="Me and Keys" />
+          <img src="meandband.jpeg" alt="Me and Band" />
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<div id="dual">
+  <div class="dual-grid">
+    <div class="dual-side data reveal">
+      <p class="dual-label">The Analytical Mind</p>
+      <h2 class="dual-title">Data, AI &amp; Strategy</h2>
+      <p class="dual-body">Machine learning, AI strategy, distributed computing, and quantitative finance. I build systems that turn messy reality into clean signal to drive clear decisions. My background spans two years at Thorogood, sports strategy advisory at The Sports Consultancy, a live agentic AI project with EY, and a Masters at LBS.</p>
+    </div>
+    <div class="dual-side creative reveal delay-1">
+      <p class="dual-label">The Creative Side</p>
+      <h2 class="dual-title">Artist &amp; Creator</h2>
+      <p class="dual-body">Grade 8 Distinction in Keyboard. Synth player in a band. Video editor with a growing YouTube following, and a writer committed to publishing more in 2026. The creative side is not separate. It operates from the same mind working in a different register.</p>
+    </div>
+  </div>
+</div>
+
+<section id="work">
+  <div class="inner">
+    <div class="reveal">
+      <p class="s-label">Professional Playbook</p>
+      <h2 class="s-title">Where I Have <em>Worked</em></h2>
+      <p class="s-desc">Enterprise AI consulting, sports strategy advisory, and academic rigor at one of the world's finest business schools. Each role built something different in me.</p>
+    </div>
+    <div class="work-grid">
+
+      <div class="cf reveal">
+        <div class="cf-in">
+          <p class="cf-tag">Data &amp; AI/ML Consulting · 2023–2025</p>
+          <div class="cf-num">01</div>
+          
+          <div class="cf-header">
+            <img src="https://logo.clearbit.com/thorogood.com" alt="Thorogood" class="cf-logo" onerror="this.style.display='none'"/>
+            <div>
+              <p class="cf-org">Thorogood Associates · Bangalore to London</p>
+              <h3 class="cf-title">Data &amp; AI/ML Consultant</h3>
+            </div>
+          </div>
+          
+          <p class="cf-body">I spent two years building high-impact data solutions for global enterprise clients across financial services, healthcare, and energy. I translated complex problems into scalable architectures that saved hundreds of hours annually.</p>
+          <ul class="cf-body">
+            <li>API-driven pricing framework eliminating substantial manual entry</li>
+            <li>RAG NLP workflow for a major institutional client's report analysis</li>
+            <li>Customer profitability models and interactive dashboards for healthcare leaders</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cf reveal delay-1">
+        <div class="cf-in">
+          <p class="cf-tag">Strategy &amp; AI · 2025–2026</p>
+          <div class="cf-num">02</div>
+          
+          <div class="cf-header">
+            <img src="https://logo.clearbit.com/thesportsconsultancy.com" alt="The Sports Consultancy" class="cf-logo" onerror="this.style.display='none'"/>
+            <div>
+              <p class="cf-org">The Sports Consultancy · London</p>
+              <h3 class="cf-title">Strategy &amp; AI Consultant</h3>
+            </div>
+          </div>
+          
+          <p class="cf-body">Working with global sports rights holders, leagues, and clubs. I serve as the bridge between technical AI architecture and senior executive strategy. I make complex diagnostics legible and actionable at the top level.</p>
+          <ul class="cf-body">
+            <li>Primary translator for senior management on architectural diagnostics</li>
+            <li>Delivered insights to maximize the commercial value of data ecosystems</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cf wide reveal">
+        <div class="cf-in wide-inner">
+          <div>
+            <p class="cf-tag">Current · EY LondonLAB</p>
+            <div class="cf-num">03</div>
+            
+            <div class="cf-header">
+              <img src="https://logo.clearbit.com/ey.com" alt="Ernst & Young" class="cf-logo" onerror="this.style.display='none'"/>
+              <div>
+                <p class="cf-org">Ernst &amp; Young · London</p>
+                <h3 class="cf-title">Agentic Risk Intelligence</h3>
+              </div>
+            </div>
+            
+            <p class="cf-body">Architecting an agentic risk intelligence proof of concept. I am building analytical models to evaluate synthetic financial data and surface capital project vulnerabilities through an interactive executive dashboard.</p>
+          </div>
+          <div>
+            <p class="cf-tag">Academic · 2025–2026</p>
+            <div class="cf-num">04</div>
+            
+            <div class="cf-header">
+              <img src="https://logo.clearbit.com/london.edu" alt="London Business School" class="cf-logo" onerror="this.style.display='none'"/>
+              <div>
+                <p class="cf-org">London Business School · London</p>
+                <h3 class="cf-title">Masters in Analytics and Management</h3>
+              </div>
+            </div>
+            
+            <p class="cf-body">The deliberate next step. LBS is where engineering rigor meets business strategy and quantitative finance. My coursework spans Financial Analytics, Machine Learning, Generative AI, and Strategy.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="inner">
+    <div class="reveal">
+      <p class="s-label">Built &amp; Shipped</p>
+      <h2 class="s-title">Independent <em>Projects</em></h2>
+      <p class="s-desc">Tools and systems I built to solve problems that fascinated me, ranging from macroeconomic modeling to market intelligence.</p>
+    </div>
+    
+    <div class="proj-grid">
+      <a href="https://finpulsev2.onrender.com/mission" target="_blank" class="pj-link reveal">
+        <div class="pj">
+          <div class="pj-img-wrap">
+            <img src="finpulselogo.jpg" alt="FinPulse" class="img-contain"/>
+          </div>
+          <p class="pj-status">In Progress</p>
+          <h3 class="pj-title">FinPulse Market Intelligence</h3>
+          <p class="pj-body">A market intelligence platform built from scratch to evaluate unstructured data sources, tracking cross-asset risk and generating data-driven portfolio signals.</p>
+        </div>
+      </a>
+
+      <a href="#" target="_blank" class="pj-link reveal delay-1">
+        <div class="pj">
+          <div class="pj-img-wrap">
+            <img src="lbseyplaceholder.jpg" alt="Agentic AI Dashboard" class="img-contain"/>
+          </div>
+          <p class="pj-status">In Progress</p>
+          <h3 class="pj-title">Agentic Risk Intelligence</h3>
+          <p class="pj-body">An agentic AI system analyzing synthetic financial data to identify capital project vulnerabilities, surfaced through a clean executive dashboard.</p>
+        </div>
+      </a>
+
+      <a href="https://www.linkedin.com/pulse/pricing-unpriceable-tool-model-geopolitical-risk-eshwar-nevedh-u0q0e" target="_blank" class="pj-link reveal delay-2">
+        <div class="pj">
+          <div class="pj-img-wrap">
+            <img src="https://images.unsplash.com/photo-1612178991541-b48cc8e92a4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Macro Volatility Tracker" class="img-cover"/>
+          </div>
+          <p class="pj-status">Completed</p>
+          <h3 class="pj-title">Macro Volatility Tracker</h3>
+          <p class="pj-body">A Python-based tracker utilizing Markov Decision Processes to model macroeconomic volatility, providing a framework for responding to high-risk global macro environments.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="inner">
+    <div class="reveal">
+      <p class="s-label">The Journey</p>
+      <h2 class="s-title">How I Got <em>Here</em></h2>
+      <p class="s-desc">The path from SSN Chennai to Thorogood and onward to London Business School.</p>
+    </div>
+    <div class="trail-wrap">
+      <div class="trail-items">
+
+        <div class="ti reveal">
+          <p class="ti-year">2019 – 2023</p>
+          <h3 class="ti-role">B.E. Electronics &amp; Communication</h3>
+          <p class="ti-org">SSN College of Engineering · Chennai</p>
+          <p class="ti-desc">Built the mathematical foundations spanning linear algebra, probability, and machine learning. I ran the quiz club as President, played keyboards with the music society, and learned what it means to love a subject deeply enough to stay up all night with it.</p>
+        </div>
+
+        <div class="ti reveal">
+          <p class="ti-year">2023 – 2025</p>
+          <h3 class="ti-role">Data &amp; AI/ML Consultant</h3>
+          <p class="ti-org">Thorogood Associates · Bangalore to London</p>
+          <p class="ti-desc">Entering the real world with enterprise clients, high stakes, and tight timelines. I learned to translate raw analytical work into commercial outcomes, discovering that the best engineers are also the best communicators.</p>
+        </div>
+
+        <div class="ti reveal">
+          <p class="ti-year">2025 – 2026 · Current</p>
+          <h3 class="ti-role">Masters in Analytics &amp; Management</h3>
+          <p class="ti-org">London Business School · London</p>
+          <p class="ti-desc">The deliberate bet on myself. LBS is where quantitative finance meets strategic leadership and a global network. The next chapter begins here.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="creative">
+  <div class="inner">
+    <div class="reveal">
+      <p class="s-label sand">The Creative Side</p>
+      <h2 class="s-title">More Than <em class="sand">Meets the Eye</em></h2>
+      <p class="s-desc">Data is my profession. Music, film, and writing form the core of who I am. These are not quiet hobbies; they are the other half of the equation.</p>
+    </div>
+    <div class="cr-grid">
+
+      <div class="cr-card reveal">
+        <h3 class="cr-title">Sound &amp; Synthesis</h3>
+        <p class="cr-body">I play keyboards, synthesizer, and piano in a band, holding a Grade 8 Distinction from Trinity College. Playing synth requires understanding texture, space, and arrangement. That same discipline of understanding your role in a larger system shapes how I approach data architecture. Music and mathematics are intimately connected.</p>
+      </div>
+
+      <div class="cr-card reveal delay-1">
+        <h3 class="cr-title">Visual Storytelling</h3>
+        <p class="cr-body">I edit videos and have built a dedicated following on YouTube. Storytelling through editing is an analytical process involving rhythm, pacing, and emotional arcs. It is closer to data visualization than most people realize. You decide what to include, what to cut, and how to make the audience stay.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="roots">
+  <div class="inner">
+    <div class="reveal">
+      <p class="s-label">Heritage</p>
+      <h2 class="s-title">Where I Am <em>From</em></h2>
+      <p class="s-desc">Born by the sea, raised by the sea, educated by the sea. The coast has always been home. It shaped how I think, how I create, and who I am.</p>
+    </div>
+    <div class="roots-grid">
+      <div class="root-card reveal">
+        <p class="root-place">📍 Kozhikode, Kerala</p>
+        <h3 class="root-title">Malayali Roots</h3>
+        <p class="root-body">Born on the Malabar Coast in Kozhikode, the historic cradle of the spice trade. Kerala instilled the belief that the world is always larger than your current horizon, and that you must remain curious about what lies beyond the next wave.</p>
+      </div>
+      <div class="root-card reveal delay-1">
+        <p class="root-place">📍 Pondicherry</p>
+        <h3 class="root-title">The French Coast</h3>
+        <p class="root-body">Raised in Pondicherry. It is simultaneously Tamil and French, deeply spiritual, and vibrant. It is the kind of place that teaches you there is never a single way to view the world. The Bay of Bengal was a constant background presence.</p>
+      </div>
+      <div class="root-card reveal">
+        <p class="root-place">📍 Chennai, Tamil Nadu</p>
+        <h3 class="root-title">Tamil Identity</h3>
+        <p class="root-body">Four formative years in Chennai. Tamil culture holds a fierce, ancient intellectual tradition where mathematics, music, and literature interweave. It is my first language and the fundamental lens through which my thinking took shape.</p>
+      </div>
+      <div class="root-card reveal delay-1">
+        <p class="root-place">📍 London, UK</p>
+        <h3 class="root-title">The Furthest Shore</h3>
+        <p class="root-body">London is the latest coast. The Thames, grey skies, and an extraordinary collision of cultures. The sea always finds its way back into the work: patience for how waves build, and the understanding that surface chaos hides deep, ordered patterns.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-in reveal">
+    <h2 class="contact-q">
+      Whether discussing data, Tamil cinema, football or what synth patch sounds best in a minor key, I am here.
+    </h2>
+    <p class="contact-sub">
+      I am always open to interesting conversations with collaborators, music heads, data analysts, or anyone who grew up near the coast.
+    </p>
+    <div class="contact-links">
+      <a href="https://in.linkedin.com/in/eshwar-nevedh-41b697196" target="_blank" class="cl">LinkedIn</a>
+      <a href="mailto:eshware.mam2026@london.edu" class="cl">Email Me</a>
+      <a href="https://open.substack.com/pub/eshwarnevedh/p/moonlight-vs-the-blue-light?utm_campaign=post-expanded-share&utm_medium=post%20viewer" class="cl">Read Blog</a>
+    </div>
+  </div>
+</section>
+
+<script>
+/* ── NAV SCROLL ── */
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60));
+
+/* ── GOLDEN SPOTLIGHT PARTICLE CANVAS ── */
+(()=>{
+  const cv=document.getElementById('hc'),ctx=cv.getContext('2d');
+  let W,H,pts=[];
+  const resize=()=>{
+    W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;
+    pts=[];
+    for(let i=0;i<Math.floor(W/40);i++)
+      pts.push({x:Math.random()*W,y:Math.random()*H,
+        vx:(Math.random()-.5)*.15,vy:(Math.random()-.5)*.15,
+        r:Math.random()*2+.5});
+  };
+  const draw=()=>{
+    ctx.clearRect(0,0,W,H);
+    pts.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0)p.x=W;if(p.x>W)p.x=0;
+      if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(229, 169, 61, 0.15)`; 
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  };
+  window.addEventListener('resize',resize);resize();draw();
+})();
+
+/* ── INTERSECTION OBSERVER FOR STAGGERED REVEALS ── */
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('vis');
+      io.unobserve(e.target); // Unobserve after revealing
+    }
+  })
+},{threshold: 0.15}); // Triggers when 15% of element is visible
+
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ── SMOOTH SCROLL ── */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(!t)return;e.preventDefault();
+    window.scrollTo({top:t.getBoundingClientRect().top+scrollY-72,behavior:'smooth'});
+  });
+});
+</script>
+</body>
+</html>
