@@ -1,658 +1,1825 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-depth="deep">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Eshwar Nevedh — Data, Strategy & Sound</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+
+<title>Eshwar Nevedh — Data &amp; AI, Analytics, Strategy</title>
+<meta name="description" content="Data &amp; AI consultant. Two years building enterprise data platforms at Thorogood including a live platform for an FCA-regulated ~£6bn fund, sole data lead at The Sports Consultancy, AI risk intelligence at EY. MSc Analytics &amp; Management, London Business School. Available immediately, UK Graduate Route — no sponsorship required."/>
+<link rel="canonical" href="https://eshwar-nevedh-portfolio.vercel.app/"/>
+
+<meta property="og:type" content="profile"/>
+<meta property="og:title" content="Eshwar Nevedh — Data &amp; AI, Analytics, Strategy"/>
+<meta property="og:description" content="Enterprise ML, agentic systems, and the translation layer to the people deciding. MSc Analytics &amp; Management, London Business School. Available immediately."/>
+<meta property="og:image" content="https://eshwar-nevedh-portfolio.vercel.app/assets/og-card.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Eshwar Nevedh — Data &amp; AI, Analytics, Strategy"/>
+<meta property="og:url" content="https://eshwar-nevedh-portfolio.vercel.app/"/>
+<meta property="og:locale" content="en_GB"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Eshwar Nevedh — Data &amp; AI, Analytics, Strategy"/>
+<meta name="twitter:description" content="Enterprise ML, agentic systems, and the translation layer to the people deciding."/>
+<meta name="twitter:image" content="https://eshwar-nevedh-portfolio.vercel.app/assets/og-card.jpg"/>
+
+<link rel="icon" href="assets/favicon.ico" sizes="32x32"/>
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png"/>
+<meta name="theme-color" content="#0c0a09"/>
+
+<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/cormorant-garamond-500-normal-latin.woff2"/>
+<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/lora-400-normal-latin.woff2"/>
+<link rel="stylesheet" href="assets/fonts.css"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Eshwar Nevedh",
+  "jobTitle": "Data & AI Consultant",
+  "email": "mailto:eshwarnevedh@gmail.com",
+  "url": "https://eshwar-nevedh-portfolio.vercel.app/",
+  "image": "https://eshwar-nevedh-portfolio.vercel.app/assets/og-card.jpg",
+  "description": "Data & AI consultant working across enterprise machine learning, agentic systems and analytics strategy.",
+  "address": { "@type": "PostalAddress", "addressLocality": "London", "addressCountry": "GB" },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "London Business School" },
+    { "@type": "CollegeOrUniversity", "name": "SSN College of Engineering" }
+  ],
+  "knowsAbout": ["Machine Learning","Data Engineering","Generative AI","Retrieval Augmented Generation","Analytics Strategy","Quantitative Finance"],
+  "sameAs": [
+    "https://in.linkedin.com/in/eshwar-nevedh-41b697196",
+    "https://eshwarnevedh.substack.com/",
+    "https://github.com/sken2002",
+    "https://www.youtube.com/@skencomps5214"
+  ]
+}
+</script>
+
 <style>
-:root {
-  /* WHIPLASH AESTHETIC: Deep shadows, brassy golds, studio warmth */
-  --bg-deep:     #0c0a09; 
-  --bg-mid:      #15110e; 
-  --bg-card:     #1e1814; 
-  --bg-hover:    #261e19;
-  --accent-gold: #e5a93d; 
-  --accent-muted:#8a7a6c; 
-  --text-p:      #ece7e1; 
-  --text-s:      #a89f91;
-  --text-dim:    #736a5f;
-  --border:      rgba(229, 169, 61, 0.12);
-  --border-h:    rgba(229, 169, 61, 0.3);
-  
-  /* Fonts */
-  --serif-h: 'Cormorant Garamond', Georgia, serif;
-  --serif-p: 'Lora', Georgia, serif;
-  --mono:    'JetBrains Mono', monospace;
-  --ease:    cubic-bezier(0.25, 1, 0.5, 1); 
+:root{
+  --bg-deep:#0c0a09; --bg-mid:#15110e; --bg-card:#1e1814; --bg-hover:#261e19;
+  --gold:#e5a93d; --gold-dim:#b8863a;
+  --muted:#9a8a7a;
+  --text-p:#ece7e1; --text-s:#b3a99a; --text-t:#8d8375;
+  --border:rgba(229,169,61,.14); --border-h:rgba(229,169,61,.34);
+  --ink:#2a2622; --ink-s:#5a5249;
+
+  --serif-h:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --serif-p:'Lora',Georgia,serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Consolas,monospace;
+  --indic:'Nirmala UI','Noto Sans Tamil','Noto Sans Malayalam',Latha,Kartika,sans-serif;
+
+  --fs-micro:.72rem; --fs-label:.78rem;
+  --ease:cubic-bezier(.25,1,.5,1);
+  --maxw:1240px; --pad:5rem;
+
+  --eq:#e5a93d; --cr:#7fa8c9; --ca:#7d8f7a;
 }
 
-*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
-html { scroll-behavior:smooth; }
-body { 
-  background: var(--bg-deep); 
-  color: var(--text-p); 
-  font-family: var(--serif-p); 
-  font-size: 1.08rem;
-  line-height: 1.8; 
-  overflow-x: hidden; 
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg-deep);color:var(--text-p);font-family:var(--serif-p);
+  font-size:1.06rem;line-height:1.75;overflow-x:hidden;
+  font-kerning:normal;text-rendering:optimizeLegibility}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:3px}
+
+.skip{position:absolute;left:-9999px;top:0;z-index:200;background:var(--gold);color:#000;
+  padding:.8rem 1.4rem;font-family:var(--mono);font-size:var(--fs-micro);text-decoration:none}
+.skip:focus{left:.5rem;top:.5rem}
+
+/* ── DEPTH TIERS ───────────────────────────────────────────────
+   Default (no class) shows at every depth.
+   .t-brief -> 3min and 15min.   .t-deep -> 15min only.
+   .t-scan  -> 30s only.
+   No JS => data-depth stays "deep" => everything visible.        */
+html[data-depth="scan"]  .t-brief,
+html[data-depth="scan"]  .t-deep,
+html[data-depth="brief"] .t-deep   { display:none !important }
+html[data-depth="brief"] .t-scan,
+html[data-depth="deep"]  .t-scan   { display:none !important }
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem var(--pad);
+  display:flex;justify-content:space-between;align-items:center;gap:1.5rem;
+  transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(12,10,9,.94);border-bottom-color:var(--border);backdrop-filter:blur(16px)}
+.logo{font-family:var(--serif-h);font-size:1.45rem;font-weight:500;text-decoration:none;letter-spacing:.02em;white-space:nowrap}
+.logo span{color:var(--gold);font-style:italic}
+.nav-links{display:flex;gap:1.9rem;list-style:none}
+.nav-links a{font-family:var(--mono);font-size:var(--fs-micro);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--text-s);text-decoration:none;transition:color .3s}
+.nav-links a:hover{color:var(--gold)}
+
+/* depth control */
+.depth{display:flex;align-items:center;gap:.6rem}
+.depth-lab{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-t);white-space:nowrap}
+.depth-seg{display:flex;border:1px solid var(--border-h);border-radius:30px;overflow:hidden;background:rgba(0,0,0,.35)}
+.depth-seg button{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
+  background:none;border:none;color:var(--text-s);padding:.45rem .85rem;cursor:pointer;
+  transition:background .3s,color .3s;white-space:nowrap}
+.depth-seg button:hover{color:var(--gold)}
+.depth-seg button[aria-pressed="true"]{background:var(--gold);color:#000;font-weight:700}
+
+.nav-toggle{display:none;background:none;border:1px solid var(--border-h);border-radius:8px;
+  color:var(--text-p);padding:.5rem .7rem;cursor:pointer;font-family:var(--mono);font-size:.7rem}
+
+/* ── DRAFT BANNER ── */
+#draftbar{position:fixed;bottom:0;left:0;right:0;z-index:120;background:#3a2a12;
+  border-top:2px solid var(--gold);padding:.7rem var(--pad);display:none;
+  font-family:var(--mono);font-size:var(--fs-micro);color:#f6e4c2;
+  align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+#draftbar.on{display:flex}
+#draftbar b{color:var(--gold)}
+#draftbar button{background:none;border:1px solid var(--gold);color:var(--gold);border-radius:20px;
+  padding:.3rem .9rem;font-family:inherit;font-size:inherit;cursor:pointer}
+.dr{border-bottom:1px dashed var(--gold);color:var(--gold)}
+.dr::after{content:'▲';font-size:.55em;vertical-align:super;margin-left:.15em;opacity:.8}
+
+/* ── HERO ── */
+#hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding:7rem 0 4rem}
+#hc{position:absolute;inset:0;width:100%;height:100%;opacity:.8;pointer-events:none}
+.hero-inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:0 var(--pad);width:100%}
+.hero-layout{display:flex;align-items:center;justify-content:space-between;gap:4rem}
+.hero-text{flex:1;min-width:0}
+
+.hero-eyebrow{font-family:var(--mono);font-size:var(--fs-micro);letter-spacing:.15em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:1.3rem}
+h1.hero-h{font-family:var(--serif-h);font-size:clamp(2.9rem,5.4vw,5rem);font-weight:500;
+  line-height:1.02;letter-spacing:-.02em;margin-bottom:1.2rem}
+h1.hero-h em{font-style:italic;color:var(--gold);display:block;font-weight:400}
+.name-native{display:block;font-size:.9rem;font-style:normal;font-weight:400;color:var(--text-s);
+  letter-spacing:.06em;margin-top:1rem;font-family:var(--indic)}
+.hero-sub{color:var(--text-s);max-width:560px;margin-bottom:2rem}
+.hero-sub strong{color:var(--text-p);font-weight:500}
+
+/* hiring facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:1px;
+  background:var(--border);border:1px solid var(--border);border-radius:12px;
+  overflow:hidden;margin-bottom:2rem;max-width:640px}
+.fact{background:var(--bg-card);padding:.9rem 1.1rem}
+.fact dt{font-family:var(--mono);font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--text-t);margin-bottom:.35rem}
+.fact dd{font-family:var(--serif-p);font-size:.94rem;line-height:1.4;color:var(--text-p)}
+.fact dd .ok{color:var(--gold)}
+
+.hero-ctas{display:flex;gap:.9rem;flex-wrap:wrap}
+.btn-p,.btn-s{padding:.8rem 1.9rem;font-family:var(--mono);font-size:var(--fs-micro);
+  letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-radius:30px;
+  transition:background .3s,transform .3s,box-shadow .3s,border-color .3s;display:inline-block}
+.btn-p{background:var(--gold);color:#000;border:1px solid var(--gold);font-weight:700}
+.btn-p:hover{background:#f5b84c;transform:translateY(-2px);box-shadow:0 8px 24px rgba(229,169,61,.35)}
+.btn-s{background:transparent;color:var(--text-p);border:1px solid var(--border-h)}
+.btn-s:hover{background:rgba(229,169,61,.09);border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+
+/* card stack */
+.hero-img-wrap{position:relative;width:340px;height:420px;flex-shrink:0;perspective:1200px}
+.card-stack{position:relative;width:100%;height:100%;border:none;padding:0;background:none;
+  cursor:pointer;display:block}
+.card-stack picture{position:absolute;inset:0;display:block;transform-origin:bottom center;
+  transition:transform .6s var(--ease),filter .6s var(--ease),box-shadow .6s var(--ease)}
+.card-stack img{width:100%;height:100%;object-fit:cover;border-radius:16px;
+  border:1px solid rgba(229,169,61,.3);box-shadow:0 12px 32px rgba(0,0,0,.8)}
+.card-stack picture:nth-child(1){transform:rotate(-2deg);z-index:5;filter:brightness(1)}
+.card-stack picture:nth-child(2){transform:rotate(1.5deg) translateY(2px);z-index:4;filter:brightness(.85)}
+.card-stack picture:nth-child(3){transform:rotate(-1deg) translateY(4px);z-index:3;filter:brightness(.75)}
+.card-stack picture:nth-child(4){transform:rotate(2.5deg) translateY(6px);z-index:2;filter:brightness(.65)}
+.card-stack picture:nth-child(5){transform:rotate(-1.5deg) translateY(8px);z-index:1;filter:brightness(.55)}
+
+.card-stack:hover picture:nth-child(1),.card-stack.fan picture:nth-child(1){transform:rotate(-20deg) translateX(-65px) translateY(-10px);filter:brightness(.78)}
+.card-stack:hover picture:nth-child(2),.card-stack.fan picture:nth-child(2){transform:rotate(-10deg) translateX(-31px) translateY(-5px);filter:brightness(.78)}
+.card-stack:hover picture:nth-child(3),.card-stack.fan picture:nth-child(3){transform:rotate(0deg);filter:brightness(.78)}
+.card-stack:hover picture:nth-child(4),.card-stack.fan picture:nth-child(4){transform:rotate(10deg) translateX(31px) translateY(-5px);filter:brightness(.78)}
+.card-stack:hover picture:nth-child(5),.card-stack.fan picture:nth-child(5){transform:rotate(20deg) translateX(65px) translateY(-10px);filter:brightness(.78)}
+.card-stack picture:hover,.card-stack picture.up{z-index:10;filter:brightness(1.15)}
+.card-stack picture:hover img,.card-stack picture.up img{box-shadow:0 24px 50px rgba(229,169,61,.22),0 10px 20px rgba(0,0,0,.9)}
+.card-stack:hover picture:hover,.card-stack.fan picture.up{translate:0 -30px;scale:1.07}
+.stack-hint{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--text-t);text-align:center;margin-top:1.1rem}
+
+/* ── SHARED ── */
+section{position:relative}
+.inner{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+.s-label{font-family:var(--mono);font-size:var(--fs-micro);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:1rem;display:flex;align-items:center;gap:.75rem}
+.s-label::before{content:'';width:24px;height:1px;background:var(--muted);flex-shrink:0}
+.s-title{font-family:var(--serif-h);font-size:clamp(2.3rem,3.8vw,3.4rem);font-weight:500;line-height:1.08;margin-bottom:1rem}
+.s-title em{font-style:italic;color:var(--gold);font-weight:400}
+.s-desc{color:var(--text-s);max-width:620px;margin-bottom:3.2rem;font-size:1.06rem}
+
+.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.js .reveal.vis{opacity:1;transform:none}
+.delay-1{transition-delay:.09s}.delay-2{transition-delay:.18s}.delay-3{transition-delay:.27s}
+
+/* evidence chips */
+.ev{display:inline-flex;align-items:center;gap:.35rem;font-family:var(--mono);font-size:.7rem;
+  letter-spacing:.09em;text-transform:uppercase;padding:.25rem .6rem;border-radius:20px;
+  border:1px solid;text-decoration:none;transition:background .3s,transform .3s;white-space:nowrap}
+a.ev:hover{transform:translateY(-1px)}
+.ev--code{color:#8fce9b;border-color:rgba(143,206,155,.4)}
+.ev--code:hover{background:rgba(143,206,155,.12)}
+.ev--write{color:#9fc0e0;border-color:rgba(159,192,224,.4)}
+.ev--write:hover{background:rgba(159,192,224,.12)}
+.ev--live{color:var(--gold);border-color:var(--border-h)}
+.ev--live:hover{background:rgba(229,169,61,.12)}
+.ev--private{color:var(--text-t);border-color:rgba(141,131,117,.35);cursor:help}
+.ev-row{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.9rem}
+
+/* ── EVIDENCE TABLE (scan tier hero) ── */
+#evidence{padding:6rem 0;background:var(--bg-mid);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.etable{width:100%;border-collapse:collapse;font-size:.95rem}
+.etable caption{text-align:left;font-family:var(--mono);font-size:var(--fs-micro);letter-spacing:.14em;
+  text-transform:uppercase;color:var(--text-t);padding-bottom:1rem}
+.etable th{text-align:left;font-family:var(--mono);font-size:.7rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--text-t);font-weight:400;padding:.7rem .9rem;
+  border-bottom:1px solid var(--border-h);white-space:nowrap}
+.etable td{padding:1.05rem .9rem;border-bottom:1px solid var(--border);color:var(--text-s);vertical-align:top}
+.etable tr:hover td{background:var(--bg-card)}
+.etable .e-what{color:var(--text-p);font-family:var(--serif-h);font-size:1.18rem;line-height:1.25}
+.etable .e-org{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);display:block;margin-top:.3rem}
+.etable .e-res{color:var(--text-p)}
+.tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+/* ── WORK / CASE STUDIES ── */
+#work{padding:7rem 0;background:var(--bg-deep)}
+.cs{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;
+  padding:3rem;margin-bottom:1.6rem;transition:border-color .5s,box-shadow .5s}
+.cs:hover{border-color:var(--border-h);box-shadow:0 14px 38px rgba(0,0,0,.5)}
+.cs-head{display:flex;align-items:flex-start;gap:1.1rem;margin-bottom:1.3rem;flex-wrap:wrap}
+.cs-mark{width:52px;height:52px;border-radius:11px;flex-shrink:0;display:grid;place-items:center;
+  background:linear-gradient(160deg,#2b221b,#1a1512);border:1px solid var(--border-h);
+  font-family:var(--serif-h);font-size:1.5rem;font-weight:500;color:var(--gold);font-style:italic}
+.cs-meta{flex:1;min-width:200px}
+.cs-org{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem}
+.cs-title{font-family:var(--serif-h);font-size:1.72rem;font-weight:500;line-height:1.15}
+.cs-when{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:var(--text-t);
+  text-transform:uppercase;margin-top:.4rem}
+.cs-when b{color:var(--text-s);font-weight:400}
+.cs-lede{color:var(--text-p);font-size:1.08rem;margin-bottom:1.4rem}
+
+.forensic{display:grid;grid-template-columns:170px 1fr;gap:.55rem 1.6rem;margin-top:1.6rem;
+  padding-top:1.6rem;border-top:1px solid var(--border)}
+.forensic dt{font-family:var(--mono);font-size:.7rem;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--text-t);padding-top:.3rem}
+.forensic dd{color:var(--text-s);margin-bottom:.55rem}
+.forensic dd b{color:var(--text-p);font-weight:500}
+.forensic .f-res{color:var(--text-p)}
+.forensic dd ul{list-style:none;margin:.7rem 0 0}
+.forensic dd li{position:relative;padding-left:1.15rem;margin-bottom:.5rem}
+.forensic dd li::before{content:'';position:absolute;left:0;top:.72em;width:6px;height:1px;background:var(--gold)}
+.forensic dd li b{color:var(--text-p);font-weight:500}
+.forensic dd p+p{margin-top:.7rem}
+.stack{font-family:var(--mono);font-size:.74rem;color:var(--text-t);letter-spacing:.02em;line-height:1.9}
+
+/* ── PROJECTS ── */
+#projects{padding:7rem 0;background:var(--bg-mid)}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.6rem}
+.pj{background:var(--bg-card);padding:1.9rem;border-radius:16px;border:1px solid var(--border);
+  display:flex;flex-direction:column;transition:transform .5s var(--ease),border-color .5s,box-shadow .5s}
+.pj:hover{transform:translateY(-6px);border-color:var(--border-h);box-shadow:0 14px 38px rgba(0,0,0,.55)}
+.pj-img-wrap{width:100%;height:190px;margin-bottom:1.5rem;border-radius:12px;overflow:hidden;
+  position:relative;background:#141010;display:grid;place-items:center}
+.pj-img-wrap::after{content:'';position:absolute;inset:0;border-radius:12px;pointer-events:none;
+  box-shadow:inset 0 0 45px 15px #141010;transition:box-shadow .6s var(--ease)}
+.pj-img-wrap img{width:100%;height:100%;object-fit:contain;padding:1.6rem;opacity:.72;
+  filter:grayscale(30%) contrast(1.1);transition:opacity .6s var(--ease),filter .6s var(--ease),transform .8s var(--ease)}
+.pj:hover .pj-img-wrap img{opacity:1;filter:none;transform:scale(1.04)}
+.pj:hover .pj-img-wrap::after{box-shadow:inset 0 0 20px 5px #141010}
+.pj-status{font-family:var(--mono);font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;
+  margin-bottom:.8rem;color:var(--gold)}
+.pj-status.done{color:#8fce9b}
+.pj-title{font-family:var(--serif-h);font-size:1.5rem;font-weight:500;margin-bottom:.7rem;line-height:1.18}
+.pj-body{color:var(--text-s);margin-bottom:1rem;font-size:.95rem;flex-grow:1}
+
+/* ── LIVE MODEL ── */
+#model{padding:7rem 0;background:var(--bg-deep);border-top:1px solid var(--border)}
+.mw{background:var(--bg-card);border:1px solid var(--border);border-radius:18px;overflow:hidden}
+.mw-head{padding:1.5rem 2rem;border-bottom:1px solid var(--border);display:flex;
+  justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;background:#1a1511}
+.mw-head h3{font-family:var(--serif-h);font-size:1.5rem;font-weight:500}
+.mw-note{font-family:var(--mono);font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;color:var(--text-t)}
+.mw-grid{display:grid;grid-template-columns:290px 1fr;gap:0}
+.mw-ctrl{padding:2rem;border-right:1px solid var(--border);background:#1a1511}
+.mw-out{padding:2rem;min-width:0}
+.ctl{margin-bottom:1.7rem}
+.ctl label{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--text-s);margin-bottom:.6rem}
+.ctl label output{color:var(--gold);font-size:.78rem;letter-spacing:0}
+.ctl input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:3px;
+  background:var(--border-h);border-radius:3px;outline:none}
+.ctl input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;
+  border-radius:50%;background:var(--gold);cursor:pointer;border:none}
+.ctl input[type=range]::-moz-range-thumb{width:15px;height:15px;border-radius:50%;
+  background:var(--gold);cursor:pointer;border:none}
+.ctl .hint{font-family:var(--serif-p);font-size:.78rem;color:var(--text-t);margin-top:.5rem;line-height:1.5}
+.mbtn{width:100%;background:none;border:1px solid var(--border-h);color:var(--text-s);
+  border-radius:24px;padding:.55rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.11em;
+  text-transform:uppercase;cursor:pointer;transition:background .3s,color .3s}
+.mbtn:hover{background:rgba(229,169,61,.1);color:var(--gold)}
+
+.mrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:1px;
+  background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:1.7rem}
+.mstat{background:var(--bg-card);padding:.85rem 1rem}
+.mstat .k{font-family:var(--mono);font-size:.7rem;letter-spacing:.11em;text-transform:uppercase;color:var(--text-t)}
+.mstat .v{font-family:var(--serif-h);font-size:1.55rem;color:var(--text-p);line-height:1.25;margin-top:.15rem}
+.mstat .v.pos{color:#8fce9b}.mstat .v.neg{color:#d98a7a}
+.mstat .d{font-family:var(--mono);font-size:.7rem;color:var(--text-t);letter-spacing:.04em}
+.msub{font-family:var(--mono);font-size:.7rem;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--text-t);margin:0 0 .8rem}
+.mchart{width:100%;height:auto;display:block;overflow:visible}
+.mlegend{display:flex;gap:1.2rem;flex-wrap:wrap;font-family:var(--mono);font-size:.7rem;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--text-t);margin-top:.7rem}
+.mlegend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:.4rem;vertical-align:-1px}
+.mfoot{font-size:.82rem;color:var(--text-t);margin-top:1.6rem;padding-top:1.2rem;border-top:1px solid var(--border);line-height:1.65}
+
+/* ── JOURNEY ── */
+#about{padding:7rem 0;background:var(--bg-mid)}
+.ti{background:var(--bg-card);border:1px solid var(--border);padding:2.6rem;border-radius:16px;
+  margin-bottom:1.4rem;transition:border-color .5s,transform .5s var(--ease)}
+.ti:hover{border-color:var(--border-h);transform:translateX(6px)}
+.ti-year{font-family:var(--mono);font-size:.72rem;color:var(--muted);letter-spacing:.13em;margin-bottom:.7rem}
+.ti-role{font-family:var(--serif-h);font-size:1.65rem;font-weight:500;margin-bottom:.3rem}
+.ti-org{font-family:var(--mono);font-size:.72rem;color:var(--gold);letter-spacing:.09em;
+  margin-bottom:.9rem;text-transform:uppercase}
+.ti-desc{color:var(--text-s)}
+
+/* ── CREATIVE ── */
+#creative{padding:7rem 0;background:var(--bg-deep)}
+.cr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.6rem}
+.cr-card{background:var(--bg-card);padding:2.8rem;border-radius:16px;border:1px solid var(--border);
+  transition:transform .5s var(--ease),border-color .5s,box-shadow .5s}
+.cr-card:hover{transform:translateY(-6px);border-color:var(--border-h);box-shadow:0 14px 38px rgba(0,0,0,.55)}
+.cr-title{font-family:var(--serif-h);font-size:1.8rem;font-weight:500;margin-bottom:.9rem;color:var(--gold)}
+.cr-body{color:var(--text-s);font-size:1.02rem}
+.cr-facts{list-style:none;margin-top:1.2rem;font-family:var(--mono);font-size:.7rem;
+  color:var(--text-t);line-height:2;letter-spacing:.02em}
+.cr-facts li::before{content:'— ';color:var(--gold)}
+
+/* ── ROOTS ── */
+#roots{padding:7rem 0;background:#ece7e1;color:var(--ink)}
+#roots .s-label{color:#6f6154}
+#roots .s-label::before{background:#6f6154}
+#roots .s-title{color:var(--ink)}
+#roots .s-title em{color:#a8761c}
+#roots .s-desc{color:var(--ink-s)}
+.roots-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.6rem}
+.root-card{background:#f7f3ee;padding:2.6rem;border-radius:16px;border:1px solid rgba(0,0,0,.07);
+  transition:box-shadow .5s var(--ease),transform .5s var(--ease)}
+.root-card:hover{box-shadow:0 18px 38px rgba(0,0,0,.12);transform:translateY(-6px)}
+.root-place{font-family:var(--mono);font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;
+  color:#6f6154;margin-bottom:1rem}
+.root-title{font-family:var(--serif-h);font-size:1.8rem;font-weight:500;margin-bottom:.8rem}
+.root-body{color:#4a4641;font-size:1.02rem}
+
+/* ── CONTACT ── */
+#contact{padding:8rem 0;background:var(--bg-deep);text-align:center}
+.contact-in{max-width:820px;margin:0 auto;padding:0 var(--pad)}
+.contact-q{font-family:var(--serif-h);font-size:clamp(2rem,2.9vw,3.1rem);font-weight:400;
+  font-style:italic;line-height:1.22;margin-bottom:1.3rem}
+.contact-sub{color:var(--text-s);margin-bottom:3rem;font-size:1.1rem}
+.contact-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+.cl{font-family:var(--mono);font-size:var(--fs-micro);letter-spacing:.13em;text-transform:uppercase;
+  text-decoration:none;padding:1.05rem 2.4rem;border:1px solid var(--border-h);border-radius:40px;
+  transition:background .4s,border-color .4s,transform .4s,color .4s}
+.cl:hover{background:rgba(229,169,61,.1);border-color:var(--gold);color:var(--gold);transform:translateY(-3px)}
+
+/* ── FOOTER ── */
+footer{padding:3rem 0;background:var(--bg-mid);border-top:1px solid var(--border);
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--text-t);line-height:2}
+footer .inner{display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+footer a{color:var(--text-s)}
+
+/* ── MOTION ── */
+@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
+.hero-img-wrap{animation:float 8s ease-in-out infinite}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .js .reveal{opacity:1!important;transform:none!important}
+  .hero-img-wrap{animation:none}
+  #hc{display:none}
 }
 
-/* NAV */
-nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:1.5rem 5rem; display:flex; justify-content:space-between; align-items:center; transition:background .4s, border-color .4s; border-bottom:1px solid transparent; }
-nav.scrolled { background:rgba(12,10,9,.95); border-bottom-color:var(--border); backdrop-filter:blur(16px); }
-.logo { font-family:var(--serif-h); font-size:1.5rem; font-weight:500; color:var(--text-p); text-decoration:none; letter-spacing:.02em; }
-.logo span { color:var(--accent-gold); font-style: italic; }
-.nav-links { display:flex; gap:3rem; list-style:none; }
-.nav-links a { font-family:var(--mono); font-size:.65rem; letter-spacing:.15em; text-transform:uppercase; color:var(--text-s); text-decoration:none; transition:color .3s; }
-.nav-links a:hover { color:var(--accent-gold); }
-
-/* HERO */
-#hero { position:relative; height:100vh; min-height:720px; display:flex; align-items:center; overflow:hidden; }
-#hc { position:absolute; inset:0; width:100%; height:100%; opacity: 0.8; }
-.hero-inner { position:relative; z-index:2; max-width:1240px; margin:0 auto; padding:0 5rem; width:100%; }
-.hero-layout { display:flex; align-items:center; justify-content:space-between; gap:5rem; }
-.hero-text-content { flex:1; }
-
-/* 5-CARD INTERACTIVE STACK */
-.hero-img-wrap { position:relative; width:340px; height:420px; flex-shrink:0; opacity:0; animation:up 1.2s var(--ease) .6s forwards; perspective: 1200px; }
-.card-stack { position:relative; width:100%; height:100%; animation: ambient-float 8s ease-in-out infinite; }
-.card-stack img { 
-  position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; 
-  border-radius:16px; border:1px solid rgba(229, 169, 61, 0.3); 
-  box-shadow:0 12px 32px rgba(0,0,0,0.8); 
-  transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease), filter 0.6s var(--ease), z-index 0s; 
-  transform-origin: bottom center; 
-  cursor: pointer;
+/* ── RESPONSIVE ── */
+@media(max-width:1080px){
+  :root{--pad:2.5rem}
+  .mw-grid{grid-template-columns:1fr}
+  .mw-ctrl{border-right:none;border-bottom:1px solid var(--border)}
+  .depth-lab{display:none}
 }
+@media(max-width:900px){
+  nav{padding:.9rem 1.5rem;flex-wrap:wrap}
+  .nav-toggle{display:block;order:2}
+  .depth{order:3;width:100%;justify-content:center;padding-top:.2rem}
+  .nav-links{order:4;display:none;width:100%;flex-direction:column;gap:0;
+    border-top:1px solid var(--border);margin-top:.6rem;padding-top:.4rem}
+  nav.open{background:rgba(12,10,9,.98);backdrop-filter:blur(16px)}
+  nav.open .nav-links{display:flex}
+  .nav-links a{display:block;padding:.75rem 0;font-size:.75rem}
 
-/* Default 'messy' stack state */
-.card-stack img:nth-child(1) { transform:rotate(-2deg) translateY(0); z-index:5; filter: brightness(1); }
-.card-stack img:nth-child(2) { transform:rotate(1.5deg) translateY(2px); z-index:4; filter: brightness(0.85); }
-.card-stack img:nth-child(3) { transform:rotate(-1deg) translateY(4px); z-index:3; filter: brightness(0.75); }
-.card-stack img:nth-child(4) { transform:rotate(2.5deg) translateY(6px); z-index:2; filter: brightness(0.65); }
-.card-stack img:nth-child(5) { transform:rotate(-1.5deg) translateY(8px); z-index:1; filter: brightness(0.55); }
-
-/* Fan out state */
-.card-stack:hover img:nth-child(1) { transform:rotate(-20deg) translateX(-65px) translateY(-10px); filter: brightness(0.7); }
-.card-stack:hover img:nth-child(2) { transform:rotate(-10deg) translateX(-30px) translateY(-5px); filter: brightness(0.7); }
-.card-stack:hover img:nth-child(3) { transform:rotate(0deg) translateX(0) translateY(0); filter: brightness(0.7); }
-.card-stack:hover img:nth-child(4) { transform:rotate(10deg) translateX(30px) translateY(-5px); filter: brightness(0.7); }
-.card-stack:hover img:nth-child(5) { transform:rotate(20deg) translateX(65px) translateY(-10px); filter: brightness(0.7); }
-
-/* SPOTLIGHT (Specific Hover) */
-.card-stack img:hover { 
-  z-index: 10 !important; 
-  filter: brightness(1.15) !important; 
-  box-shadow: 0 24px 50px rgba(229, 169, 61, 0.2), 0 10px 20px rgba(0,0,0,0.9) !important; 
+  :root{--pad:1.5rem}
+  #hero{padding:9rem 0 4rem;min-height:0}
+  .hero-layout{flex-direction:column-reverse;gap:2.5rem}
+  .hero-text{width:100%}
+  .facts{max-width:none}
+  .hero-img-wrap{width:min(300px,80vw);height:min(370px,99vw)}
+  .cs,.cr-card,.root-card,.ti{padding:1.8rem}
+  .forensic{grid-template-columns:1fr;gap:.15rem}
+  .forensic dt{padding-top:.9rem;color:var(--gold)}
+  .mw-ctrl,.mw-out,.mw-head{padding:1.5rem}
+  .contact-in{padding:0 1.5rem}
+  #draftbar{padding:.7rem 1.5rem}
 }
-.card-stack:hover img:nth-child(1):hover { transform:rotate(-20deg) translateX(-65px) translateY(-30px) scale(1.08); }
-.card-stack:hover img:nth-child(2):hover { transform:rotate(-10deg) translateX(-30px) translateY(-30px) scale(1.08); }
-.card-stack:hover img:nth-child(3):hover { transform:rotate(0deg) translateX(0) translateY(-30px) scale(1.08); }
-.card-stack:hover img:nth-child(4):hover { transform:rotate(10deg) translateX(30px) translateY(-30px) scale(1.08); }
-.card-stack:hover img:nth-child(5):hover { transform:rotate(20deg) translateX(65px) translateY(-30px) scale(1.08); }
-
-/* HERO TEXT ANIMATIONS */
-.hero-wave-tag { font-family:var(--mono); font-size:.65rem; letter-spacing:.18em; text-transform:uppercase; color:var(--accent-gold); margin-bottom:1.5rem; opacity:0; animation:up 1s var(--ease) .3s forwards; }
-h1.hero-h { font-family:var(--serif-h); font-size:clamp(3.5rem, 6.5vw, 6.5rem); font-weight:500; line-height:1; letter-spacing:-.02em; margin-bottom:1.5rem; opacity:0; animation:up 1s var(--ease) .5s forwards; }
-h1.hero-h em { font-style:italic; color:var(--accent-gold); display:block; font-weight:400; animation: studio-pulse 4s ease-in-out infinite; }
-h1.hero-h .name-roots { display:block; font-size:.25em; font-style:normal; font-weight:400; color:var(--text-s); letter-spacing:.15em; margin-top:.8rem; font-family:var(--mono); text-transform:uppercase; }
-.hero-sub { color:var(--text-s); max-width:540px; margin-bottom:3rem; opacity:0; animation:up 1s var(--ease) .7s forwards; }
-.hero-sub strong { color:var(--text-p); font-weight:500; }
-.hero-tags { display:flex; flex-wrap:wrap; gap:.6rem; margin-bottom:3rem; opacity:0; animation:up 1s var(--ease) .85s forwards; }
-.hero-tag { font-family:var(--mono); font-size:.6rem; letter-spacing:.1em; text-transform:uppercase; padding:.35rem .9rem; border:1px solid var(--border); color:var(--text-s); border-radius:20px; transition: border-color 0.4s, color 0.4s; }
-.hero-tag:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
-
-.hero-ctas { display:flex; gap:1.2rem; flex-wrap:wrap; opacity:0; animation:up 1s var(--ease) 1s forwards; }
-.btn-p { padding:.85rem 2.2rem; background:var(--accent-gold); color:#000; border:none; font-family:var(--mono); font-size:.65rem; letter-spacing:.15em; text-transform:uppercase; text-decoration:none; transition:background .3s, transform .3s, box-shadow .3s; border-radius:30px; font-weight: 600; box-shadow: 0 0 20px rgba(229, 169, 61, 0.15); }
-.btn-p:hover { background:#f5b84c; transform:translateY(-2px) scale(1.02); box-shadow: 0 8px 25px rgba(229, 169, 61, 0.4); }
-.btn-s { padding:.85rem 2.2rem; background:transparent; color:var(--text-p); border:1px solid var(--accent-gold); font-family:var(--mono); font-size:.65rem; letter-spacing:.15em; text-transform:uppercase; text-decoration:none; transition:border-color .3s, background .3s, transform .3s; border-radius:30px; }
-.btn-s:hover { background:rgba(229, 169, 61, 0.1); transform:translateY(-2px) scale(1.02); color:var(--accent-gold); }
-
-/* DUAL IDENTITY */
-#dual { padding:0; background:var(--bg-mid); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-.dual-grid { display:grid; grid-template-columns:1fr 1fr; }
-.dual-side { padding:5rem; position:relative; overflow:hidden; transition:background .4s; }
-.dual-side:first-child { border-right:1px solid var(--border); }
-.dual-side:hover { background:var(--bg-card); }
-.dual-label { font-family:var(--mono); font-size:.65rem; letter-spacing:.2em; text-transform:uppercase; margin-bottom:1.5rem; color:var(--accent-muted); }
-.dual-side.creative .dual-label { color:var(--accent-gold); }
-.dual-title { font-family:var(--serif-h); font-size:2.5rem; font-weight:500; line-height:1.2; margin-bottom:1rem; }
-.dual-body { color:var(--text-s); }
-
-/* SHARED SECTION STYLES & REVEALS */
-section { position:relative; }
-.inner { max-width:1240px; margin:0 auto; padding:0 5rem; }
-.s-label { font-family:var(--mono); font-size:.65rem; letter-spacing:.2em; text-transform:uppercase; color:var(--accent-muted); margin-bottom:1rem; display:flex; align-items:center; gap:.75rem; }
-.s-label::before { content:''; width:24px; height:1px; background:var(--accent-muted); }
-.s-label.sand { color:var(--accent-gold); }
-.s-label.sand::before { background:var(--accent-gold); }
-.s-title { font-family:var(--serif-h); font-size:clamp(2.5rem, 4vw, 3.5rem); font-weight:500; line-height:1.1; margin-bottom:1rem; }
-.s-title em { font-style:italic; color:var(--accent-gold); font-weight:400; }
-.s-desc { color:var(--text-s); max-width:600px; margin-bottom:4rem; font-size:1.1rem; }
-
-/* Global Reveal Classes */
-.reveal { opacity: 0; transform: translateY(30px) scale(0.98); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
-.reveal.vis { opacity: 1; transform: translateY(0) scale(1); }
-.delay-1 { transition-delay: 0.1s; }
-.delay-2 { transition-delay: 0.2s; }
-.delay-3 { transition-delay: 0.3s; }
-
-/* WORK */
-#work { padding:8rem 0; background:var(--bg-deep); }
-.work-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
-.cf { background:var(--bg-card); padding:3.5rem; border-radius:16px; border:1px solid var(--border); transition:transform .5s var(--ease), border-color .5s, box-shadow .5s; position:relative; overflow:hidden; }
-.cf:hover { transform:translateY(-8px); border-color:var(--border-h); box-shadow: 0 15px 40px rgba(0,0,0,0.6); }
-.cf-in { position:relative; z-index:1; }
-.cf-tag { font-family:var(--mono); font-size:.6rem; letter-spacing:.15em; text-transform:uppercase; color:var(--accent-muted); margin-bottom:1.5rem; }
-.cf-num { font-family:var(--serif-h); font-size:3rem; font-style:italic; color:var(--border-h); line-height:1; margin-bottom:1rem; }
-
-.cf-header { display:flex; align-items:center; gap:1.2rem; margin-bottom:1.2rem; }
-.cf-logo { width:48px; height:48px; border-radius:10px; object-fit:contain; background:#ffffff; padding:6px; border:1px solid var(--border); box-shadow:0 4px 12px rgba(0,0,0,0.5); }
-.cf-org { font-family:var(--mono); font-size:.65rem; color:var(--accent-gold); letter-spacing:.1em; margin-bottom:.3rem; text-transform:uppercase; }
-.cf-title { font-family:var(--serif-h); font-size:1.6rem; font-weight:500; line-height:1.1; margin:0; }
-
-.cf-body { color:var(--text-s); margin-bottom:1.5rem; }
-.cf-body li { margin-left:1.5rem; margin-bottom:.5rem; }
-.cf.wide { grid-column:1/-1; }
-.wide-inner { display:grid; grid-template-columns:1fr 1fr; gap:4rem; }
-
-/* PROJECTS */
-#projects { padding:8rem 0; background:var(--bg-mid); }
-.proj-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:2rem; }
-.pj-link { text-decoration:none; color:inherit; display:block; height:100%; }
-.pj { background:var(--bg-card); padding:2rem; border-radius:16px; border:1px solid var(--border); transition:transform .5s var(--ease), border-color .5s, box-shadow .5s; height:100%; display:flex; flex-direction:column; }
-.pj:hover { transform:translateY(-8px); border-color:var(--accent-gold); box-shadow: 0 15px 40px rgba(0,0,0,0.6); }
-
-/* ✨ THE VIGNETTE & BLENDED EDGE IMAGES ✨ */
-.pj-img-wrap {
-  width: 100%;
-  height: 200px;
-  margin-bottom: 1.8rem;
-  border-radius: 12px;
-  overflow: hidden;
-  position: relative;
-  background: var(--bg-card);
-}
-
-/* This ::after element creates the soft inner shadow that blurs the image into the background */
-.pj-img-wrap::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 12px;
-  box-shadow: inset 0 0 45px 15px var(--bg-card); /* Massive inner shadow matching card color */
-  pointer-events: none; /* Allows hover to pass through to the image */
-  transition: box-shadow 0.6s var(--ease);
-}
-
-.pj-img-wrap img {
-  width: 100%;
-  height: 100%;
-  opacity: 0.65;
-  filter: grayscale(40%) contrast(1.15) brightness(0.9);
-  transition: opacity 0.6s var(--ease), filter 0.6s var(--ease), transform 0.8s var(--ease);
-  will-change: transform;
-}
-
-/* Elegant slow-zoom and vignette reveal on hover */
-.pj:hover .pj-img-wrap img {
-  opacity: 0.95;
-  filter: grayscale(0%) contrast(1.05) brightness(1);
-  transform: scale(1.05); 
-}
-.pj:hover .pj-img-wrap::after {
-  box-shadow: inset 0 0 20px 5px var(--bg-card); /* Shadow pulls back to reveal more image */
-}
-
-/* Sizing Utilities */
-.img-cover { object-fit: cover; }
-.img-contain { object-fit: contain; padding: 2rem; }
-
-.pj-status { font-family:var(--mono); font-size:.6rem; letter-spacing:.15em; text-transform:uppercase; margin-bottom:1rem; color:var(--accent-gold); }
-.pj-title { font-family:var(--serif-h); font-size:1.6rem; font-weight:500; margin-bottom:.8rem; line-height:1.2; color:var(--text-p); }
-.pj-body { color:var(--text-s); margin-bottom:1.5rem; flex-grow:1; font-size:.95rem; }
-
-/* TIMELINE */
-#about { padding:8rem 0; background:var(--bg-deep); }
-.trail-wrap { position:relative; margin-top:4rem; }
-.trail-items { display:flex; flex-direction:column; gap:2rem; }
-.ti { background:var(--bg-card); border:1px solid var(--border); padding:3.5rem; border-radius:16px; transition:border-color .5s, transform .5s var(--ease); }
-.ti:hover { border-color:var(--accent-gold); transform:translateX(8px); } /* Shifts right slightly instead of up */
-.ti-year { font-family:var(--mono); font-size:.65rem; color:var(--accent-muted); letter-spacing:.15em; margin-bottom:.8rem; }
-.ti-role { font-family:var(--serif-h); font-size:1.8rem; font-weight:500; margin-bottom:.4rem; }
-.ti-org { font-family:var(--mono); font-size:.7rem; color:var(--accent-gold); letter-spacing:.1em; margin-bottom:1rem; text-transform:uppercase; }
-
-/* CREATIVE */
-#creative { padding:8rem 0; background:var(--bg-mid); }
-.cr-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
-.cr-card { background:var(--bg-card); padding:4rem; border-radius:16px; border:1px solid var(--border); transition:transform .5s var(--ease), box-shadow .5s; }
-.cr-card:hover { transform:translateY(-8px); border-color:var(--accent-gold); box-shadow: 0 15px 40px rgba(0,0,0,0.6); }
-.cr-title { font-family:var(--serif-h); font-size:2rem; font-weight:500; margin-bottom:1rem; color:var(--accent-gold); }
-.cr-body { color:var(--text-s); margin-bottom:1.5rem; font-size: 1.05rem; }
-
-/* ROOTS */
-#roots { padding:8rem 0; background:var(--text-p); color:var(--bg-deep); }
-#roots .s-label { color:var(--accent-muted); }
-#roots .s-label::before { background:var(--accent-muted); }
-#roots .s-title { color:var(--bg-deep); }
-#roots .s-title em { color:var(--accent-gold); }
-#roots .s-desc { color:var(--bg-hover); }
-.roots-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
-.root-card { background:#f5f0ea; padding:4rem; border-radius:16px; border:1px solid rgba(0,0,0,0.08); transition:box-shadow .5s var(--ease), transform .5s var(--ease); }
-.root-card:hover { box-shadow:0 20px 40px rgba(0,0,0,0.12); transform:translateY(-8px); }
-.root-place { font-family:var(--mono); font-size:.65rem; letter-spacing:.15em; text-transform:uppercase; color:var(--accent-muted); margin-bottom:1.2rem; }
-.root-title { font-family:var(--serif-h); font-size:2rem; font-weight:500; margin-bottom:1rem; }
-.root-body { color:#4a4641; font-size: 1.05rem; }
-
-/* CONTACT */
-#contact { padding:10rem 0; background:var(--bg-deep); text-align:center; }
-.contact-in { max-width:800px; margin:0 auto; padding:0 5rem; }
-.contact-q { font-family:var(--serif-h); font-size:clamp(2.2rem, 3vw, 3.5rem); font-weight:400; font-style:italic; line-height:1.2; color:var(--text-p); margin-bottom:1.5rem; animation: studio-pulse 5s ease-in-out infinite; }
-.contact-sub { color:var(--text-s); margin-bottom:4rem; font-size:1.15rem; }
-.contact-links { display:flex; justify-content:center; gap:1.5rem; flex-wrap:wrap; }
-.cl { font-family:var(--mono); font-size:.7rem; letter-spacing:.15em; text-transform:uppercase; color:var(--text-p); text-decoration:none; padding:1.2rem 3rem; border:1px solid var(--border-h); border-radius:40px; transition:background .4s, border-color .4s, transform .4s, box-shadow .4s; }
-.cl:hover { background:rgba(229,169,61,0.1); border-color:var(--accent-gold); color:var(--accent-gold); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(229,169,61,0.2); }
-
-/* KEYFRAMES FOR ELEGANT ANIMATIONS */
-@keyframes up { from{opacity:0; transform:translateY(30px)} to{opacity:1; transform:translateY(0)} }
-@keyframes ambient-float { 
-  0%, 100% { transform: translateY(0); } 
-  50% { transform: translateY(-12px); } 
-}
-@keyframes studio-pulse {
-  0%, 100% { text-shadow: 0 0 15px rgba(229, 169, 61, 0.1); }
-  50% { text-shadow: 0 0 35px rgba(229, 169, 61, 0.5); }
-}
-
-@media(max-width:960px){
-  nav { padding:1.2rem 2rem; } .nav-links { display:none; }
-  .inner, .hero-inner, .contact-in { padding:0 2rem; }
-  .hero-layout { flex-direction:column-reverse; text-align:center; gap:3rem; margin-top: 4rem; }
-  .hero-wave-tag { justify-content:center; }
-  .hero-wave-tag::before { display:none; }
-  .hero-tags, .hero-ctas { justify-content:center; }
-  h1.hero-h { font-size:3rem; }
-  
-  .hero-img-wrap { width:260px; height:320px; }
-  .card-stack:hover img:nth-child(1) { transform:rotate(-15deg) translateX(-35px); }
-  .card-stack:hover img:nth-child(2) { transform:rotate(-7deg) translateX(-15px); }
-  .card-stack:hover img:nth-child(4) { transform:rotate(7deg) translateX(15px); }
-  .card-stack:hover img:nth-child(5) { transform:rotate(15deg) translateX(35px); }
-  
-  .dual-grid, .work-grid, .cf.wide .wide-inner, .proj-grid, .cr-grid, .roots-grid { grid-template-columns:1fr; }
-  .dual-side:first-child { border-right:none; border-bottom:1px solid var(--border); }
-  .dual-side, .cf, .pj, .ti, .cr-card, .root-card { padding: 2.5rem; }
+@media print{
+  nav,#hc,#draftbar,.hero-img-wrap,#model,.skip{display:none!important}
+  body{background:#fff;color:#000;font-size:11pt}
+  .cs,.pj,.ti,.cr-card,.root-card{border:1px solid #ccc;background:#fff;page-break-inside:avoid}
+  #roots,#projects,#about,#creative,#evidence,#work,#contact{background:#fff;padding:1.5rem 0}
+  .s-title,.cs-title,.pj-title,h1.hero-h{color:#000}
+  .html[data-depth] .t-deep,.t-brief{display:block!important}
+  a::after{content:' (' attr(href) ')';font-size:8pt;color:#555;word-break:break-all}
 }
 </style>
 </head>
 <body>
 
+<script>
+/* set class + saved depth before first paint (no flash, no-JS shows everything) */
+(function(){
+  var h=document.documentElement;
+  h.className+=' js';
+  try{var d=localStorage.getItem('depth');if(d==='scan'||d==='brief'||d==='deep')h.setAttribute('data-depth',d);}catch(e){}
+})();
+</script>
+
+<a href="#main" class="skip">Skip to content</a>
+
 <nav id="nav">
   <a href="#hero" class="logo">Eshwar <span>Nevedh</span></a>
-  <ul class="nav-links">
+
+  <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+
+  <div class="depth" role="group" aria-labelledby="depthLab">
+    <span class="depth-lab" id="depthLab">Read in</span>
+    <div class="depth-seg" id="depthSeg">
+      <button type="button" data-d="scan"  aria-pressed="false">30 sec</button>
+      <button type="button" data-d="brief" aria-pressed="false">3 min</button>
+      <button type="button" data-d="deep"  aria-pressed="true">15 min</button>
+    </div>
+  </div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#evidence">Evidence</a></li>
     <li><a href="#work">Work</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#about">Journey</a></li>
+    <li><a href="#model" class="t-deep">Live Model</a></li>
     <li><a href="#creative">Creative</a></li>
-    <li><a href="#roots">Roots</a></li>
-    <li><a href="#contact">Say Hi</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<section id="hero">
-  <canvas id="hc"></canvas>
+<main id="main">
+
+<header id="hero">
+  <canvas id="hc" aria-hidden="true"></canvas>
   <div class="hero-inner">
     <div class="hero-layout">
-      <div class="hero-text-content">
-        <p class="hero-wave-tag">Eshwar Nevedh · MAM 2026 · London Business School</p>
+      <div class="hero-text">
+        <p class="hero-eyebrow">London · MSc Analytics &amp; Management, London Business School</p>
         <h1 class="hero-h">
-          Data Nerd.<br/>
-          <em>Creative Soul.</em>
-          <span class="name-roots">எஷ்வர் நேவேத் &nbsp;·&nbsp; ഈശ്വർ നേവേദ്</span>
+          I build the analytics<br/>layer between messy data<br/>
+          <em>and the person deciding.</em>
+          <span class="name-native">எஷ்வர் நேவேத் &nbsp;·&nbsp; ഈശ്വർ നേവേദ്</span>
         </h1>
         <p class="hero-sub">
-          Welcome. I am <strong>Eshwar</strong>: a Data and AI consultant, synthesizer player in a band, video editor with a YouTube following, and a Tamil-Malayali who has always lived within earshot of the sea.
-          There is more to my story than the resume. Scroll down and find out.
+          <strong>Data &amp; AI consultant.</strong> Two years shipping enterprise ML and data platforms
+          at Thorogood &mdash; including a live platform for an FCA-regulated ~&pound;6bn fund &mdash; sole data
+          lead at The Sports Consultancy, and AI risk intelligence with EY. I am equally comfortable
+          writing the pipeline and defending it to a board.
         </p>
-        <div class="hero-tags">
-          <span class="hero-tag">Data &amp; AI</span>
-          <span class="hero-tag">Sports Strategy</span>
-          <span class="hero-tag">Keyboardist</span>
-          <span class="hero-tag">Video Editor</span>
-          <span class="hero-tag">LBS MAM 2026</span>
-          <span class="hero-tag">Writer</span>
-        </div>
+
+        <dl class="facts">
+          <div class="fact"><dt>Seeking</dt><dd>Data &amp; AI consulting · Data science / ML · Analytics strategy</dd></div>
+          <div class="fact"><dt>Available</dt><dd><span class="ok">Immediately</span> — MAM completed</dd></div>
+          <div class="fact"><dt>Work authorisation</dt><dd><span class="ok">UK Graduate Route eligible</span> — no sponsorship required</dd></div>
+          <div class="fact"><dt>Based</dt><dd>London, UK · open to relocation</dd></div>
+        </dl>
+
         <div class="hero-ctas">
-          <a href="#work" class="btn-p">View Selected Work</a>
-          <a href="#creative" class="btn-s">Explore The Creative</a>
+          <a href="assets/Eshwar-Nevedh-CV.pdf" class="btn-p" download>Download CV (PDF)</a>
+          <a href="#evidence" class="btn-s">See the evidence</a>
+          <a href="https://github.com/sken2002" class="btn-s" rel="me noopener">GitHub</a>
         </div>
       </div>
-      
+
       <div class="hero-img-wrap">
-        <div class="card-stack">
-          <img src="portrait-lbs-eshwar.jpg" alt="Eshwar Professional Portrait" />
-          <img src="meandarsenal.jpeg" alt="Me and Arsenal" />
-          <img src="meandey.jpeg" alt="Me and EY" />
-          <img src="meandkeys.jpeg" alt="Me and Keys" />
-          <img src="meandband.jpeg" alt="Me and Band" />
-        </div>
+        <button class="card-stack" id="stack" aria-label="Photo stack: professional portrait, Arsenal, EY, keyboards, band. Activate to fan out.">
+          <picture>
+            <source type="image/avif" srcset="assets/portrait@1x.avif 445w, assets/portrait@2x.avif 890w" sizes="340px"/>
+            <source type="image/webp" srcset="assets/portrait@1x.webp 445w, assets/portrait@2x.webp 890w" sizes="340px"/>
+            <img src="assets/portrait@2x.jpg" width="890" height="890" fetchpriority="high" decoding="async" alt="Eshwar Nevedh, professional portrait"/>
+          </picture>
+          <picture>
+            <source type="image/avif" srcset="assets/arsenal@1x.avif 360w, assets/arsenal@2x.avif 721w" sizes="340px"/>
+            <source type="image/webp" srcset="assets/arsenal@1x.webp 360w, assets/arsenal@2x.webp 721w" sizes="340px"/>
+            <img src="assets/arsenal@2x.jpg" width="721" height="1281" loading="lazy" decoding="async" alt="Eshwar at the Emirates Stadium"/>
+          </picture>
+          <picture>
+            <source type="image/avif" srcset="assets/ey@1x.avif 360w, assets/ey@2x.avif 721w" sizes="340px"/>
+            <source type="image/webp" srcset="assets/ey@1x.webp 360w, assets/ey@2x.webp 721w" sizes="340px"/>
+            <img src="assets/ey@2x.jpg" width="721" height="961" loading="lazy" decoding="async" alt="Eshwar at the EY LondonLAB project"/>
+          </picture>
+          <picture>
+            <source type="image/avif" srcset="assets/keys@1x.avif 360w, assets/keys@2x.avif 721w" sizes="340px"/>
+            <source type="image/webp" srcset="assets/keys@1x.webp 360w, assets/keys@2x.webp 721w" sizes="340px"/>
+            <img src="assets/keys@2x.jpg" width="721" height="961" loading="lazy" decoding="async" alt="Eshwar playing keyboards"/>
+          </picture>
+          <picture>
+            <source type="image/avif" srcset="assets/band@1x.avif 360w, assets/band@2x.avif 721w" sizes="340px"/>
+            <source type="image/webp" srcset="assets/band@1x.webp 360w, assets/band@2x.webp 721w" sizes="340px"/>
+            <img src="assets/band@2x.jpg" width="721" height="940" loading="lazy" decoding="async" alt="Eshwar performing on synth with his band"/>
+          </picture>
+        </button>
+        <p class="stack-hint" id="stackHint">Hover to fan out</p>
       </div>
-      
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════ EVIDENCE ═══════════ -->
+<section id="evidence">
+  <div class="inner">
+    <div class="reveal">
+      <p class="s-label">The 30-second version</p>
+      <h2 class="s-title">What I have <em>actually shipped</em></h2>
+      <p class="s-desc">
+        Every row says what the thing was, what changed because of it, and how far you can verify it.
+        Client work is labelled private because it is — I would rather tell you that than imply otherwise.
+      </p>
+    </div>
+
+    <div class="tscroll reveal delay-1">
+      <table class="etable">
+        <caption>Selected work, most recent first</caption>
+        <thead>
+          <tr><th scope="col">What</th><th scope="col">Where</th><th scope="col">Result</th><th scope="col">Verifiable?</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="e-what">AI risk-intelligence tool</span><span class="e-org">EY &middot; via LBS LondonLAB</span></td>
+            <td>2026</td>
+            <td class="e-res">Sole technical builder across a synthetic &pound;1.13bn portfolio: a Composite Risk Index and a graph-based model. Faculty commendation; presented to the client sponsor.</td>
+            <td><span class="ev ev--private" title="Client engagement — code and data cannot be shared">Client &middot; private</span></td>
+          </tr>
+          <tr>
+            <td><span class="e-what">19 years of records, made usable</span><span class="e-org">The Sports Consultancy</span></td>
+            <td>2025&ndash;26</td>
+            <td class="e-res">Sole data lead. Consolidated ~19 years of siloed, unstructured records into one analysis-ready asset the commercial team now builds on.</td>
+            <td><span class="ev ev--private" title="Client engagement — code and data cannot be shared">Client &middot; private</span></td>
+          </tr>
+          <tr>
+            <td><span class="e-what">Platform for an FCA-regulated ~&pound;6bn fund</span><span class="e-org">Thorogood Associates</span></td>
+            <td>2023&ndash;25</td>
+            <td class="e-res">Developer and de-facto lead (L3 owner) on a live platform. 40+ features across cash-flow, XIRR, liquidity and valuation logic.</td>
+            <td><span class="ev ev--private" title="Client engagement — code and data cannot be shared">Client &middot; private</span></td>
+          </tr>
+          <tr>
+            <td><span class="e-what">Pricing process automated into SAP</span><span class="e-org">Thorogood Associates</span></td>
+            <td>2024</td>
+            <td class="e-res">Removed <b>~500 hours a year</b> of manual work. Separately self-sourced a ~&pound;70,000 opportunity by spotting reusable data nobody had flagged.</td>
+            <td><span class="ev ev--private" title="Client engagement — code and data cannot be shared">Client &middot; private</span></td>
+          </tr>
+          <tr>
+            <td><span class="e-what">Customer P&amp;L data product</span><span class="e-org">Thorogood Associates</span></td>
+            <td>2024</td>
+            <td class="e-res">18+ sources integrated into the daily dashboards a FTSE-100 consumer-healthcare multinational's commercial teams decided on. Sole client contact.</td>
+            <td><span class="ev ev--private" title="Client engagement — code and data cannot be shared">Client &middot; private</span></td>
+          </tr>
+          <tr>
+            <td><span class="e-what">CARVIS &mdash; LangGraph agent</span><span class="e-org">Independent</span></td>
+            <td>2025</td>
+            <td class="e-res">AI career agent. <b>Top 3, LBS AI Agent Cup.</b></td>
+            <td><a class="ev ev--code" href="https://github.com/sken2002/carvis-ai-job-agent" rel="noopener" target="_blank">Code</a></td>
+          </tr>
+          <tr>
+            <td><span class="e-what">Axiom &mdash; 3-stage ML pipeline</span><span class="e-org">London Business School</span></td>
+            <td>2026</td>
+            <td class="e-res">K-Means, logistic regression and Gurobi optimisation over 100k records, reaching <b>99.7% of maximum economic value</b>.</td>
+            <td><a class="ev ev--code" href="https://github.com/sken2002/axiom-decision-analytics-modelling" rel="noopener" target="_blank">Code</a></td>
+          </tr>
+          <tr>
+            <td><span class="e-what">FinPulse market intelligence</span><span class="e-org">Independent</span></td>
+            <td>2025&ndash;</td>
+            <td class="e-res">Cross-asset risk platform built solo: ingestion, scoring, portfolio signals. Deployed and running.</td>
+            <td><a class="ev ev--live" href="https://finpulse-intelligence.onrender.com/" rel="noopener" target="_blank">Live</a></td>
+          </tr>
+          <tr>
+            <td><span class="e-what">Geopolitical risk tracker</span><span class="e-org">Independent</span></td>
+            <td>2026</td>
+            <td class="e-res">FinBERT news sentiment into a tension index; conflict escalation modelled as an MDP with Monte Carlo sizing. Open source.</td>
+            <td>
+              <a class="ev ev--code" href="https://github.com/sken2002/geopolitical-stock-risk-tracker" rel="noopener" target="_blank">Code</a>
+              <a class="ev ev--live" href="#model">Demo</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
 
-<div id="dual">
-  <div class="dual-grid">
-    <div class="dual-side data reveal">
-      <p class="dual-label">The Analytical Mind</p>
-      <h2 class="dual-title">Data, AI &amp; Strategy</h2>
-      <p class="dual-body">Machine learning, AI strategy, distributed computing, and quantitative finance. I build systems that turn messy reality into clean signal to drive clear decisions. My background spans two years at Thorogood, sports strategy advisory at The Sports Consultancy, a live agentic AI project with EY, and a Masters at LBS.</p>
-    </div>
-    <div class="dual-side creative reveal delay-1">
-      <p class="dual-label">The Creative Side</p>
-      <h2 class="dual-title">Artist &amp; Creator</h2>
-      <p class="dual-body">Grade 8 Distinction in Keyboard. Synth player in a band. Video editor with a growing YouTube following, and a writer committed to publishing more in 2026. The creative side is not separate. It operates from the same mind working in a different register.</p>
-    </div>
-  </div>
-</div>
-
+<!-- ═══════════ WORK ═══════════ -->
 <section id="work">
   <div class="inner">
     <div class="reveal">
-      <p class="s-label">Professional Playbook</p>
-      <h2 class="s-title">Where I Have <em>Worked</em></h2>
-      <p class="s-desc">Enterprise AI consulting, sports strategy advisory, and academic rigor at one of the world's finest business schools. Each role built something different in me.</p>
+      <p class="s-label">Case studies</p>
+      <h2 class="s-title">The work, with the <em>parts that went wrong</em></h2>
+      <p class="s-desc">
+        Anyone can list outcomes. These include the alternative I rejected and what broke in
+        production, because that is the part that tells you whether I was actually there.
+      </p>
     </div>
-    <div class="work-grid">
 
-      <div class="cf reveal">
-        <div class="cf-in">
-          <p class="cf-tag">Data &amp; AI/ML Consulting · 2023–2025</p>
-          <div class="cf-num">01</div>
-          
-          <div class="cf-header">
-            <img src="https://logo.clearbit.com/thorogood.com" alt="Thorogood" class="cf-logo" onerror="this.style.display='none'"/>
-            <div>
-              <p class="cf-org">Thorogood Associates · Bangalore to London</p>
-              <h3 class="cf-title">Data &amp; AI/ML Consultant</h3>
-            </div>
-          </div>
-          
-          <p class="cf-body">I spent two years building high-impact data solutions for global enterprise clients across financial services, healthcare, and energy. I translated complex problems into scalable architectures that saved hundreds of hours annually.</p>
-          <ul class="cf-body">
-            <li>API-driven pricing framework eliminating substantial manual entry</li>
-            <li>RAG NLP workflow for a major institutional client's report analysis</li>
-            <li>Customer profitability models and interactive dashboards for healthcare leaders</li>
-          </ul>
+    <article class="cs reveal">
+      <div class="cs-head">
+        <div class="cs-mark" aria-hidden="true">T</div>
+        <div class="cs-meta">
+          <p class="cs-org">Thorogood Associates &middot; Bangalore, India</p>
+          <h3 class="cs-title">Data &amp; AI Consultant</h3>
+          <p class="cs-when"><b>2023 &ndash; 2025</b> &middot; Full-time &middot; UK consultancy delivering data platforms for global enterprise clients</p>
         </div>
       </div>
+      <p class="cs-lede">
+        Developer and de-facto lead on a live platform for an FCA-regulated ~&pound;6bn fund, and owner
+        of a customer P&amp;L data product for a FTSE-100 multinational. Two years of owning things in
+        production, and owning the client relationship that comes with that.
+      </p>
 
-      <div class="cf reveal delay-1">
-        <div class="cf-in">
-          <p class="cf-tag">Strategy &amp; AI · 2025–2026</p>
-          <div class="cf-num">02</div>
-          
-          <div class="cf-header">
-            <img src="https://logo.clearbit.com/thesportsconsultancy.com" alt="The Sports Consultancy" class="cf-logo" onerror="this.style.display='none'"/>
-            <div>
-              <p class="cf-org">The Sports Consultancy · London</p>
-              <h3 class="cf-title">Strategy &amp; AI Consultant</h3>
-            </div>
-          </div>
-          
-          <p class="cf-body">Working with global sports rights holders, leagues, and clubs. I serve as the bridge between technical AI architecture and senior executive strategy. I make complex diagnostics legible and actionable at the top level.</p>
-          <ul class="cf-body">
-            <li>Primary translator for senior management on architectural diagnostics</li>
-            <li>Delivered insights to maximize the commercial value of data ecosystems</li>
-          </ul>
+      <dl class="forensic t-brief">
+        <dt>Context</dt>
+        <dd>A live platform for an <b>FCA-regulated ~&pound;6bn fund</b>. I was developer and de-facto lead
+            &mdash; L3 owner &mdash; which meant production ownership and being the client's trusted final
+            check before anything shipped.</dd>
+
+        <dt>Constraint</dt>
+        <dd>A regulated environment. Cash-flow, XIRR, liquidity and valuation logic have to be right,
+            and "right" means auditable rather than approximately correct.</dd>
+
+        <dt>What I built</dt>
+        <dd><b>40+ features</b> across that cash-flow, XIRR, liquidity and valuation logic, and
+            <b>20+ production data pipelines</b> on Azure Databricks. Separately, I automated a manual
+            pricing process directly into the client's enterprise SAP.</dd>
+
+        <dt class="t-deep">Alternative I rejected</dt>
+        <dd class="t-deep"><p>Two of the client's internal tools had already been half-modernised: the SSIS packages and
+            the C#/.NET front end were in source control and running through CI/CD. The SQL layer &mdash;
+            the tables, stored procedures and views that everything actually sat on &mdash; had never been put
+            in a repo at all. It was still being changed directly on the server.</p>
+            <p>The path of least resistance was to leave it that way and keep adding features on top.
+            Nobody was asking me to change it. I turned that down and pushed to bring the SQL into
+            version control and CI/CD alongside the rest. It was short-term pain for long-term gain:
+            slower delivery for a stretch, and a fair amount of persuading. But shipping features onto
+            an unversioned database is how you end up unable to reproduce your own production
+            environment. I got it done before I left.</p></dd>
+
+        <dt class="t-deep">What broke</dt>
+        <dd class="t-deep"><p>The analytics cube stopped refreshing. The cause was a stored procedure computing XIRR across
+            every fund &mdash; it had grown slow enough that the refresh no longer fit inside its window, so
+            the whole cube would overrun and fail to process.</p>
+            <p>I brought that procedure's runtime down, but the bigger fix was re-sequencing the table
+            refreshes so the cube's dependencies completed in an order that shortened the overall window
+            rather than just the one procedure. The lesson I kept: the slow query is the symptom you can
+            see, not necessarily the constraint that is actually binding.</p></dd>
+
+        <dt>Result</dt>
+        <dd class="f-res">The pricing automation removed <b>~500 hours a year</b> of manual work. I
+            self-sourced a <b>~&pound;70,000</b> opportunity by spotting reusable data nobody had flagged.
+            The customer P&amp;L product integrated <b>18+ data sources</b> into the daily dashboards a
+            FTSE-100 consumer-healthcare multinational's commercial teams made decisions on, with me
+            as sole client contact.</dd>
+
+        <dt class="t-deep">Also shipped</dt>
+        <dd class="t-deep">Designed and delivered a three-day SQL and data-modelling training to
+            <b>40+ new joiners</b>.</dd>
+
+        <dt class="t-deep">Stack</dt>
+        <dd class="t-deep stack">Python &middot; SQL Server &middot; T-SQL &middot; SSIS &middot; SSAS cubes &middot; PySpark &middot;
+            Azure Databricks &middot; Power BI &middot; C#/.NET &middot; CI&#47;CD &middot; SAP integration</dd>
+      </dl>
+      <div class="ev-row">
+        <span class="ev ev--private" title="Client engagement &mdash; code and data cannot be shared">Client work &middot; private</span>
+      </div>
+    </article>
+
+    <article class="cs reveal">
+      <div class="cs-head">
+        <div class="cs-mark" aria-hidden="true">S</div>
+        <div class="cs-meta">
+          <p class="cs-org">The Sports Consultancy &middot; London</p>
+          <h3 class="cs-title">Data Consultant</h3>
+          <p class="cs-when"><b>2025 &ndash; Feb 2026</b> &middot; Part-time, alongside the MAM &middot; Rights holders, leagues, clubs</p>
         </div>
       </div>
+      <p class="cs-lede">
+        Sole data lead for a global sports consultancy, part-time, while doing a full-time Masters.
+      </p>
 
-      <div class="cf wide reveal">
-        <div class="cf-in wide-inner">
-          <div>
-            <p class="cf-tag">Current · EY LondonLAB</p>
-            <div class="cf-num">03</div>
-            
-            <div class="cf-header">
-              <img src="https://logo.clearbit.com/ey.com" alt="Ernst & Young" class="cf-logo" onerror="this.style.display='none'"/>
-              <div>
-                <p class="cf-org">Ernst &amp; Young · London</p>
-                <h3 class="cf-title">Agentic Risk Intelligence</h3>
-              </div>
-            </div>
-            
-            <p class="cf-body">Architecting an agentic risk intelligence proof of concept. I am building analytical models to evaluate synthetic financial data and surface capital project vulnerabilities through an interactive executive dashboard.</p>
-          </div>
-          <div>
-            <p class="cf-tag">Academic · 2025–2026</p>
-            <div class="cf-num">04</div>
-            
-            <div class="cf-header">
-              <img src="https://logo.clearbit.com/london.edu" alt="London Business School" class="cf-logo" onerror="this.style.display='none'"/>
-              <div>
-                <p class="cf-org">London Business School · London</p>
-                <h3 class="cf-title">Masters in Analytics and Management</h3>
-              </div>
-            </div>
-            
-            <p class="cf-body">The deliberate next step. LBS is where engineering rigor meets business strategy and quantitative finance. My coursework spans Financial Analytics, Machine Learning, Generative AI, and Strategy.</p>
-          </div>
+      <dl class="forensic t-brief">
+        <dt>Context</dt>
+        <dd><b>~19 years</b> of siloed, unstructured records spread across systems and formats &mdash;
+            the accumulated exhaust of a firm that had been busy rather than tidy.</dd>
+
+        <dt>Constraint</dt>
+        <dd>Part-time hours, alongside a full-time Masters, as the only data person in the building.</dd>
+
+        <dt>What I built</dt>
+        <dd>A single consolidated, analysis-ready asset out of those nineteen years.</dd>
+
+        <dt class="t-deep">The hard part</dt>
+        <dd class="t-deep"><p>The auditing. Nineteen years of files in different formats, different structures and different
+            conventions, with no reliable record of what existed or what any of it meant. There was no
+            clever technique available &mdash; it was opening things, cataloguing them, and working out what
+            each one actually was.</p>
+            <p>It was the least interesting part of the engagement and it took the most time, which is
+            usually the honest answer about data work. What came out of it was a proposal for getting from
+            nothing to a first structured baseline: what to keep, what to reorganise, and in what order.</p></dd>
+
+        <dt>Result</dt>
+        <dd class="f-res">The commercial team now builds on it.</dd>
+      </dl>
+      <div class="ev-row">
+        <span class="ev ev--private" title="Client engagement &mdash; cannot be shared">Client work &middot; private</span>
+      </div>
+    </article>
+
+    <article class="cs reveal">
+      <div class="cs-head">
+        <div class="cs-mark" aria-hidden="true">E</div>
+        <div class="cs-meta">
+          <p class="cs-org">EY &middot; via LBS LondonLAB</p>
+          <h3 class="cs-title">AI Risk Intelligence</h3>
+          <p class="cs-when"><b>2026</b> &middot; Student consultant &middot; Eight weeks &middot; Team of five</p>
         </div>
       </div>
+      <p class="cs-lede">
+        Sole technical builder of an AI risk-intelligence tool over a synthetic <b>&pound;1.13bn</b> portfolio.
+      </p>
 
-    </div>
+      <dl class="forensic t-brief">
+        <dt>Context</dt>
+        <dd>Portfolio and capital-project risk shows up in the financials long before anyone escalates
+            it. The question was whether it could be surfaced early enough to act on.</dd>
+
+        <dt>Constraint</dt>
+        <dd>Synthetic data only, and an output a partner could read in ninety seconds without being
+            asked to trust a black box.</dd>
+
+        <dt>What I built</dt>
+        <dd>A <b>Composite Risk Index</b> and a <b>graph-based model</b> over a synthetic &pound;1.13bn
+            portfolio, as sole technical builder. I also led delivery for a team of five on an Agile
+            board across eight weeks, turning an ambiguous brief into scoped, on-time work.</dd>
+
+        <dt class="t-deep">Design tension</dt>
+        <dd class="t-deep"><p>The obvious alternative was a tabular risk register &mdash; each work package scored independently,
+            rolled up into a portfolio average, red/amber/green. That is how most project dashboards work.</p>
+            <p>We rejected it because infrastructure risk is systemic rather than isolated. A table can tell
+            you a work package has a poor Cost Performance Index. A graph lets you quantify blast radius: a
+            breadth-first traversal showed that one failing work package cascaded <b>three levels deep</b>,
+            hit <b>six downstream entities</b>, and pushed the go-live milestone out by <b>54 days</b>. You
+            cannot run that on a flat table &mdash; you need the topology.</p>
+            <p>What we gave up:</p>
+            <ul>
+              <li><b>Lenient ingestion.</b> A tabular dashboard needs entities and scores. The graph needs
+                  explicit, correct dependency edges &mdash; if the source data does not link a contract to a
+                  milestone, the cascade simply is not predicted. We traded ease of ingestion for
+                  topological accuracy.</li>
+              <li><b>Familiarity.</b> Project directors read spreadsheets and top-ten lists, not
+                  force-directed networks. We had to build a five-step investigation workflow so the graph
+                  did not just land as spaghetti.</li>
+              <li><b>Cheap arithmetic.</b> No <span class="stack">SUM</span> and
+                  <span class="stack">GROUP BY</span>. Every time a user moved a mitigation lever we ran an
+                  <span class="stack">O(V+E)</span> traversal client-side to recompute cascading exposure
+                  in real time.</li>
+            </ul></dd>
+
+        <dt>Result</dt>
+        <dd class="f-res"><b>Commended by faculty</b> and presented to the client sponsor.</dd>
+      </dl>
+      <div class="ev-row">
+        <span class="ev ev--private" title="Client engagement &mdash; cannot be shared">Client work &middot; private</span>
+      </div>
+    </article>
+
+    <article class="cs reveal t-brief">
+      <div class="cs-head">
+        <div class="cs-mark" aria-hidden="true">L</div>
+        <div class="cs-meta">
+          <p class="cs-org">London Business School</p>
+          <h3 class="cs-title">MSc Analytics &amp; Management</h3>
+          <p class="cs-when"><b>2025 – 2026</b> · Full-time · Completed</p>
+        </div>
+      </div>
+      <p class="cs-lede">
+        Deliberately chosen to put quantitative finance and strategy around the engineering I already had.
+      </p>
+      <dl class="forensic t-deep">
+        <dt>Coursework</dt>
+        <dd class="stack">Financial Analytics &middot; Data Science for Business &middot; Decision Analytics &amp; Modelling &middot; Generative AI Product Design</dd>
+      </dl>
+    </article>
   </div>
 </section>
 
+<!-- ═══════════ PROJECTS ═══════════ -->
 <section id="projects">
   <div class="inner">
     <div class="reveal">
-      <p class="s-label">Built &amp; Shipped</p>
-      <h2 class="s-title">Independent <em>Projects</em></h2>
-      <p class="s-desc">Tools and systems I built to solve problems that fascinated me, ranging from macroeconomic modeling to market intelligence.</p>
+      <p class="s-label">Independent</p>
+      <h2 class="s-title">Things I built <em>nobody asked for</em></h2>
+      <p class="s-desc">Where the client work is private, this is what you can actually open and poke at.</p>
     </div>
-    
+
     <div class="proj-grid">
-      <a href="https://finpulsev2.onrender.com/mission" target="_blank" class="pj-link reveal">
-        <div class="pj">
-          <div class="pj-img-wrap">
-            <img src="finpulselogo.jpg" alt="FinPulse" class="img-contain"/>
-          </div>
-          <p class="pj-status">In Progress</p>
-          <h3 class="pj-title">FinPulse Market Intelligence</h3>
-          <p class="pj-body">A market intelligence platform built from scratch to evaluate unstructured data sources, tracking cross-asset risk and generating data-driven portfolio signals.</p>
+      <div class="pj reveal">
+        <div class="pj-img-wrap">
+          <picture>
+            <source type="image/avif" srcset="assets/finpulse@2x.avif"/>
+            <source type="image/webp" srcset="assets/finpulse@2x.webp"/>
+            <img src="assets/finpulse@2x.jpg" width="183" height="180" loading="lazy" decoding="async" alt="FinPulse logo"/>
+          </picture>
         </div>
-      </a>
-
-      <a href="#" target="_blank" class="pj-link reveal delay-1">
-        <div class="pj">
-          <div class="pj-img-wrap">
-            <img src="lbseyplaceholder.jpg" alt="Agentic AI Dashboard" class="img-contain"/>
-          </div>
-          <p class="pj-status">In Progress</p>
-          <h3 class="pj-title">Agentic Risk Intelligence</h3>
-          <p class="pj-body">An agentic AI system analyzing synthetic financial data to identify capital project vulnerabilities, surfaced through a clean executive dashboard.</p>
+        <p class="pj-status">Live · actively developed</p>
+        <h3 class="pj-title">FinPulse</h3>
+        <p class="pj-body">
+          A market intelligence platform built solo end to end: ingesting unstructured sources,
+          scoring cross-asset risk, and generating portfolio signals. The interesting problem was
+          not the model — it was making a signal that stays useful when the source data is late,
+          missing or wrong.
+        </p>
+        <div class="ev-row">
+          <a class="ev ev--live" href="https://finpulse-intelligence.onrender.com/" target="_blank" rel="noopener">Live site</a>
+          <span class="ev ev--private" title="Source not currently public">Source not public</span>
         </div>
-      </a>
+      </div>
 
-      <a href="https://www.linkedin.com/pulse/pricing-unpriceable-tool-model-geopolitical-risk-eshwar-nevedh-u0q0e" target="_blank" class="pj-link reveal delay-2">
-        <div class="pj">
-          <div class="pj-img-wrap">
-            <img src="https://images.unsplash.com/photo-1612178991541-b48cc8e92a4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Macro Volatility Tracker" class="img-cover"/>
-          </div>
-          <p class="pj-status">Completed</p>
-          <h3 class="pj-title">Macro Volatility Tracker</h3>
-          <p class="pj-body">A Python-based tracker utilizing Markov Decision Processes to model macroeconomic volatility, providing a framework for responding to high-risk global macro environments.</p>
+      <div class="pj reveal delay-1">
+        <div class="pj-img-wrap">
+          <picture>
+            <source type="image/avif" srcset="assets/agentic@1x.avif 388w, assets/agentic@2x.avif 556w" sizes="(max-width:900px) 90vw, 300px"/>
+            <source type="image/webp" srcset="assets/agentic@1x.webp 388w, assets/agentic@2x.webp 556w" sizes="(max-width:900px) 90vw, 300px"/>
+            <img src="assets/agentic@2x.jpg" width="556" height="304" loading="lazy" decoding="async" alt="Agentic risk intelligence dashboard"/>
+          </picture>
         </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section id="about">
-  <div class="inner">
-    <div class="reveal">
-      <p class="s-label">The Journey</p>
-      <h2 class="s-title">How I Got <em>Here</em></h2>
-      <p class="s-desc">The path from SSN Chennai to Thorogood and onward to London Business School.</p>
-    </div>
-    <div class="trail-wrap">
-      <div class="trail-items">
-
-        <div class="ti reveal">
-          <p class="ti-year">2019 – 2023</p>
-          <h3 class="ti-role">B.E. Electronics &amp; Communication</h3>
-          <p class="ti-org">SSN College of Engineering · Chennai</p>
-          <p class="ti-desc">Built the mathematical foundations spanning linear algebra, probability, and machine learning. I ran the quiz club as President, played keyboards with the music society, and learned what it means to love a subject deeply enough to stay up all night with it.</p>
+        <p class="pj-status">In progress</p>
+        <h3 class="pj-title">Agentic Risk Intelligence</h3>
+        <p class="pj-body">
+          Agentic system reading synthetic capital-project financials and ranking vulnerabilities,
+          with deterministic scoring underneath so every flag is reproducible by hand.
+        </p>
+        <div class="ev-row">
+          <span class="ev ev--private" title="EY engagement — cannot be shared publicly">EY engagement · private</span>
         </div>
+      </div>
 
-        <div class="ti reveal">
-          <p class="ti-year">2023 – 2025</p>
-          <h3 class="ti-role">Data &amp; AI/ML Consultant</h3>
-          <p class="ti-org">Thorogood Associates · Bangalore to London</p>
-          <p class="ti-desc">Entering the real world with enterprise clients, high stakes, and tight timelines. I learned to translate raw analytical work into commercial outcomes, discovering that the best engineers are also the best communicators.</p>
+      <div class="pj reveal delay-2">
+        <div class="pj-img-wrap" id="mvtThumb"></div>
+        <p class="pj-status done">Completed · open source</p>
+        <h3 class="pj-title">Geopolitical Risk Tracker</h3>
+        <p class="pj-body">
+          Reads global news with FinBERT to build a tension index, models conflict escalation as a
+          Markov decision process, and sizes exposure via Monte Carlo — plus a "political beta"
+          for how individual names respond to geopolitical stress. Backtested on 2024–26 data,
+          with the caveats that implies.
+        </p>
+        <div class="ev-row">
+          <a class="ev ev--code" href="https://github.com/sken2002/geopolitical-stock-risk-tracker" target="_blank" rel="noopener">Code</a>
+          <a class="ev ev--write" href="https://www.linkedin.com/pulse/pricing-unpriceable-tool-model-geopolitical-risk-eshwar-nevedh-u0q0e" target="_blank" rel="noopener">Write-up</a>
+          <a class="ev ev--live" href="#model">Related demo</a>
         </div>
+      </div>
 
-        <div class="ti reveal">
-          <p class="ti-year">2025 – 2026 · Current</p>
-          <h3 class="ti-role">Masters in Analytics &amp; Management</h3>
-          <p class="ti-org">London Business School · London</p>
-          <p class="ti-desc">The deliberate bet on myself. LBS is where quantitative finance meets strategic leadership and a global network. The next chapter begins here.</p>
+      <div class="pj reveal delay-3">
+        <div class="pj-img-wrap">
+          <svg viewBox="0 0 300 100" style="width:100%;height:100%;padding:1.4rem" aria-hidden="true">
+            <line x1="150" y1="6" x2="150" y2="94" stroke="#4a4038" stroke-width="1"/>
+            <g fill="#e5a93d" opacity=".8">
+              <rect x="150" y="10" width="62" height="7" rx="1.5"/>
+              <rect x="150" y="26" width="41" height="7" rx="1.5"/>
+              <rect x="150" y="42" width="78" height="7" rx="1.5"/>
+              <rect x="150" y="58" width="28" height="7" rx="1.5"/>
+              <rect x="150" y="74" width="53" height="7" rx="1.5"/>
+            </g>
+            <g fill="#7fa8c9" opacity=".8">
+              <rect x="106" y="10" width="44" height="7" rx="1.5"/>
+              <rect x="82"  y="26" width="68" height="7" rx="1.5"/>
+              <rect x="119" y="42" width="31" height="7" rx="1.5"/>
+              <rect x="64"  y="58" width="86" height="7" rx="1.5"/>
+              <rect x="111" y="74" width="39" height="7" rx="1.5"/>
+            </g>
+          </svg>
         </div>
+        <p class="pj-status done">Completed · open source</p>
+        <h3 class="pj-title">Mind the Gender Gap</h3>
+        <p class="pj-body">
+          Exploratory and geospatial analysis of the 2011 UK Census — demographics, work, and how
+          the gender gap varies by place rather than in aggregate. The kind of analysis where the
+          finding lives in the disaggregation.
+        </p>
+        <div class="ev-row">
+          <a class="ev ev--code" href="https://github.com/sken2002/mind-the-gender-gap-uk-census-analysis" target="_blank" rel="noopener">Code</a>
+        </div>
+      </div>
 
+      <div class="pj reveal">
+        <div class="pj-img-wrap">
+          <svg viewBox="0 0 300 100" style="width:100%;height:100%;padding:1.4rem" aria-hidden="true">
+            <g fill="none" stroke="#e5a93d" stroke-width="1.4" opacity=".85">
+              <circle cx="42" cy="50" r="13"/><circle cx="150" cy="24" r="13"/>
+              <circle cx="150" cy="76" r="13"/><circle cx="258" cy="50" r="13"/>
+            </g>
+            <g stroke="#7fa8c9" stroke-width="1.2" opacity=".65">
+              <line x1="55" y1="45" x2="137" y2="28"/><line x1="55" y1="55" x2="137" y2="72"/>
+              <line x1="163" y1="28" x2="245" y2="45"/><line x1="163" y1="72" x2="245" y2="55"/>
+              <line x1="150" y1="37" x2="150" y2="63"/>
+            </g>
+          </svg>
+        </div>
+        <p class="pj-status done">Top 3 &middot; LBS AI Agent Cup</p>
+        <h3 class="pj-title">CARVIS</h3>
+        <p class="pj-body">
+          A LangGraph agent that runs the tedious half of a job search &mdash; parsing roles, matching
+          them against a profile, and drafting the application. Placed top 3 at the LBS AI Agent Cup.
+        </p>
+        <div class="ev-row">
+          <a class="ev ev--code" href="https://github.com/sken2002/carvis-ai-job-agent" target="_blank" rel="noopener">Code</a>
+        </div>
+      </div>
+
+      <div class="pj reveal delay-1">
+        <div class="pj-img-wrap">
+          <svg viewBox="0 0 300 100" style="width:100%;height:100%;padding:1.4rem" aria-hidden="true">
+            <g opacity=".85">
+              <circle cx="52"  cy="66" r="4" fill="#e5a93d"/><circle cx="70" cy="52" r="4" fill="#e5a93d"/>
+              <circle cx="60"  cy="38" r="4" fill="#e5a93d"/><circle cx="84" cy="70" r="4" fill="#e5a93d"/>
+              <circle cx="152" cy="30" r="4" fill="#7fa8c9"/><circle cx="170" cy="46" r="4" fill="#7fa8c9"/>
+              <circle cx="140" cy="52" r="4" fill="#7fa8c9"/><circle cx="164" cy="20" r="4" fill="#7fa8c9"/>
+              <circle cx="238" cy="60" r="4" fill="#7d8f7a"/><circle cx="252" cy="44" r="4" fill="#7d8f7a"/>
+              <circle cx="226" cy="44" r="4" fill="#7d8f7a"/>
+            </g>
+            <path d="M30 88 L270 88" stroke="#4a4038" stroke-width="1"/>
+            <path d="M30 82 L100 82" stroke="#e5a93d" stroke-width="3" opacity=".8"/>
+          </svg>
+        </div>
+        <p class="pj-status done">Completed &middot; open source</p>
+        <h3 class="pj-title">Axiom</h3>
+        <p class="pj-body">
+          A three-stage ML pipeline over 100k records &mdash; K-Means segmentation, logistic regression,
+          then Gurobi optimisation on top. Reached <b>99.7% of the maximum achievable economic
+          value</b>, which is the number that matters when the model feeds a decision.
+        </p>
+        <div class="ev-row">
+          <a class="ev ev--code" href="https://github.com/sken2002/axiom-decision-analytics-modelling" target="_blank" rel="noopener">Code</a>
+        </div>
+      </div>
+
+      <div class="pj reveal delay-2">
+        <div class="pj-img-wrap">
+          <svg viewBox="0 0 300 100" style="width:100%;height:100%;padding:1.4rem" aria-hidden="true">
+            <g fill="#e5a93d" opacity=".75">
+              <rect x="40" y="30" width="58" height="8" rx="2"/>
+              <rect x="40" y="44" width="44" height="8" rx="2"/>
+              <rect x="40" y="58" width="52" height="8" rx="2"/>
+            </g>
+            <path d="M112 48 L142 48 M134 42 L142 48 L134 54" stroke="#7fa8c9" stroke-width="1.6" fill="none"/>
+            <rect x="156" y="26" width="104" height="48" rx="6" fill="none" stroke="#7fa8c9" stroke-width="1.4" opacity=".8"/>
+            <g fill="#7fa8c9" opacity=".6">
+              <rect x="168" y="38" width="58" height="5" rx="1.5"/>
+              <rect x="168" y="48" width="76" height="5" rx="1.5"/>
+              <rect x="168" y="58" width="40" height="5" rx="1.5"/>
+            </g>
+          </svg>
+        </div>
+        <p class="pj-status">Completed</p>
+        <h3 class="pj-title">Zane</h3>
+        <p class="pj-body">
+          A production RAG chatbot using hybrid retrieval &mdash; ChromaDB for dense vectors, BM25 for
+          the lexical half. The hybrid exists because pure embeddings quietly miss exact terms, and
+          in a document corpus those are usually the ones that matter.
+        </p>
+        <div class="ev-row">
+          <span class="ev ev--private" title="Source not currently public">Source not public</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="creative">
+<!-- ═══════════ LIVE MODEL ═══════════ -->
+<section id="model" class="t-deep">
   <div class="inner">
     <div class="reveal">
-      <p class="s-label sand">The Creative Side</p>
-      <h2 class="s-title">More Than <em class="sand">Meets the Eye</em></h2>
-      <p class="s-desc">Data is my profession. Music, film, and writing form the core of who I am. These are not quiet hobbies; they are the other half of the equation.</p>
+      <p class="s-label">Runnable</p>
+      <h2 class="s-title">Regime-aware allocation, <em>solved in your browser</em></h2>
+      <p class="s-desc">
+        Written for this page as a companion to the
+        <a href="https://github.com/sken2002/geopolitical-stock-risk-tracker" target="_blank" rel="noopener" style="color:var(--gold)">geopolitical risk tracker</a>
+        — same technique, stripped to something you can actually interrogate in a browser.
+        A three-regime Markov decision process with rebalancing costs. Because trading is not free,
+        the best allocation depends on what you are already holding — which is what makes this a
+        control problem rather than a sequence of independent optimisations. It solves by value
+        iteration over 198 states, then simulates 30 years against a static 60/40. Move the
+        assumptions; everything recomputes. No server, no network call.
+      </p>
+    </div>
+
+    <div class="mw reveal delay-1">
+      <div class="mw-head">
+        <h3>Macro Volatility Tracker</h3>
+        <span class="mw-note">Illustrative · synthetic parameters · not investment advice</span>
+      </div>
+      <div class="mw-grid">
+        <div class="mw-ctrl">
+          <div class="ctl">
+            <label for="cLam">Risk aversion λ <output id="oLam">4.0</output></label>
+            <input type="range" id="cLam" min="1" max="12" step="0.5" value="4"/>
+            <p class="hint">How much variance costs you. Higher λ pushes the policy toward cash.</p>
+          </div>
+          <div class="ctl">
+            <label for="cGam">Discount γ <output id="oGam">0.95</output></label>
+            <input type="range" id="cGam" min="0.80" max="0.99" step="0.01" value="0.95"/>
+            <p class="hint">How far ahead the policy looks. <span id="gBind" style="color:var(--gold)"></span></p>
+          </div>
+          <div class="ctl">
+            <label for="cPer">Crisis persistence <output id="oPer">0.64</output></label>
+            <input type="range" id="cPer" min="0.35" max="0.92" step="0.01" value="0.64"/>
+            <p class="hint">P(crisis next | crisis now). Raising it makes crises longer, so the policy de-risks earlier.</p>
+          </div>
+          <div class="ctl">
+            <label for="cTc">Rebalancing cost <output id="oTc">50 bps</output></label>
+            <input type="range" id="cTc" min="0" max="120" step="5" value="50"/>
+            <p class="hint">Cost per unit of one-way turnover. At zero the policy chases every regime; raise it and it starts holding through.</p>
+          </div>
+          <button class="mbtn" id="mReset" type="button">Reset assumptions</button>
+          <p class="msub" style="margin-top:1.7rem">Stationary distribution</p>
+          <div id="statDist"></div>
+        </div>
+
+        <div class="mw-out">
+          <div class="mrow" id="mStats"></div>
+          <p class="msub" id="mStatNote" style="margin:-1rem 0 1.7rem"></p>
+
+          <p class="msub">Resting allocation by regime <span style="text-transform:none;letter-spacing:0">— where the policy settles if that regime holds</span></p>
+          <svg class="mchart" id="allocChart" viewBox="0 0 560 150" role="img" aria-labelledby="allocDesc"></svg>
+          <p id="allocDesc" class="mlegend">
+            <span><i style="background:var(--eq)"></i>Equity</span>
+            <span><i style="background:var(--cr)"></i>Credit</span>
+            <span><i style="background:var(--ca)"></i>Cash</span>
+          </p>
+
+          <p class="msub" style="margin-top:2rem">One representative path, 30 years · MDP policy vs static 60/40</p>
+          <svg class="mchart" id="pathChart" viewBox="0 0 560 230" role="img" aria-labelledby="pathDesc"></svg>
+          <p id="pathDesc" class="mlegend">
+            <span><i style="background:var(--gold)"></i>MDP policy</span>
+            <span><i style="background:#7f7469"></i>Static 60/40</span>
+            <span><i style="background:#4a2b2b"></i>Crisis regime</span>
+            <span><i style="background:#3d3524"></i>Stress regime</span>
+          </p>
+
+          <p class="mfoot">
+            <b>How to read this.</b> The state is <em>(regime, portfolio you currently hold)</em> — 3 × 66 = 198
+            states, with 66 candidate allocations on a 10% simplex grid. Value iteration runs to
+            convergence, then the policy is applied forward through a seeded 30-year simulation, so the
+            path is identical on every reload and the only thing that moves it is you.
+            <b>The reason holdings belong in the state:</b> with zero rebalancing cost the problem
+            decomposes into 3 independent one-period optimisations and the discount rate becomes
+            irrelevant. Add costs and it stops decomposing — the policy has to weigh a known cost now
+            against an uncertain regime later, which is where γ starts to bite. Set the cost slider
+            to zero and watch γ go inert; that degeneracy is the point.
+            <br/><br/>
+            <b>What this deliberately does not claim.</b> The chart is one path — the headline
+            statistics are medians over 120 independent draws, because a single seed is an anecdote.
+            The policy also observes the regime exactly, which is the strongest assumption here:
+            in practice you would infer it from noisy data with a hidden Markov filter, and most of
+            the apparent edge would go to paying for that uncertainty. Regime parameters are
+            synthetic and chosen to be plausible, not fitted to history. The point is the machinery,
+            not a return forecast, and none of this is investment advice.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ JOURNEY ═══════════ -->
+<section id="about" class="t-brief">
+  <div class="inner">
+    <div class="reveal">
+      <p class="s-label">The route</p>
+      <h2 class="s-title">How I got <em>here</em></h2>
+    </div>
+    <div class="ti reveal">
+      <p class="ti-year">2019 – 2023</p>
+      <h3 class="ti-role">B.E. Electronics &amp; Communication</h3>
+      <p class="ti-org">SSN College of Engineering &middot; Chennai &middot; First Class with Distinction (CGPA 8.97/10)</p>
+      <p class="ti-desc">Linear algebra, probability, signals, and the first machine learning that made
+        sense to me. President of the quiz club, keyboards in the music society.</p>
+    </div>
+    <div class="ti reveal">
+      <p class="ti-year">2023 – 2025</p>
+      <h3 class="ti-role">Data &amp; AI/ML Consultant</h3>
+      <p class="ti-org">Thorogood Associates &middot; Bangalore, India</p>
+      <p class="ti-desc">Enterprise clients, real deadlines, and the discovery that the hard part of
+        analytics is almost never the analytics.</p>
+    </div>
+    <div class="ti reveal">
+      <p class="ti-year">2025 – 2026</p>
+      <h3 class="ti-role">MSc Analytics &amp; Management</h3>
+      <p class="ti-org">London Business School</p>
+      <p class="ti-desc">Quantitative finance and strategy layered onto the engineering, plus the
+        Sports Consultancy and EY engagements alongside it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CREATIVE ═══════════ -->
+<section id="creative" class="t-brief">
+  <div class="inner">
+    <div class="reveal">
+      <p class="s-label">Off the clock</p>
+      <h2 class="s-title">The <em>other half</em></h2>
+      <p class="s-desc">Not analogies for my work. Just things I am seriously good at.</p>
     </div>
     <div class="cr-grid">
-
       <div class="cr-card reveal">
-        <h3 class="cr-title">Sound &amp; Synthesis</h3>
-        <p class="cr-body">I play keyboards, synthesizer, and piano in a band, holding a Grade 8 Distinction from Trinity College. Playing synth requires understanding texture, space, and arrangement. That same discipline of understanding your role in a larger system shapes how I approach data architecture. Music and mathematics are intimately connected.</p>
+        <h3 class="cr-title">Keys &amp; Synthesis</h3>
+        <p class="cr-body">I play keyboards and synth in a band. Grade 8 Distinction, Trinity College London.
+          Mostly I am the person building the pad underneath everything else.</p>
+        <ul class="cr-facts">
+          <li>Grade 8 Distinction — Trinity College London</li>
+          <li>Synth &amp; keys, gigging band</li>
+          <li>Music society, SSN</li>
+        </ul>
       </div>
-
       <div class="cr-card reveal delay-1">
-        <h3 class="cr-title">Visual Storytelling</h3>
-        <p class="cr-body">I edit videos and have built a dedicated following on YouTube. Storytelling through editing is an analytical process involving rhythm, pacing, and emotional arcs. It is closer to data visualization than most people realize. You decide what to include, what to cut, and how to make the audience stay.</p>
+        <h3 class="cr-title">Editing &amp; Writing</h3>
+        <p class="cr-body">I edit video and have built an audience on YouTube. I write on Substack —
+          markets, film, and whatever else has been bothering me.</p>
+        <ul class="cr-facts">
+          <li><a href="https://www.youtube.com/@skencomps5214" target="_blank" rel="noopener" style="color:var(--text-s)">YouTube — @skencomps5214</a></li>
+          <li><a href="https://eshwarnevedh.substack.com/" target="_blank" rel="noopener" style="color:var(--text-s)">Substack — essays, published irregularly</a></li>
+          <li>Committed to publishing more in 2026</li>
+        </ul>
       </div>
-
     </div>
   </div>
 </section>
 
-<section id="roots">
+<!-- ═══════════ ROOTS ═══════════ -->
+<section id="roots" class="t-deep">
   <div class="inner">
     <div class="reveal">
       <p class="s-label">Heritage</p>
-      <h2 class="s-title">Where I Am <em>From</em></h2>
-      <p class="s-desc">Born by the sea, raised by the sea, educated by the sea. The coast has always been home. It shaped how I think, how I create, and who I am.</p>
+      <h2 class="s-title">Where I am <em>from</em></h2>
+      <p class="s-desc">Tamil and Malayali, and never more than an hour from a coastline until London.</p>
     </div>
     <div class="roots-grid">
       <div class="root-card reveal">
-        <p class="root-place">📍 Kozhikode, Kerala</p>
-        <h3 class="root-title">Malayali Roots</h3>
-        <p class="root-body">Born on the Malabar Coast in Kozhikode, the historic cradle of the spice trade. Kerala instilled the belief that the world is always larger than your current horizon, and that you must remain curious about what lies beyond the next wave.</p>
+        <p class="root-place">Kozhikode, Kerala</p>
+        <h3 class="root-title">Malayali roots</h3>
+        <p class="root-body">Born on the Malabar Coast, in the old cradle of the spice trade — a place
+          built entirely on the assumption that the interesting things are somewhere over the horizon.</p>
       </div>
       <div class="root-card reveal delay-1">
-        <p class="root-place">📍 Pondicherry</p>
-        <h3 class="root-title">The French Coast</h3>
-        <p class="root-body">Raised in Pondicherry. It is simultaneously Tamil and French, deeply spiritual, and vibrant. It is the kind of place that teaches you there is never a single way to view the world. The Bay of Bengal was a constant background presence.</p>
+        <p class="root-place">Pondicherry</p>
+        <h3 class="root-title">The French coast</h3>
+        <p class="root-body">Raised Tamil and French at the same time, in a town that never resolved the
+          contradiction and was better for it.</p>
       </div>
       <div class="root-card reveal">
-        <p class="root-place">📍 Chennai, Tamil Nadu</p>
-        <h3 class="root-title">Tamil Identity</h3>
-        <p class="root-body">Four formative years in Chennai. Tamil culture holds a fierce, ancient intellectual tradition where mathematics, music, and literature interweave. It is my first language and the fundamental lens through which my thinking took shape.</p>
+        <p class="root-place">Chennai, Tamil Nadu</p>
+        <h3 class="root-title">Tamil identity</h3>
+        <p class="root-body">Four formative years. My first language, and an intellectual tradition where
+          mathematics, music and literature were never treated as separate subjects.</p>
       </div>
       <div class="root-card reveal delay-1">
-        <p class="root-place">📍 London, UK</p>
-        <h3 class="root-title">The Furthest Shore</h3>
-        <p class="root-body">London is a different kind of ocean. It’s a loud, brilliant crash of Arsenal match days, underground acid jazz, and a deeply multicultural lens on the world. But the mindset I learned growing up by the sea still works perfectly here: if you know how to look past the surface noise, you can always find the real rhythm underneath.</p>
+        <p class="root-place">London, UK</p>
+        <h3 class="root-title">The furthest shore</h3>
+        <p class="root-body">The latest coast. Grey, tidal, and more crowded with other people's
+          elsewheres than anywhere I have lived.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ═══════════ CONTACT ═══════════ -->
 <section id="contact">
   <div class="contact-in reveal">
-    <h2 class="contact-q">
-      Whether discussing data, Tamil cinema, football or what synth patch sounds best in a minor key, I am here.
-    </h2>
-    <p class="contact-sub">
-      I am always open to interesting conversations with collaborators, music heads, data analysts, or anyone who grew up near the coast.
-    </p>
+    <h2 class="contact-q">If you have a problem where the data is messy and the decision is expensive, that is the conversation I want.</h2>
+    <p class="contact-sub">Also happy to talk about Tamil cinema, Arsenal, or which synth patch belongs in a minor key.</p>
     <div class="contact-links">
-      <a href="https://in.linkedin.com/in/eshwar-nevedh-41b697196" target="_blank" class="cl">LinkedIn</a>
-      <a href="mailto:eshware.mam2026@london.edu" class="cl">Email Me</a>
-      <a href="https://open.substack.com/pub/eshwarnevedh/p/moonlight-vs-the-blue-light?utm_campaign=post-expanded-share&utm_medium=post%20viewer" class="cl">Read Blog</a>
+      <a href="mailto:eshwarnevedh@gmail.com" class="cl">Email</a>
+      <a href="https://in.linkedin.com/in/eshwar-nevedh-41b697196" class="cl" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/sken2002" class="cl" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://eshwarnevedh.substack.com/" class="cl" target="_blank" rel="noopener">Substack</a>
+      <a href="assets/Eshwar-Nevedh-CV.pdf" class="cl" download>CV</a>
     </div>
   </div>
 </section>
 
+</main>
+
+<footer>
+  <div class="inner">
+    <div>
+      <div>Eshwar Nevedh · London · <a href="mailto:eshwarnevedh@gmail.com">eshwarnevedh@gmail.com</a></div>
+      <div>Last updated July 2026</div>
+    </div>
+    <div style="text-align:right">
+      <div>One HTML file. No framework, no build step, no analytics, no third-party requests.</div>
+      <div>Fonts self-hosted · images AVIF · model solved client-side</div>
+    </div>
+  </div>
+</footer>
+
+<div id="draftbar" role="status">
+  <span><b id="drCount">0</b> unverified draft figures on this page — marked <span class="dr">like this</span>. Replace them before publishing.</span>
+  <button type="button" id="drJump">Jump to first</button>
+</div>
+
 <script>
-/* ── NAV SCROLL ── */
-const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60));
+"use strict";
 
-/* ── GOLDEN SPOTLIGHT PARTICLE CANVAS ── */
-(()=>{
-  const cv=document.getElementById('hc'),ctx=cv.getContext('2d');
-  let W,H,pts=[];
-  const resize=()=>{
-    W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;
-    pts=[];
-    for(let i=0;i<Math.floor(W/40);i++)
-      pts.push({x:Math.random()*W,y:Math.random()*H,
-        vx:(Math.random()-.5)*.15,vy:(Math.random()-.5)*.15,
-        r:Math.random()*2+.5});
-  };
-  const draw=()=>{
-    ctx.clearRect(0,0,W,H);
-    pts.forEach(p=>{
-      p.x+=p.vx;p.y+=p.vy;
-      if(p.x<0)p.x=W;if(p.x>W)p.x=0;
-      if(p.y<0)p.y=H;if(p.y>H)p.y=0;
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle=`rgba(229, 169, 61, 0.15)`; 
-      ctx.fill();
-    });
-    requestAnimationFrame(draw);
-  };
-  window.addEventListener('resize',resize);resize();draw();
-})();
+/* ─────────────── NAV ─────────────── */
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60), {passive:true});
 
-/* ── INTERSECTION OBSERVER FOR STAGGERED REVEALS ── */
-const io=new IntersectionObserver(es=>{
-  es.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add('vis');
-      io.unobserve(e.target); // Unobserve after revealing
-    }
-  })
-},{threshold: 0.15}); // Triggers when 15% of element is visible
+const navToggle = document.getElementById('navToggle');
+navToggle.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', String(open));
+});
+document.querySelectorAll('#navLinks a').forEach(a =>
+  a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    navToggle.setAttribute('aria-expanded','false');
+  }));
 
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+/* ─────────────── DEPTH CONTROL ─────────────── */
+const seg = document.getElementById('depthSeg');
+function setDepth(d){
+  document.documentElement.setAttribute('data-depth', d);
+  seg.querySelectorAll('button').forEach(b =>
+    b.setAttribute('aria-pressed', String(b.dataset.d === d)));
+  try { localStorage.setItem('depth', d); } catch(e){}
+}
+seg.addEventListener('click', e => {
+  const b = e.target.closest('button');
+  if (b) setDepth(b.dataset.d);
+});
+setDepth(document.documentElement.getAttribute('data-depth') || 'deep');
 
-/* ── SMOOTH SCROLL ── */
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',e=>{
-    const t=document.querySelector(a.getAttribute('href'));
-    if(!t)return;e.preventDefault();
-    window.scrollTo({top:t.getBoundingClientRect().top+scrollY-72,behavior:'smooth'});
+/* ─────────────── REVEALS ─────────────── */
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (reduce) {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('vis'));
+} else {
+  const io = new IntersectionObserver((es) => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
+  }, {threshold: .12, rootMargin: '0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  // failsafe: never leave content invisible
+  setTimeout(() => document.querySelectorAll('.reveal:not(.vis)').forEach(el => {
+    const r = el.getBoundingClientRect();
+    if (r.top < innerHeight) el.classList.add('vis');
+  }), 2500);
+}
+
+/* ─────────────── SMOOTH SCROLL ─────────────── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href');
+    if (id.length < 2) return;
+    const t = document.querySelector(id);
+    if (!t) return;
+    e.preventDefault();
+    scrollTo({top: t.getBoundingClientRect().top + scrollY - 76, behavior: reduce ? 'auto' : 'smooth'});
   });
 });
+
+/* ─────────────── CARD STACK (touch + keyboard) ─────────────── */
+(() => {
+  const stack = document.getElementById('stack');
+  const hint  = document.getElementById('stackHint');
+  const cards = [...stack.querySelectorAll('picture')];
+  const touch = matchMedia('(hover: none)').matches || navigator.maxTouchPoints > 0;
+  if (touch) hint.textContent = 'Tap to fan out';
+
+  let i = 0;
+  stack.addEventListener('click', () => {
+    if (!stack.classList.contains('fan')) {
+      stack.classList.add('fan');
+      hint.textContent = touch ? 'Tap again to cycle' : 'Click to cycle';
+      return;
+    }
+    cards.forEach(c => c.classList.remove('up'));
+    i = (i + 1) % cards.length;
+    cards[i].classList.add('up');
+  });
+  stack.addEventListener('mouseleave', () => {
+    if (!touch) { stack.classList.remove('fan'); cards.forEach(c => c.classList.remove('up')); }
+  });
+})();
+
+/* ─────────────── HERO PARTICLES (DPR-aware, pauses offscreen) ─────────────── */
+(() => {
+  const cv = document.getElementById('hc');
+  if (!cv || reduce) return;
+  const ctx = cv.getContext('2d');
+  let W = 0, H = 0, pts = [], raf = 0, running = false;
+
+  const resize = () => {
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    W = cv.offsetWidth; H = cv.offsetHeight;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const n = Math.min(Math.floor(W / 40), 44);
+    pts = Array.from({length: n}, () => ({
+      x: Math.random()*W, y: Math.random()*H,
+      vx: (Math.random()-.5)*.15, vy: (Math.random()-.5)*.15,
+      r: Math.random()*2 + .5
+    }));
+  };
+
+  const draw = () => {
+    ctx.clearRect(0, 0, W, H);
+    ctx.fillStyle = 'rgba(229,169,61,.15)';
+    for (const p of pts) {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0) p.x = W; else if (p.x > W) p.x = 0;
+      if (p.y < 0) p.y = H; else if (p.y > H) p.y = 0;
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.2832); ctx.fill();
+    }
+    raf = requestAnimationFrame(draw);
+  };
+
+  const start = () => { if (!running) { running = true; raf = requestAnimationFrame(draw); } };
+  const stop  = () => { running = false; cancelAnimationFrame(raf); };
+
+  let t; addEventListener('resize', () => { clearTimeout(t); t = setTimeout(resize, 150); });
+  resize();
+
+  new IntersectionObserver(es => es[0].isIntersecting ? start() : stop()).observe(cv);
+  document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
+})();
+
+/* ─────────────── DRAFT-FIGURE TRACKER ─────────────── */
+(() => {
+  const bar0 = document.getElementById('draftbar');
+  const drafts = [...document.querySelectorAll('.dr')].filter(el => !bar0.contains(el));
+  if (!drafts.length) return;
+  const bar = document.getElementById('draftbar');
+  document.getElementById('drCount').textContent = drafts.length;
+  bar.classList.add('on');
+  let n = 0;
+  document.getElementById('drJump').addEventListener('click', () => {
+    const el = drafts[n % drafts.length]; n++;
+    el.scrollIntoView({block:'center', behavior: reduce ? 'auto' : 'smooth'});
+    el.animate([{background:'rgba(229,169,61,.6)'},{background:'transparent'}], {duration:1400});
+  });
+})();
+
+/* ═══════════════════════════════════════════════════════════
+   MACRO VOLATILITY TRACKER
+   State  : (regime r, allocation currently held h)  ->  3 x 66 = 198
+   Action : target allocation a on a 10% simplex over {equity, credit, cash}
+   Reward : a·μ_r/12 − (λ/2)·aᵀΣ_r a/12 − tc·turnover(h,a)
+   Bellman: V(r,h) = max_a [ R(r,h,a) + γ Σ_r' P(r,r') V(r',a) ]
+
+   Holdings are in the state because rebalancing costs money. Drop the cost
+   term and the problem decomposes into three independent one-period
+   optimisations — γ stops mattering and every solution sits on a corner.
+   ═══════════════════════════════════════════════════════════ */
+(() => {
+  const svgNS = 'http://www.w3.org/2000/svg';
+  const REG = ['Calm', 'Stress', 'Crisis'];
+  const REG_FILL = ['transparent', '#3d3524', '#4a2b2b'];
+
+  /* annualised synthetic parameters — [equity, credit, cash] */
+  const MU = [
+    [ 0.085, 0.042, 0.025],
+    [ 0.005, 0.045, 0.028],
+    [-0.120,-0.020, 0.030]
+  ];
+  const SD = [
+    [0.135, 0.055, 0.002],
+    [0.190, 0.075, 0.002],
+    [0.300, 0.120, 0.002]
+  ];
+  const RHO = [0.10, 0.35, 0.65];        // equity/credit correlation, rises in stress
+
+  const covOf = (s) => {
+    const d = SD[s], r = RHO[s];
+    return [[d[0]*d[0], r*d[0]*d[1], 0],
+            [r*d[0]*d[1], d[1]*d[1], 0],
+            [0, 0, d[2]*d[2]]];
+  };
+  const baseP = (persist) => {
+    const P = [[0.94,0.05,0.01],[0.18,0.72,0.10],[0.06,0.30,0.64]];
+    const rest = 1 - persist, w0 = 0.06/0.36, w1 = 0.30/0.36;
+    P[2] = [rest*w0, rest*w1, persist];
+    return P;
+  };
+
+  /* action set: 10% simplex grid */
+  const A = [];
+  for (let i = 0; i <= 10; i++)
+    for (let j = 0; j <= 10 - i; j++) A.push([i/10, j/10, (10-i-j)/10]);
+  const NA = A.length;                    // 66
+  const H0 = A.findIndex(a => Math.abs(a[0]-0.6) < 1e-9 && Math.abs(a[1]-0.4) < 1e-9);
+
+  /* one-way turnover between every ordered pair of grid allocations (static) */
+  const TURN = new Float64Array(NA*NA);
+  for (let h = 0; h < NA; h++)
+    for (let a = 0; a < NA; a++) {
+      let s = 0;
+      for (let k = 0; k < 3; k++) s += Math.abs(A[a][k] - A[h][k]);
+      TURN[h*NA + a] = 0.5*s;
+    }
+
+  const dot = (u, v) => u[0]*v[0] + u[1]*v[1] + u[2]*v[2];
+  const quad = (a, S) => {
+    let t = 0;
+    for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++) t += a[i]*S[i][j]*a[j];
+    return t;
+  };
+  const turnFrom = (w, a) =>
+    .5*(Math.abs(a[0]-w[0]) + Math.abs(a[1]-w[1]) + Math.abs(a[2]-w[2]));
+  const nearest = (w) => {
+    let bi = 0, bd = Infinity;
+    for (let i = 0; i < NA; i++) {
+      const d = turnFrom(w, A[i]);
+      if (d < bd) { bd = d; bi = i; }
+    }
+    return bi;
+  };
+
+  function solve(lambda, gamma, persist, tc) {
+    const P = baseP(persist);
+    const COV = [covOf(0), covOf(1), covOf(2)];
+
+    /* myopic monthly utility M[r][a] */
+    const M = [];
+    for (let r = 0; r < 3; r++) {
+      const row = new Float64Array(NA);
+      for (let a = 0; a < NA; a++)
+        row[a] = dot(A[a], MU[r])/12 - (lambda/2)*quad(A[a], COV[r])/12;
+      M.push(row);
+    }
+
+    let V = [new Float64Array(NA), new Float64Array(NA), new Float64Array(NA)];
+    const POL = [new Int16Array(NA), new Int16Array(NA), new Int16Array(NA)];
+    const C = [new Float64Array(NA), new Float64Array(NA), new Float64Array(NA)];
+    let iters = 0;
+
+    for (let it = 0; it < 900; it++) {
+      iters = it + 1;
+      for (let r = 0; r < 3; r++) {
+        const p = P[r], c = C[r];
+        for (let a = 0; a < NA; a++)
+          c[a] = gamma*(p[0]*V[0][a] + p[1]*V[1][a] + p[2]*V[2][a]);
+      }
+      const nV = [new Float64Array(NA), new Float64Array(NA), new Float64Array(NA)];
+      let delta = 0;
+      for (let r = 0; r < 3; r++) {
+        const m = M[r], c = C[r], pol = POL[r], nv = nV[r], v = V[r];
+        for (let h = 0; h < NA; h++) {
+          const off = h*NA;
+          let best = -Infinity, bi = 0;
+          for (let a = 0; a < NA; a++) {
+            const q = m[a] - tc*TURN[off + a] + c[a];
+            if (q > best) { best = q; bi = a; }
+          }
+          nv[h] = best; pol[h] = bi;
+          const d = Math.abs(best - v[h]);
+          if (d > delta) delta = d;
+        }
+      }
+      V = nV;
+      if (delta < 1e-11) break;
+    }
+
+    /* stationary distribution */
+    let pi = [1/3, 1/3, 1/3];
+    for (let it = 0; it < 3000; it++) {
+      const n = [0, 0, 0];
+      for (let r = 0; r < 3; r++) for (let j = 0; j < 3; j++) n[j] += pi[r]*P[r][j];
+      pi = n;
+    }
+
+    /* resting allocation: fixed point of h -> π(r,h) if the regime persists */
+    const resting = [];
+    for (let r = 0; r < 3; r++) {
+      let h = H0; const seen = new Set([h]);
+      for (let k = 0; k < 300; k++) {
+        const nx = POL[r][h];
+        if (nx === h) break;
+        h = nx;
+        if (seen.has(nx)) break;
+        seen.add(nx);
+      }
+      resting.push(A[h]);
+    }
+    return {P, POL, pi, resting, iters};
+  }
+
+  /* seeded RNG — the path must not change between reloads */
+  const mulberry32 = (a) => () => {
+    a |= 0; a = a + 0x6D2B79F5 | 0;
+    let t = Math.imul(a ^ a >>> 15, 1 | a);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+  const gauss = (rnd) => {
+    let u = 0, v = 0;
+    while (u === 0) u = rnd();
+    while (v === 0) v = rnd();
+    return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);
+  };
+  const chol = (S) => {
+    const L = [[0,0,0],[0,0,0],[0,0,0]];
+    for (let i = 0; i < 3; i++)
+      for (let j = 0; j <= i; j++) {
+        let s = S[i][j];
+        for (let k = 0; k < j; k++) s -= L[i][k]*L[j][k];
+        L[i][j] = i === j ? Math.sqrt(Math.max(s, 1e-16)) : s/L[j][j];
+      }
+    return L;
+  };
+
+  const MONTHS = 360, STATIC = [0.6, 0.4, 0];
+
+  function simulate(POL, P, tc, seed = 20260731) {
+    const rnd = mulberry32(seed);
+    const CL = [chol(covOf(0)), chol(covOf(1)), chol(covOf(2))];
+    let r = 0, h = H0;
+    let wM = 1, wS = 1, turn = 0;
+    let heldM = STATIC.slice(), heldS = STATIC.slice();
+    const pathM = [1], pathS = [1], regimes = [], retM = [], retS = [];
+
+    for (let t = 0; t < MONTHS; t++) {
+      regimes.push(r);
+
+      /* rebalance, paying costs on actual drifted weights */
+      const a = A[POL[r][h]];
+      const tvM = turnFrom(heldM, a);
+      turn += tvM;
+      wM *= 1 - tc*tvM;
+      const tvS = turnFrom(heldS, STATIC);
+      wS *= 1 - tc*tvS;
+
+      /* correlated monthly returns */
+      const z = [gauss(rnd), gauss(rnd), gauss(rnd)], L = CL[r], ret = [0,0,0];
+      for (let i = 0; i < 3; i++) {
+        let e = 0;
+        for (let k = 0; k <= i; k++) e += L[i][k]*z[k];
+        ret[i] = MU[r][i]/12 + e/Math.sqrt(12);
+      }
+
+      const pm = dot(a, ret), ps = dot(STATIC, ret);
+      retM.push(pm); retS.push(ps);
+      wM *= 1 + pm; wS *= 1 + ps;
+      pathM.push(wM); pathS.push(wS);
+
+      /* weights drift with returns; snap to the grid for the next state */
+      heldM = a.map((x, i) => x*(1 + ret[i])/(1 + pm));
+      heldS = STATIC.map((x, i) => x*(1 + ret[i])/(1 + ps));
+      h = nearest(heldM);
+
+      const u = rnd(); let acc = 0, ns = 2;
+      for (let j = 0; j < 3; j++) { acc += P[r][j]; if (u <= acc) { ns = j; break; } }
+      r = ns;
+    }
+
+    const stats = (path, rets) => {
+      const yrs = MONTHS/12;
+      const cagr = Math.pow(path[path.length-1], 1/yrs) - 1;
+      const m = rets.reduce((x,y)=>x+y, 0)/rets.length;
+      const vol = Math.sqrt(rets.reduce((x,y)=>x+(y-m)*(y-m), 0)/(rets.length-1))*Math.sqrt(12);
+      let peak = -Infinity, mdd = 0;
+      for (const w of path) { if (w > peak) peak = w; mdd = Math.min(mdd, w/peak - 1); }
+      return {cagr, vol, mdd, sharpe: vol > 0 ? (cagr - 0.027)/vol : 0};
+    };
+    return {pathM, pathS, regimes,
+            mdp: stats(pathM, retM), stat: stats(pathS, retS),
+            turnover: turn/(MONTHS/12)};
+  }
+
+  /* One path is an anecdote. Chart the representative path, but report the
+     median across NPATH independent draws so the numbers are not a lucky seed. */
+  const NPATH = 120;
+  const median = (xs) => {
+    const s = [...xs].sort((a, b) => a - b), h = s.length >> 1;
+    return s.length % 2 ? s[h] : (s[h-1] + s[h])/2;
+  };
+
+  function evaluate(POL, P, tc) {
+    const shown = simulate(POL, P, tc);
+    const acc = {mc:[], mv:[], md:[], ms:[], sc:[], sv:[], sd:[], ss:[], tu:[]};
+    for (let k = 0; k < NPATH; k++) {
+      const s = simulate(POL, P, tc, 1000003 + k*7919);
+      acc.mc.push(s.mdp.cagr);  acc.mv.push(s.mdp.vol);
+      acc.md.push(s.mdp.mdd);   acc.ms.push(s.mdp.sharpe);
+      acc.sc.push(s.stat.cagr); acc.sv.push(s.stat.vol);
+      acc.sd.push(s.stat.mdd);  acc.ss.push(s.stat.sharpe);
+      acc.tu.push(s.turnover);
+    }
+    return {
+      pathM: shown.pathM, pathS: shown.pathS, regimes: shown.regimes,
+      mdp:  {cagr: median(acc.mc), vol: median(acc.mv), mdd: median(acc.md), sharpe: median(acc.ms)},
+      stat: {cagr: median(acc.sc), vol: median(acc.sv), mdd: median(acc.sd), sharpe: median(acc.ss)},
+      turnover: median(acc.tu)
+    };
+  }
+
+  /* ── rendering ── */
+  const el = (n, at) => {
+    const e = document.createElementNS(svgNS, n);
+    for (const k in at) e.setAttribute(k, at[k]);
+    return e;
+  };
+  const pct = (x, d=1) => (x*100).toFixed(d) + '%';
+
+  function drawAlloc(resting) {
+    const svg = document.getElementById('allocChart');
+    svg.textContent = '';
+    const X0 = 62, W = 470, ROW = 34, GAP = 14;
+    const cols = ['var(--eq)', 'var(--cr)', 'var(--ca)'];
+    resting.forEach((a, s) => {
+      const y = 12 + s*(ROW + GAP);
+      const lab = el('text', {x: 0, y: y + ROW/2 + 4, fill: 'var(--text-s)',
+        'font-family': 'var(--mono)', 'font-size': '12'});
+      lab.textContent = REG[s];
+      svg.appendChild(lab);
+      let x = X0;
+      a.forEach((w, i) => {
+        if (w <= 0) return;
+        const bw = w*W;
+        svg.appendChild(el('rect', {x, y, width: Math.max(bw - 1.5, 1), height: ROW,
+          fill: cols[i], rx: 2, opacity: .88}));
+        if (bw > 42) {
+          const t = el('text', {x: x + bw/2, y: y + ROW/2 + 4, 'text-anchor': 'middle',
+            fill: '#14100c', 'font-family': 'var(--mono)', 'font-size': '12'});
+          t.textContent = Math.round(w*100) + '%';
+          svg.appendChild(t);
+        }
+        x += bw;
+      });
+    });
+  }
+
+  function drawPath(sim) {
+    const svg = document.getElementById('pathChart');
+    svg.textContent = '';
+    const L = 46, R = 8, T = 10, B = 24, W = 560 - L - R, H = 230 - T - B;
+    const all = sim.pathM.concat(sim.pathS);
+    const lo = Math.max(Math.min(...all), 1e-6), hi = Math.max(...all);
+    const span = Math.log(hi/lo) || 1;
+    const yS = (v) => T + H - (Math.log(v/lo)/span)*H;
+    const xS = (i) => L + (i/MONTHS)*W;
+
+    let run = 0;
+    for (let t = 1; t <= sim.regimes.length; t++) {
+      if (t === sim.regimes.length || sim.regimes[t] !== sim.regimes[run]) {
+        const r = sim.regimes[run];
+        if (r > 0) svg.appendChild(el('rect', {x: xS(run), y: T,
+          width: Math.max(xS(t) - xS(run), .8), height: H, fill: REG_FILL[r], opacity: .55}));
+        run = t;
+      }
+    }
+    [1,2,5,10,20,50,100].filter(v => v >= lo && v <= hi).forEach(v => {
+      svg.appendChild(el('line', {x1: L, x2: L+W, y1: yS(v), y2: yS(v),
+        stroke: 'var(--border)', 'stroke-width': 1}));
+      const t = el('text', {x: L-8, y: yS(v)+4, 'text-anchor': 'end', fill: 'var(--text-t)',
+        'font-family': 'var(--mono)', 'font-size': '12'});
+      t.textContent = v + '×';
+      svg.appendChild(t);
+    });
+    for (let y = 0; y <= 30; y += 10) {
+      const t = el('text', {x: xS(y*12), y: 224, 'text-anchor': y === 0 ? 'start' : 'middle',
+        fill: 'var(--text-t)', 'font-family': 'var(--mono)', 'font-size': '12'});
+      t.textContent = 'yr ' + y;
+      svg.appendChild(t);
+    }
+    const line = (path, stroke, w) => {
+      const d = path.map((v,i) => (i ? 'L' : 'M') + xS(i).toFixed(1) + ' ' + yS(v).toFixed(1)).join(' ');
+      svg.appendChild(el('path', {d, fill: 'none', stroke, 'stroke-width': w, 'stroke-linejoin': 'round'}));
+    };
+    line(sim.pathS, '#7f7469', 1.4);
+    line(sim.pathM, 'var(--gold)', 2);
+  }
+
+  function drawStats(sim) {
+    const d = (a, b) => ((a-b) >= 0 ? '+' : '') + ((a-b)*100).toFixed(1) + 'pp vs 60/40';
+    document.getElementById('mStats').innerHTML = `
+      <div class="mstat"><div class="k">CAGR</div>
+        <div class="v ${sim.mdp.cagr >= sim.stat.cagr ? 'pos' : 'neg'}">${pct(sim.mdp.cagr)}</div>
+        <div class="d">${d(sim.mdp.cagr, sim.stat.cagr)}</div></div>
+      <div class="mstat"><div class="k">Volatility</div>
+        <div class="v ${sim.mdp.vol <= sim.stat.vol ? 'pos' : 'neg'}">${pct(sim.mdp.vol)}</div>
+        <div class="d">${d(sim.mdp.vol, sim.stat.vol)}</div></div>
+      <div class="mstat"><div class="k">Max drawdown</div>
+        <div class="v ${sim.mdp.mdd >= sim.stat.mdd ? 'pos' : 'neg'}">${pct(sim.mdp.mdd)}</div>
+        <div class="d">${d(sim.mdp.mdd, sim.stat.mdd)}</div></div>
+      <div class="mstat"><div class="k">Sharpe</div>
+        <div class="v ${sim.mdp.sharpe >= sim.stat.sharpe ? 'pos' : 'neg'}">${sim.mdp.sharpe.toFixed(2)}</div>
+        <div class="d">60/40: ${sim.stat.sharpe.toFixed(2)}</div></div>
+      <div class="mstat"><div class="k">Turnover / yr</div>
+        <div class="v">${pct(sim.turnover, 0)}</div>
+        <div class="d">one-way, cost paid</div></div>`;
+    document.getElementById('mStatNote').textContent =
+      `median of ${NPATH} simulated 30-year paths`;
+  }
+
+  function drawStationary(pi) {
+    document.getElementById('statDist').innerHTML = REG.map((r, i) => `
+      <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.45rem">
+        <span style="font-family:var(--mono);font-size:.6rem;color:var(--text-t);width:44px">${r}</span>
+        <span style="flex:1;height:6px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden">
+          <span style="display:block;height:100%;width:${(pi[i]*100).toFixed(1)}%;background:var(--gold);opacity:${.4 + i*.3}"></span>
+        </span>
+        <span style="font-family:var(--mono);font-size:.62rem;color:var(--text-s);width:38px;text-align:right">${(pi[i]*100).toFixed(0)}%</span>
+      </div>`).join('');
+  }
+
+  const $ = (id) => document.getElementById(id);
+  let queued = false;
+
+  function run() {
+    queued = false;
+    const lam = +$('cLam').value, gam = +$('cGam').value,
+          per = +$('cPer').value, tcb = +$('cTc').value;
+    $('oLam').textContent = lam.toFixed(1);
+    $('oGam').textContent = gam.toFixed(2);
+    $('oPer').textContent = per.toFixed(2);
+    $('oTc').textContent  = tcb + ' bps';
+
+    const {POL, P, pi, resting} = solve(lam, gam, per, tcb/10000);
+    const sim = evaluate(POL, P, tcb/10000);
+    drawAlloc(resting);
+    drawStats(sim);
+    drawPath(sim);
+    drawStationary(pi);
+
+    /* Is γ actually doing anything here? Compare against a nudged γ and report
+       the share of states whose optimal action moves. At low rebalancing cost
+       this correctly reads 0% — the problem has decomposed and γ is inert. */
+    const g2 = gam >= 0.955 ? gam - 0.05 : gam + 0.05;
+    const alt = solve(lam, g2, per, tcb/10000);
+    let diff = 0;
+    for (let r = 0; r < 3; r++)
+      for (let h = 0; h < NA; h++) if (alt.POL[r][h] !== POL[r][h]) diff++;
+    $('gBind').textContent = diff
+      ? `Currently binding on ${Math.round(diff/(3*NA)*100)}% of states.`
+      : 'Inert at this rebalancing cost — raise the cost below to make it bite.';
+  }
+  const schedule = () => { if (!queued) { queued = true; requestAnimationFrame(run); } };
+
+  ['cLam','cGam','cPer','cTc'].forEach(id => $(id).addEventListener('input', schedule));
+  $('mReset').addEventListener('click', () => {
+    $('cLam').value = 4; $('cGam').value = 0.95; $('cPer').value = 0.64; $('cTc').value = 50;
+    schedule();
+  });
+
+  /* only solve once the section is actually approached */
+  const mio = new IntersectionObserver((es, o) => {
+    if (es[0].isIntersecting) { run(); o.disconnect(); }
+  }, {rootMargin: '400px'});
+  mio.observe(document.getElementById('model'));
+})();
+
+/* ─────────────── PROJECT-CARD SPARK THUMBNAIL ─────────────── */
+(() => {
+  const box = document.getElementById('mvtThumb');
+  if (!box) return;
+  const rnd = (s => () => (s = Math.imul(s ^ s>>>15, 1|s), ((s ^ s>>>14)>>>0)/4294967296))(7);
+  let v = 1; const pts = [];
+  for (let i = 0; i < 120; i++) { v *= 1 + (rnd()-.42)*.05; pts.push(v); }
+  const lo = Math.min(...pts), hi = Math.max(...pts);
+  const d = pts.map((p,i) => `${i?'L':'M'}${(i/119*300).toFixed(1)} ${(90-(p-lo)/(hi-lo)*70).toFixed(1)}`).join(' ');
+  box.innerHTML =
+    `<svg viewBox="0 0 300 100" style="width:100%;height:100%;padding:1.4rem" aria-hidden="true">
+       <path d="${d}" fill="none" stroke="#e5a93d" stroke-width="1.6" opacity=".75"/>
+       <path d="${d} L300 100 L0 100 Z" fill="url(#g1)" opacity=".18"/>
+       <defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+         <stop offset="0" stop-color="#e5a93d"/><stop offset="1" stop-color="#e5a93d" stop-opacity="0"/>
+       </linearGradient></defs>
+     </svg>`;
+})();
 </script>
 </body>
 </html>

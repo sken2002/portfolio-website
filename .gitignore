@@ -1,0 +1,17 @@
+# local dev
+.claude/
+.vercel/
+.DS_Store
+Thumbs.db
+
+# working notes — NOT for a public repo
+PUBLISH.md
+
+# source images superseded by the generated assets/ variants
+*.jpeg
+portrait-lbs-eshwar.jpg
+finpulselogo.jpg
+lbseyplaceholder.jpg
+
+# previous version of the site
+portfolio_website_esh.html
