@@ -59,6 +59,7 @@
   --on-ink:#EFEDE7; --on-ink2:#9A968C;
 
   --sans:'Geist',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --display:'Instrument Serif',Georgia,serif;
   --indic:'Nirmala UI','Noto Sans Tamil','Noto Sans Malayalam',Latha,sans-serif;
 
   --t-display:clamp(2.5rem,1.2rem + 5.6vw,5.6rem);
@@ -85,12 +86,14 @@ a{color:inherit}
 ::selection{background:var(--oxide);color:#fff}
 :focus-visible{outline:2px solid var(--oxide);outline-offset:3px;border-radius:2px}
 
-h1,h2,h3{font-weight:600;color:var(--ink);letter-spacing:-.035em;line-height:1.05}
-h1{font-size:var(--t-display);letter-spacing:-.045em;text-wrap:balance}
-h1 em{font-style:normal;font-weight:400;color:var(--ink-soft)}
+/* display serif for the two loudest levels; grotesk for everything working */
+h1,h2{font-family:var(--display);font-weight:400;color:var(--ink);
+  letter-spacing:-.02em;line-height:1.02}
+h1{font-size:var(--t-display);text-wrap:balance}
+h1 em,h2 em{font-style:italic;color:var(--oxide)}
 h2{font-size:var(--t-h2)}
-h2 em{font-style:normal;font-weight:400;color:var(--ink-soft)}
-h3{font-size:var(--t-h3);letter-spacing:-.022em;line-height:1.2}
+h3{font-family:var(--sans);font-weight:600;color:var(--ink);
+  font-size:var(--t-h3);letter-spacing:-.022em;line-height:1.2}
 p{text-wrap:pretty}
 b,strong{font-weight:600;color:var(--ink)}
 .num{font-weight:600;color:var(--ink)}
@@ -158,19 +161,23 @@ nav.scrolled{background:color-mix(in srgb,var(--bone) 90%,transparent);
   padding:6rem 0 3rem;overflow:hidden}
 #field{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:.62}
 .hero-grid{display:grid;gap:clamp(1.8rem,3.5vw,3.5rem);align-items:center;
-  grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr))}
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,24rem),1fr))}
 .eyebrow{font-size:var(--t-small);font-weight:600;color:var(--oxide);
   letter-spacing:.055em;text-transform:uppercase;margin-bottom:1rem}
 .name-native{display:block;font-size:var(--t-small);font-weight:400;color:var(--ink3);
   margin-top:.9rem;font-family:var(--indic);letter-spacing:0}
 #hero h1{margin:0 0 1.1rem}
 .hero-lede{margin-bottom:1.5rem}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,9.5rem),1fr));
-  gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;margin-bottom:1.6rem}
-.fact{background:var(--bone);padding:.85rem 1rem}
-.fact dt{font-size:var(--t-small);font-weight:500;color:var(--ink3);margin-bottom:.3rem}
-.fact dd{font-size:var(--t-small);font-weight:600;line-height:1.4}
-.fact dd .hi{color:var(--oxide)}
+/* a printed specimen line rather than a grid of boxes — cannot leave a dead cell */
+.spec{border-top:1px solid var(--ink);border-bottom:1px solid var(--line);
+  padding:.9rem 0 1rem;margin-bottom:1.5rem;max-width:44rem}
+.spec-seek{font-size:var(--t-body);color:var(--ink2);margin-bottom:.45rem}
+.spec-seek b{font-weight:600;color:var(--ink)}
+.spec-status{display:flex;flex-wrap:wrap;gap:.35rem 1.5rem;font-size:var(--t-small);color:var(--ink3)}
+.spec-status span{display:inline-flex;align-items:baseline;gap:.5rem}
+.spec-status span::before{content:'C6';color:var(--oxide);font-size:.52em;
+  position:relative;top:-.15em}
+.spec-status .now{color:var(--oxide);font-weight:600}
 .ctas{display:flex;gap:1.3rem;flex-wrap:wrap;font-size:var(--t-small);font-weight:600}
 
 /* ── HALFTONE PLATES ── */
@@ -215,6 +222,8 @@ td{padding:1.05rem 1.2rem 1.05rem 0;border-bottom:1px solid var(--line);
 th:last-child,td:last-child{padding-right:0;text-align:right;white-space:nowrap}
 tbody tr{transition:background .3s}
 tbody tr:hover{background:var(--card)}
+tbody td:first-child{border-left:2px solid var(--line2);padding-left:.9rem}
+tbody tr[data-kind="public"] td:first-child{border-left-color:var(--oxide)}
 .e-what{display:block;font-size:var(--t-h3);font-weight:600;color:var(--ink);
   letter-spacing:-.022em;line-height:1.2;margin-bottom:.2rem}
 .tag{font-size:var(--t-small);font-weight:500;color:var(--ink3);text-decoration:none}
@@ -225,7 +234,14 @@ a.tag{color:var(--oxide)}
 .cs::after{content:'';position:absolute;bottom:-1px;left:0;height:1px;width:0;
   background:var(--oxide);transition:width .6s var(--e)}
 .cs:hover::after{width:100%}
-.cs-top{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:baseline;margin-bottom:.7rem}
+.cs-top{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  align-items:flex-start;margin-bottom:.7rem}
+.cs-id{display:flex;gap:.85rem;align-items:flex-start;min-width:0;flex:1 1 18rem}
+.mark{position:relative;width:46px;height:46px;flex-shrink:0;border-radius:3px;overflow:hidden;
+  background:var(--ink);display:grid;place-items:center}
+.mark canvas{position:absolute;inset:0;width:100%;height:100%}
+.mark b{position:relative;z-index:2;font-family:var(--display);font-size:1.3rem;font-weight:400;
+  color:var(--bone);line-height:1}
 .cs-lede{color:var(--ink2);max-width:64ch;margin-bottom:1.2rem}
 dl.f{display:grid;grid-template-columns:minmax(8rem,10.5rem) 1fr;gap:.35rem 2rem}
 dl.f dt{font-size:var(--t-small);font-weight:600;color:var(--oxide);padding-top:.2rem}
@@ -237,9 +253,12 @@ dl.f dd li::before{content:'';position:absolute;left:0;top:.7em;width:5px;height
 .stack{color:var(--ink3)}
 
 /* ── PROJECT ROWS ── */
-.row{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1.5fr) auto;gap:1.2rem;
-  align-items:baseline;padding:1.05rem 0;border-bottom:1px solid var(--line);
+.row{display:grid;grid-template-columns:auto minmax(0,1fr) minmax(0,1.45fr) auto;gap:1.2rem;
+  align-items:start;padding:1.05rem 0;border-bottom:1px solid var(--line);
   position:relative;text-decoration:none;color:inherit}
+.glyph{width:58px;height:42px;flex-shrink:0;border:1px solid var(--line);border-radius:2px;
+  background:var(--card);transition:border-color .5s var(--e),background .5s var(--e)}
+.row:hover .glyph{border-color:var(--oxide);background:var(--bone2)}
 .row::after{content:'';position:absolute;bottom:-1px;left:0;height:1px;width:0;
   background:var(--oxide);transition:width .6s var(--e)}
 .row:hover::after{width:100%}
@@ -296,8 +315,8 @@ dl.f dd li::before{content:'';position:absolute;left:0;top:.7em;width:5px;height
 
 /* ── SPLITS ── */
 .split{display:grid;gap:clamp(1.5rem,3vw,3rem);
-  grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));align-items:start}
-.split--media{grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr))}
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,21rem),1fr));align-items:start}
+.split--media{grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr))}
 .blk h3{margin-bottom:.5rem}
 .blk p{color:var(--ink2);font-size:var(--t-small)}
 .blk ul{list-style:none;margin-top:.8rem;font-size:var(--t-small);color:var(--ink3)}
@@ -325,7 +344,10 @@ footer a{color:var(--oxide)}
   nav.open .nav-links{display:flex}
   .nav-links a{display:block;padding:.65rem 0}
   #hero{padding-top:clamp(8rem,19vh,10.5rem);min-height:0}
-  .row{grid-template-columns:1fr;gap:.35rem;padding:.95rem 0}
+  /* keep the glyph beside its title; let the prose span underneath */
+  .row{grid-template-columns:auto 1fr;gap:.3rem .85rem;padding:.95rem 0}
+  .row .row-d,.row .row-x{grid-column:1/-1}
+  .row-x{margin-top:.15rem}
   dl.f{grid-template-columns:1fr;gap:.1rem}
   dl.f dt{padding-top:.85rem}
 }
@@ -395,12 +417,15 @@ footer a{color:var(--oxide)}
           <span class="num">~£6bn</span> fund — sole data lead at The Sports Consultancy, and AI risk
           intelligence with EY. Equally comfortable writing the pipeline and defending it to a board.</p>
 
-        <dl class="facts rv">
-          <div class="fact"><dt>Seeking</dt><dd>Data &amp; AI consulting · DS/ML · Analytics strategy</dd></div>
-          <div class="fact"><dt>Available</dt><dd><span class="hi">Immediately</span></dd></div>
-          <div class="fact"><dt>Work authorisation</dt><dd>UK Graduate Route — no sponsorship</dd></div>
-          <div class="fact"><dt>Based</dt><dd>London · open to relocation</dd></div>
-        </dl>
+        <div class="spec rv">
+          <p class="spec-seek">Seeking <b>data &amp; AI consulting</b>, <b>data science / ML</b>,
+            or <b>analytics strategy</b>.</p>
+          <p class="spec-status">
+            <span class="now">Available now</span>
+            <span>UK Graduate Route &mdash; no sponsorship needed</span>
+            <span>London, open to relocation</span>
+          </p>
+        </div>
 
         <div class="ctas rv">
           <a class="u on" href="assets/Eshwar-Nevedh-CV.pdf" download>Download CV</a>
@@ -471,17 +496,17 @@ footer a{color:var(--oxide)}
           <td>2024</td><td><span class="num">18+ sources</span> into the daily dashboards a FTSE-100
           consumer-healthcare multinational's commercial teams decided on. Sole client contact.</td>
           <td><span class="tag">Client — private</span></td></tr>
-        <tr><td><span class="e-what">CARVIS — LangGraph agent</span><span class="meta">Independent</span></td>
+        <tr data-kind="public"><td><span class="e-what">CARVIS — LangGraph agent</span><span class="meta">Independent</span></td>
           <td>2025</td><td>AI career agent. <span class="num">Top 3, LBS AI Agent Cup.</span></td>
           <td><a class="tag u" href="https://github.com/sken2002/carvis-ai-job-agent" target="_blank" rel="noopener">Code →</a></td></tr>
-        <tr><td><span class="e-what">Axiom — 3-stage ML pipeline</span><span class="meta">London Business School</span></td>
+        <tr data-kind="public"><td><span class="e-what">Axiom — 3-stage ML pipeline</span><span class="meta">London Business School</span></td>
           <td>2026</td><td>K-Means, logistic regression and Gurobi over 100k records, reaching
           <span class="num">99.7%</span> of maximum economic value.</td>
           <td><a class="tag u" href="https://github.com/sken2002/axiom-decision-analytics-modelling" target="_blank" rel="noopener">Code →</a></td></tr>
-        <tr><td><span class="e-what">FinPulse market intelligence</span><span class="meta">Independent</span></td>
+        <tr data-kind="public"><td><span class="e-what">FinPulse market intelligence</span><span class="meta">Independent</span></td>
           <td>2025–</td><td>Cross-asset risk platform built solo: ingestion, scoring, portfolio signals.</td>
           <td><a class="tag u" href="https://finpulse-intelligence.onrender.com/" target="_blank" rel="noopener">Live →</a></td></tr>
-        <tr><td><span class="e-what">Geopolitical risk tracker</span><span class="meta">Independent</span></td>
+        <tr data-kind="public"><td><span class="e-what">Geopolitical risk tracker</span><span class="meta">Independent</span></td>
           <td>2026</td><td>FinBERT news sentiment into a tension index; escalation modelled as an MDP
           with Monte Carlo sizing.</td>
           <td><a class="tag u" href="https://github.com/sken2002/geopolitical-stock-risk-tracker" target="_blank" rel="noopener">Code →</a></td></tr>
@@ -510,8 +535,9 @@ footer a{color:var(--oxide)}
   </div>
 
   <article class="cs rv">
-    <div class="cs-top"><div><h3>Data &amp; AI Consultant</h3>
-      <span class="meta">Thorogood Associates — Bangalore, India</span></div>
+    <div class="cs-top"><div class="cs-id"><span class="mark" data-seed="thorogood"><canvas aria-hidden="true"></canvas><b>T</b></span>
+      <div><h3>Data &amp; AI Consultant</h3>
+      <span class="meta">Thorogood Associates — Bangalore, India</span></div></div>
       <span class="meta">2023 – 2025 · Full-time</span></div>
     <p class="cs-lede">Developer and de-facto lead on a live platform for an FCA-regulated ~£6bn fund,
       and owner of a customer P&amp;L data product for a FTSE-100 multinational.</p>
@@ -554,8 +580,9 @@ footer a{color:var(--oxide)}
   </article>
 
   <article class="cs rv">
-    <div class="cs-top"><div><h3>Data Consultant</h3>
-      <span class="meta">The Sports Consultancy — London</span></div>
+    <div class="cs-top"><div class="cs-id"><span class="mark" data-seed="sportsconsultancy"><canvas aria-hidden="true"></canvas><b>S</b></span>
+      <div><h3>Data Consultant</h3>
+      <span class="meta">The Sports Consultancy — London</span></div></div>
       <span class="meta">2025 – Feb 2026 · Part-time, alongside the MAM</span></div>
     <p class="cs-lede">Sole data lead for a global sports consultancy, part-time, while doing a
       full-time Masters.</p>
@@ -578,8 +605,9 @@ footer a{color:var(--oxide)}
   </article>
 
   <article class="cs rv">
-    <div class="cs-top"><div><h3>AI Risk Intelligence</h3>
-      <span class="meta">EY — via LBS LondonLAB</span></div>
+    <div class="cs-top"><div class="cs-id"><span class="mark" data-seed="eylondonlab"><canvas aria-hidden="true"></canvas><b>E</b></span>
+      <div><h3>AI Risk Intelligence</h3>
+      <span class="meta">EY — via LBS LondonLAB</span></div></div>
       <span class="meta">2026 · Eight weeks · Team of five</span></div>
     <p class="cs-lede">Sole technical builder of an AI risk-intelligence tool over a synthetic
       <b>£1.13bn</b> portfolio.</p>
@@ -617,8 +645,9 @@ footer a{color:var(--oxide)}
   </article>
 
   <article class="cs rv t-deep">
-    <div class="cs-top"><div><h3>MSc Analytics &amp; Management</h3>
-      <span class="meta">London Business School</span></div>
+    <div class="cs-top"><div class="cs-id"><span class="mark" data-seed="londonbusinessschool"><canvas aria-hidden="true"></canvas><b>L</b></span>
+      <div><h3>MSc Analytics &amp; Management</h3>
+      <span class="meta">London Business School</span></div></div>
       <span class="meta">2025 – 2026 · Completed</span></div>
     <p class="cs-lede">Deliberately chosen to put quantitative finance and strategy around the
       engineering I already had.</p>
@@ -637,41 +666,41 @@ footer a{color:var(--oxide)}
   <p class="cnote rv">Where the client work is private, this is what you can open and poke at.</p>
 
   <a class="row rv" href="https://finpulse-intelligence.onrender.com/" target="_blank" rel="noopener">
-    <div><h3>FinPulse</h3><span class="meta">Independent — 2025 to present</span></div>
+    <canvas class="glyph" data-glyph="line" aria-hidden="true"></canvas><div><h3>FinPulse</h3><span class="meta">Independent — 2025 to present</span></div>
     <div class="row-d">A market intelligence platform built solo end to end: ingesting unstructured
       sources, scoring cross-asset risk, generating portfolio signals. The interesting problem was not
       the model — it was keeping a signal useful when the source data is late, missing or wrong.</div>
     <div class="row-x">Live →</div></a>
 
   <a class="row rv" href="https://github.com/sken2002/geopolitical-stock-risk-tracker" target="_blank" rel="noopener">
-    <div><h3>Geopolitical Risk Tracker</h3><span class="meta">Independent — 2026</span></div>
+    <canvas class="glyph" data-glyph="scatter" aria-hidden="true"></canvas><div><h3>Geopolitical Risk Tracker</h3><span class="meta">Independent — 2026</span></div>
     <div class="row-d">FinBERT reads global news into a tension index; conflict escalation is modelled
       as a Markov decision process with Monte Carlo sizing, plus a political beta for how individual
       names respond. Backtested on 2024–26 data, with the caveats that implies.</div>
     <div class="row-x">Code →</div></a>
 
   <a class="row rv" href="https://github.com/sken2002/carvis-ai-job-agent" target="_blank" rel="noopener">
-    <div><h3>CARVIS</h3><span class="meta">Independent — 2025 · Top 3, LBS AI Agent Cup</span></div>
+    <canvas class="glyph" data-glyph="network" aria-hidden="true"></canvas><div><h3>CARVIS</h3><span class="meta">Independent — 2025 · Top 3, LBS AI Agent Cup</span></div>
     <div class="row-d">A LangGraph agent that runs the tedious half of a job search — parsing roles,
       matching them against a profile, drafting the application.</div>
     <div class="row-x">Code →</div></a>
 
   <a class="row rv" href="https://github.com/sken2002/axiom-decision-analytics-modelling" target="_blank" rel="noopener">
-    <div><h3>Axiom</h3><span class="meta">London Business School — 2026</span></div>
+    <canvas class="glyph" data-glyph="bars" aria-hidden="true"></canvas><div><h3>Axiom</h3><span class="meta">London Business School — 2026</span></div>
     <div class="row-d">A three-stage ML pipeline over 100k records — K-Means segmentation, logistic
       regression, then Gurobi optimisation on top. Reached <b>99.7% of the maximum achievable economic
       value</b>, which is the number that matters when a model feeds a decision.</div>
     <div class="row-x">Code →</div></a>
 
   <a class="row rv" href="https://github.com/sken2002/mind-the-gender-gap-uk-census-analysis" target="_blank" rel="noopener">
-    <div><h3>Mind the Gender Gap</h3><span class="meta">Independent — 2025</span></div>
+    <canvas class="glyph" data-glyph="grid" aria-hidden="true"></canvas><div><h3>Mind the Gender Gap</h3><span class="meta">Independent — 2025</span></div>
     <div class="row-d">Exploratory and geospatial analysis of the 2011 UK Census — how the gender gap
       varies by place rather than in aggregate. The kind of analysis where the finding lives in the
       disaggregation.</div>
     <div class="row-x">Code →</div></a>
 
   <div class="row rv" style="cursor:default">
-    <div><h3>Zane</h3><span class="meta">Independent — 2025</span></div>
+    <canvas class="glyph" data-glyph="doc" aria-hidden="true"></canvas><div><h3>Zane</h3><span class="meta">Independent — 2025</span></div>
     <div class="row-d">A production RAG chatbot using hybrid retrieval — ChromaDB for dense vectors,
       BM25 for the lexical half. The hybrid exists because pure embeddings quietly miss exact terms,
       and in a document corpus those are usually the ones that matter.</div>
@@ -1055,6 +1084,76 @@ if (document.documentElement.classList.contains('io') && !REDUCE) {
   }), 2500);
   let rt; addEventListener('resize', () => { clearTimeout(rt);
     rt = setTimeout(() => figs.forEach(f => f._redraw && f._redraw()), 260); });
+})();
+
+/* ══════════ IDENTITY MARKS & PROJECT GLYPHS ══════════
+   Small procedural cues so the eye can tell one kind of thing from another
+   without reading. Marks are seeded from the organisation name, so each is
+   stable and unique; glyphs say what shape of work a project is.          */
+(() => {
+  const seedOf = str => { let h = 2166136261;
+    for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); }
+    return h >>> 0; };
+  const rngOf = s => () => (s = (s * 1664525 + 1013904223) >>> 0) / 4294967296;
+  const fit = (cv, w, h) => { const d = Math.min(devicePixelRatio || 1, 2);
+    cv.width = Math.round(w * d); cv.height = Math.round(h * d);
+    const c = cv.getContext('2d'); c.setTransform(d, 0, 0, d, 0, 0); return c; };
+
+  /* organisation marks: a seeded lattice behind the monogram */
+  document.querySelectorAll('.mark').forEach(el => {
+    const cv = el.querySelector('canvas'), b = el.getBoundingClientRect();
+    const W = b.width || 46, H = b.height || 46;
+    const ctx = fit(cv, W, H), rnd = rngOf(seedOf(el.dataset.seed || 'x'));
+    ctx.clearRect(0, 0, W, H);
+    const N = 5, cell = W / N;
+    for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) {
+      const r = rnd();
+      if (r < .42) continue;
+      ctx.fillStyle = r > .88 ? 'rgba(185,60,18,.85)' : 'rgba(239,237,231,.13)';
+      const s2 = cell * (.28 + r * .34);
+      ctx.beginPath();
+      ctx.arc((x + .5) * cell, (y + .5) * cell, s2 / 2, 0, 6.2832);
+      ctx.fill();
+    }
+  });
+
+  /* project glyphs: the shape of the work, not a logo */
+  const G = {
+    line(c, W, H, rnd){ c.beginPath(); let v = H * .68;
+      for (let x = 0; x <= W; x += 3) { v += (rnd() - .46) * 4.4;
+        v = Math.max(6, Math.min(H - 6, v)); x ? c.lineTo(x, v) : c.moveTo(x, v); }
+      c.strokeStyle = '#B93C12'; c.lineWidth = 1.3; c.stroke(); },
+    scatter(c, W, H, rnd){ for (let i = 0; i < 26; i++) {
+        const x = 5 + rnd() * (W - 10), y = 5 + rnd() * (H - 10);
+        c.fillStyle = rnd() > .74 ? '#B93C12' : 'rgba(20,19,16,.45)';
+        c.beginPath(); c.arc(x, y, 1.5 + rnd() * 1.3, 0, 6.2832); c.fill(); } },
+    network(c, W, H, rnd){ const P = Array.from({length: 7}, () => (
+        {x: 7 + rnd() * (W - 14), y: 7 + rnd() * (H - 14)}));
+      c.strokeStyle = 'rgba(20,19,16,.3)'; c.lineWidth = .9;
+      for (let i = 0; i < P.length; i++) for (let j = i + 1; j < P.length; j++)
+        if (rnd() > .62) { c.beginPath(); c.moveTo(P[i].x, P[i].y); c.lineTo(P[j].x, P[j].y); c.stroke(); }
+      P.forEach((p, i) => { c.fillStyle = i === 0 ? '#B93C12' : 'rgba(20,19,16,.6)';
+        c.beginPath(); c.arc(p.x, p.y, 2.4, 0, 6.2832); c.fill(); }); },
+    bars(c, W, H, rnd){ const n = 7, bw = (W - 10) / n;
+      for (let i = 0; i < n; i++) { const hh = 6 + rnd() * (H - 14);
+        c.fillStyle = i === n - 1 ? '#B93C12' : 'rgba(20,19,16,.42)';
+        c.fillRect(5 + i * bw, H - 5 - hh, bw - 2.4, hh); } },
+    grid(c, W, H, rnd){ const cols = 8, rows = 5, cw = (W - 8) / cols, ch = (H - 8) / rows;
+      for (let y = 0; y < rows; y++) for (let x = 0; x < cols; x++) { const r = rnd();
+        c.fillStyle = r > .82 ? '#B93C12' : `rgba(20,19,16,${(.1 + r * .38).toFixed(2)})`;
+        c.fillRect(4 + x * cw, 4 + y * ch, cw - 1.4, ch - 1.4); } },
+    doc(c, W, H, rnd){ c.strokeStyle = 'rgba(20,19,16,.35)'; c.lineWidth = 1;
+      c.strokeRect(W * .22, 6, W * .56, H - 12);
+      for (let i = 0; i < 5; i++) { const y = 12 + i * ((H - 24) / 4);
+        c.fillStyle = i === 2 ? '#B93C12' : 'rgba(20,19,16,.35)';
+        c.fillRect(W * .28, y, W * .44 * (.5 + rnd() * .5), 1.6); } }
+  };
+  document.querySelectorAll('.glyph').forEach(cv => {
+    const b = cv.getBoundingClientRect(), W = b.width || 58, H = b.height || 42;
+    const ctx = fit(cv, W, H);
+    const kind = cv.dataset.glyph || 'line';
+    (G[kind] || G.line)(ctx, W, H, rngOf(seedOf(kind + (cv.previousSibling ? '' : 'a'))));
+  });
 })();
 
 /* ══════════ MARQUEE ══════════ */
