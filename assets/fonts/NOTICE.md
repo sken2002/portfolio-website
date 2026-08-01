@@ -1,7 +1,7 @@
 # Bundled fonts
 
 Three families are self-hosted here so the site makes no third-party network requests.
-All are licensed under the **SIL Open Font License, Version 1.1** — full text in
+All are licensed under the **SIL Open Font License, Version 1.1**, full text in
 [`OFL.txt`](OFL.txt).
 
 | Family | Role | Copyright | Upstream |
