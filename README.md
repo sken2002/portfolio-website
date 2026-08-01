@@ -9,7 +9,7 @@ interactive model runs entirely client-side.
 ## Structure
 
 ```
-index.html          all markup, CSS and JS (~94 KB)
+index.html          all markup, CSS and JS (~100 KB)
 assets/
   fonts/            self-hosted woff2, latin + latin-ext subsets
   *.avif|webp|jpg   responsive image variants at 1x and 2x
@@ -20,12 +20,26 @@ assets/
 
 **Images.** Sources are downscaled to the actual rendered box at 1x and 2x and encoded to
 AVIF, WebP and JPEG. `<picture>` serves the smallest format the browser accepts. The
-above-the-fold payload is ~263 KB including fonts; the original version of this site shipped
+above-the-fold payload is ~296 KB including fonts; the original version of this site shipped
 7.1 MB of eagerly-loaded JPEG.
 
-**Fonts.** Self-hosted rather than loaded from Google Fonts — removes a third-party request,
-a GDPR question, and a render-blocking round trip. `unicode-range` splits latin from latin-ext
-so English readers fetch ~154 KB. See [`assets/fonts/NOTICE.md`](assets/fonts/NOTICE.md).
+**Type.** Outfit for display, Plus Jakarta Sans for text, JetBrains Mono for labels and data —
+self-hosted rather than loaded from Google Fonts, which removes a third-party request, a GDPR
+question, and a render-blocking round trip. `unicode-range` splits latin from latin-ext so
+English readers fetch ~169 KB. See [`assets/fonts/NOTICE.md`](assets/fonts/NOTICE.md).
+
+**Layout.** Fluid rather than breakpointed: a `clamp()` type scale, `clamp()` spacing, and
+`repeat(auto-fit, minmax(min(100%, …), 1fr))` grids that cannot overflow their container.
+Container queries let the case-study definition lists and the model panel respond to their own
+width instead of the viewport. Verified with no horizontal overflow from 360 px to 2560 px.
+Media queries are reserved for genuine mode changes — the navigation and print.
+
+**Motion.** Reveals use native CSS scroll-driven animation (`animation-timeline: view()`), with
+IntersectionObserver only as a fallback on browsers that lack it, chosen at boot via
+`CSS.supports`. The reading-depth control uses the View Transitions API so tier changes
+cross-fade rather than snap. The hero canvas draws drifting sine contours, is DPR-scaled, and
+pauses when scrolled out of view or when the tab is hidden. A first-visit intro plays once per
+session. All of it is disabled under `prefers-reduced-motion`.
 
 **Reading depth.** A `30 sec / 3 min / 15 min` control sets `data-depth` on `<html>`; CSS hides
 tiers via `.t-brief` and `.t-deep`. The choice persists in `localStorage`. With JavaScript
