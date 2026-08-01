@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>Eshwar Nevedh — Data &amp; AI, Analytics, Strategy</title>
-<meta name="description" content="Data &amp; AI consultant. Two years building enterprise data platforms at Thorogood including a live platform for an FCA-regulated ~£6bn fund, sole data lead at The Sports Consultancy, AI risk intelligence at EY. MSc Analytics &amp; Management, London Business School. Available immediately, UK Graduate Route — no sponsorship required."/>
+<meta name="description" content="Data &amp; AI consultant. Two years building enterprise data platforms at Thorogood including a live platform for an FCA-regulated ~£6bn fund, sole data lead at The Sports Consultancy, AI risk intelligence at EY. MSc Analytics &amp; Management, London Business School. Available immediately, UK Graduate Route."/>
 <link rel="canonical" href="https://eshwar-nevedh-portfolio.vercel.app/"/>
 
 <meta property="og:type" content="profile"/>
@@ -24,566 +24,358 @@
 
 <link rel="icon" href="assets/favicon.ico" sizes="32x32"/>
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png"/>
-<meta name="theme-color" content="#E9EDEA"/>
+<meta name="theme-color" content="#EFEDE7"/>
 
-<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/outfit-500-normal-latin.woff2"/>
-<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/plus-jakarta-sans-400-normal-latin.woff2"/>
-<link rel="stylesheet" href="assets/fonts.css"/>
+<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/geist-400-normal-latin.woff2"/>
+<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/geist-600-normal-latin.woff2"/>
+<link rel="stylesheet" href="assets/fonts-geist.css"/>
 
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Eshwar Nevedh",
-  "jobTitle": "Data & AI Consultant",
-  "email": "mailto:eshwarnevedh@gmail.com",
-  "url": "https://eshwar-nevedh-portfolio.vercel.app/",
-  "image": "https://eshwar-nevedh-portfolio.vercel.app/assets/og-card.jpg",
-  "description": "Data & AI consultant working across enterprise machine learning, agentic systems and analytics strategy.",
-  "address": { "@type": "PostalAddress", "addressLocality": "London", "addressCountry": "GB" },
-  "alumniOf": [
-    { "@type": "CollegeOrUniversity", "name": "London Business School" },
-    { "@type": "CollegeOrUniversity", "name": "SSN College of Engineering" }
-  ],
-  "knowsAbout": ["Machine Learning","Data Engineering","Generative AI","Retrieval Augmented Generation","Analytics Strategy","Quantitative Finance"],
-  "sameAs": [
-    "https://in.linkedin.com/in/eshwar-nevedh-41b697196",
-    "https://eshwarnevedh.substack.com/",
-    "https://github.com/sken2002",
-    "https://www.youtube.com/@skencomps5214"
-  ]
+  "@context":"https://schema.org","@type":"Person","name":"Eshwar Nevedh",
+  "jobTitle":"Data & AI Consultant","email":"mailto:eshwarnevedh@gmail.com",
+  "url":"https://eshwar-nevedh-portfolio.vercel.app/",
+  "image":"https://eshwar-nevedh-portfolio.vercel.app/assets/og-card.jpg",
+  "description":"Data & AI consultant working across enterprise machine learning, agentic systems and analytics strategy.",
+  "address":{"@type":"PostalAddress","addressLocality":"London","addressCountry":"GB"},
+  "alumniOf":[{"@type":"CollegeOrUniversity","name":"London Business School"},
+              {"@type":"CollegeOrUniversity","name":"SSN College of Engineering"}],
+  "knowsAbout":["Machine Learning","Data Engineering","Generative AI","Retrieval Augmented Generation","Analytics Strategy","Quantitative Finance"],
+  "sameAs":["https://in.linkedin.com/in/eshwar-nevedh-41b697196","https://eshwarnevedh.substack.com/",
+            "https://github.com/sken2002","https://www.youtube.com/@skencomps5214"]
 }
 </script>
 
 <style>
-/* ═══════════════ MONSOON ═══════════════
-   Pale grey-green paper, deep petrol, burnt coral.
-   Type: Outfit (display) / Plus Jakarta Sans (text) / JetBrains Mono (labels).
-   Layout is fluid by default — clamp() and auto-fit carry the weight;
-   media queries only handle genuine mode changes (nav, print).
-   ═══════════════════════════════════════ */
+/* ══════════ BONE ══════════
+   Warm paper, near-black ink, one oxide red. One typeface, four sizes.
+   Hierarchy from weight and colour. One motion idea, everywhere.        */
 :root{
-  /* surfaces */
-  --paper:#E9EDEA; --card:#F4F7F5; --card-hi:#FDFEFE; --sunken:#DEE6E2;
-  --deep:#082628; --deep-2:#0E3335;
+  --bone:#EFEDE7; --bone2:#E7E4DC; --card:#F6F4EF;
+  --ink:#141310; --ink2:#57544C; --ink3:#63605A;   /* 5.2:1 on bone, 4.8:1 on bone2 */
+  --ink-soft:#8A867C;                              /* large display text only (3:1) */
+  --line:#DCD8CD; --line2:#C7C2B4;
+  --oxide:#B93C12; --oxide-l:#E0714B;
+  --on-ink:#EFEDE7; --on-ink2:#9A968C;
 
-  /* ink */
-  --ink:#0B2E30; --ink-2:#40595B; --ink-3:#55696B;
-  --on-deep:#E4EAE7; --on-deep-2:#9DB3B1;
+  --sans:'Geist',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --indic:'Nirmala UI','Noto Sans Tamil','Noto Sans Malayalam',Latha,sans-serif;
 
-  /* accents */
-  --petrol:#0B5D5E; --petrol-d:#074647; --petrol-l:#4E9C9C;
-  --coral:#A8401F;         /* AA-safe on paper at any size */
-  --coral-br:#C1502E;      /* large text + decorative fills only */
-  --coral-l:#E8825C;       /* on dark only — AA at small sizes over --deep-2 */
+  --t-display:clamp(2.5rem,1.2rem + 5.6vw,5.6rem);
+  --t-h2:clamp(1.5rem,1.25rem + 1.2vw,2.35rem);
+  --t-h3:clamp(1.05rem,.98rem + .38vw,1.32rem);
+  --t-body:clamp(.95rem,.93rem + .14vw,1.03rem);
+  --t-small:clamp(.82rem,.8rem + .1vw,.88rem);
 
-  /* lines */
-  --line:#C9D5D1; --line-2:#AEC0BC; --line-deep:rgba(228,234,231,.14);
+  --pad:clamp(1.25rem,.4rem + 3.4vw,5rem);
+  --sect:clamp(3.2rem,1.8rem + 5.2vw,6rem);
+  --maxw:1180px;
+  --e:cubic-bezier(.16,1,.3,1);
 
-  /* type */
-  --display:'Outfit',system-ui,sans-serif;
-  --sans:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
-  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Consolas,monospace;
-  --indic:'Nirmala UI','Noto Sans Tamil','Noto Sans Malayalam',Latha,Kartika,sans-serif;
-
-  /* fluid type scale */
-  --t--1:clamp(.78rem,.755rem + .12vw,.86rem);
-  --t-0: clamp(1rem,.965rem + .18vw,1.11rem);
-  --t-1: clamp(1.14rem,1.08rem + .3vw,1.34rem);
-  --t-2: clamp(1.35rem,1.22rem + .62vw,1.8rem);
-  --t-3: clamp(1.6rem,1.36rem + 1.2vw,2.45rem);
-  --t-4: clamp(1.95rem,1.5rem + 2.2vw,3.4rem);
-  --t-5: clamp(2.4rem,1.5rem + 4.4vw,4.9rem);
-  --micro:clamp(.7rem,.685rem + .07vw,.76rem);
-
-  /* fluid space */
-  --pad:clamp(1.25rem,.5rem + 3.4vw,5rem);
-  --gap:clamp(1rem,.72rem + 1.2vw,1.75rem);
-  --sect:clamp(3.5rem,1.9rem + 6.2vw,7.5rem);
-  --rad:14px;
-
-  --ease:cubic-bezier(.22,1,.36,1);
-  --maxw:1220px;
-
-  /* chart palette — the model panel is dark */
-  --ch-eq:#E0714B; --ch-cr:#5FA8B5; --ch-ca:#A3B8A5;
-  --ch-grid:rgba(228,234,231,.13); --ch-text:#8FA6A5;
-  --ch-static:#7E9391;
+  --ch-eq:#E0714B; --ch-cr:#8FB2C4; --ch-ca:#A8B49C;
+  --ch-grid:rgba(239,237,231,.13); --ch-text:#9A968C; --ch-static:#7E7A70;
 }
-
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;background:var(--paper)}
-body{background:var(--paper);color:var(--ink);font-family:var(--sans);
-  font-size:var(--t-0);line-height:1.68;overflow-x:hidden;
-  font-synthesis-weight:none;text-rendering:optimizeLegibility;
-  -webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;background:var(--bone)}
+body{background:var(--bone);color:var(--ink);font-family:var(--sans);font-size:var(--t-body);
+  font-weight:400;line-height:1.62;letter-spacing:-.005em;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
 img{max-width:100%;display:block}
 a{color:inherit}
-::selection{background:var(--petrol);color:#fff}
-:focus-visible{outline:2px solid var(--petrol);outline-offset:3px;border-radius:4px}
+::selection{background:var(--oxide);color:#fff}
+:focus-visible{outline:2px solid var(--oxide);outline-offset:3px;border-radius:2px}
 
-.skip{position:absolute;left:-9999px;top:0;z-index:300;background:var(--petrol);color:#fff;
-  padding:.8rem 1.4rem;font-family:var(--mono);font-size:var(--micro);text-decoration:none;border-radius:0 0 8px 0}
+h1,h2,h3{font-weight:600;color:var(--ink);letter-spacing:-.035em;line-height:1.05}
+h1{font-size:var(--t-display);letter-spacing:-.045em;text-wrap:balance}
+h1 em{font-style:normal;font-weight:400;color:var(--ink-soft)}
+h2{font-size:var(--t-h2)}
+h2 em{font-style:normal;font-weight:400;color:var(--ink-soft)}
+h3{font-size:var(--t-h3);letter-spacing:-.022em;line-height:1.2}
+p{text-wrap:pretty}
+b,strong{font-weight:600;color:var(--ink)}
+.num{font-weight:600;color:var(--ink)}
+.meta{font-size:var(--t-small);font-weight:500;color:var(--ink3)}
+.lede{color:var(--ink2);max-width:46ch}
+
+.skip{position:absolute;left:-9999px;top:0;z-index:300;background:var(--oxide);color:#fff;
+  padding:.8rem 1.4rem;font-size:var(--t-small);font-weight:600;text-decoration:none}
 .skip:focus{left:0;top:0}
 
-/* ── DEPTH TIERS ── */
-html[data-depth="scan"] .t-brief,
-html[data-depth="scan"] .t-deep,
+html[data-depth="scan"] .t-brief,html[data-depth="scan"] .t-deep,
 html[data-depth="brief"] .t-deep{display:none!important}
-html[data-depth="brief"] .t-scan,
-html[data-depth="deep"] .t-scan{display:none!important}
 
-/* ── INTRO ── */
-#intro{display:none}
-html.intro #intro{display:grid;position:fixed;inset:0;z-index:400;place-items:center;
-  background:var(--deep);animation:introOut .5s var(--ease) .85s forwards}
-html.intro #intro span{font-family:var(--display);font-weight:500;font-size:var(--t-3);
-  letter-spacing:-.02em;color:var(--on-deep);
-  clip-path:inset(0 100% 0 0);animation:introWipe .8s var(--ease) .1s forwards}
-html.intro #intro::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;
-  background:var(--coral-l);transform-origin:left;transform:scaleX(0);
-  animation:introBar .85s var(--ease) forwards}
-html.intro main,html.intro nav{animation:introLift .7s var(--ease) .9s backwards}
-@keyframes introWipe{to{clip-path:inset(0 0 0 0)}}
-@keyframes introBar{to{transform:scaleX(1)}}
-@keyframes introOut{to{opacity:0;visibility:hidden}}
-@keyframes introLift{from{opacity:0;transform:translateY(14px)}}
+#grain{position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.32;mix-blend-mode:multiply}
+
+/* ── MOTION: one idea ── */
+@keyframes unmask{from{clip-path:inset(105% 0 -12% 0);transform:translateY(.4em)}
+                  to{clip-path:inset(-30% 0 -12% 0);transform:none}}
+html.sda .rv{animation-name:unmask;animation-fill-mode:both;animation-timing-function:var(--e);
+  animation-duration:auto;animation-timeline:view();animation-range:entry 5% cover 28%}
+html.io .rv{clip-path:inset(105% 0 -12% 0);transform:translateY(.4em);
+  transition:clip-path .9s var(--e),transform .9s var(--e)}
+html.io .rv.in{clip-path:inset(-30% 0 -12% 0);transform:none}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.3s}
+
+.u{text-decoration:none;color:inherit;background-image:linear-gradient(currentColor,currentColor);
+  background-size:0% 1.5px;background-repeat:no-repeat;background-position:0 100%;padding-bottom:3px;
+  transition:background-size .5s var(--e),color .35s var(--e)}
+.u:hover{background-size:100% 1.5px;color:var(--oxide)}
+.u.on{color:var(--oxide);background-size:100% 1.5px}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad);position:relative;z-index:2}
 
 /* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.85rem var(--pad);
-  display:flex;justify-content:space-between;align-items:center;gap:1.25rem;
-  border-bottom:1px solid transparent;transition:background .45s var(--ease),border-color .45s,backdrop-filter .45s}
-nav.scrolled{background:color-mix(in srgb,var(--paper) 88%,transparent);
-  border-bottom-color:var(--line);backdrop-filter:blur(14px) saturate(1.4)}
-.logo{font-family:var(--display);font-size:var(--t-1);font-weight:600;text-decoration:none;
-  letter-spacing:-.02em;white-space:nowrap;color:var(--ink)}
-.logo span{color:var(--petrol)}
-.nav-links{display:flex;gap:clamp(.85rem,1.7vw,1.9rem);list-style:none}
-.nav-links a{font-family:var(--mono);font-size:var(--micro);letter-spacing:.06em;
-  text-transform:uppercase;color:var(--ink-3);text-decoration:none;transition:color .3s;
-  position:relative;padding-block:2px;white-space:nowrap}
-.nav-links a::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;
-  background:var(--petrol);transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease)}
-.nav-links a:hover{color:var(--petrol)}
-.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.8rem var(--pad);
+  display:flex;justify-content:space-between;align-items:center;gap:1.2rem;
+  border-bottom:1px solid transparent;transition:background .45s var(--e),border-color .45s}
+nav.scrolled{background:color-mix(in srgb,var(--bone) 90%,transparent);
+  border-bottom-color:var(--line);backdrop-filter:blur(14px)}
+.logo{font-weight:600;font-size:1.05rem;letter-spacing:-.03em;text-decoration:none;white-space:nowrap}
+.logo span{color:var(--oxide)}
+.nav-links{display:flex;gap:clamp(.8rem,1.6vw,1.7rem);list-style:none}
+.nav-links a{font-size:var(--t-small);font-weight:500;color:var(--ink3);text-decoration:none;
+  white-space:nowrap;transition:color .3s}
+.nav-links a:hover{color:var(--oxide)}
+.depth{display:flex;align-items:center;gap:.5rem}
+.depth-seg{display:flex;border:1px solid var(--line2);border-radius:40px;overflow:hidden;background:var(--card)}
+.depth-seg button{font-family:inherit;font-size:var(--t-small);font-weight:500;background:none;
+  border:none;color:var(--ink3);padding:.35rem .8rem;cursor:pointer;white-space:nowrap;
+  transition:background .3s var(--e),color .3s}
+.depth-seg button:hover{color:var(--oxide)}
+.depth-seg button[aria-pressed="true"]{background:var(--ink);color:var(--on-ink);font-weight:600}
+.nav-toggle{display:none;background:var(--card);border:1px solid var(--line2);border-radius:8px;
+  color:var(--ink);padding:.4rem .7rem;cursor:pointer;font-family:inherit;font-size:var(--t-small);font-weight:500}
 
-.depth{display:flex;align-items:center;gap:.55rem}
-.depth-lab{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--ink-3);white-space:nowrap}
-@media(max-width:72rem){.depth-lab{display:none}}
-.depth-seg{display:flex;border:1px solid var(--line-2);border-radius:30px;overflow:hidden;background:var(--card)}
-.depth-seg button{font-family:var(--mono);font-size:.7rem;letter-spacing:.04em;text-transform:uppercase;
-  background:none;border:none;color:var(--ink-3);padding:.42rem .8rem;cursor:pointer;white-space:nowrap;
-  transition:background .3s var(--ease),color .3s}
-.depth-seg button:hover{color:var(--petrol)}
-.depth-seg button[aria-pressed="true"]{background:var(--petrol);color:#fff;font-weight:600}
-.nav-toggle{display:none;background:var(--card);border:1px solid var(--line-2);border-radius:9px;
-  color:var(--ink);padding:.45rem .7rem;cursor:pointer;font-family:var(--mono);font-size:.72rem}
-
-/* ── DRAFT BANNER ── */
-#draftbar{position:fixed;bottom:0;left:0;right:0;z-index:120;background:#FBEEE7;
-  border-top:2px solid var(--coral);padding:.7rem var(--pad);display:none;
-  font-family:var(--mono);font-size:var(--micro);color:#5C2A16;
-  align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
-#draftbar.on{display:flex}
-#draftbar b{color:var(--coral)}
-#draftbar button{background:none;border:1px solid var(--coral);color:var(--coral);border-radius:20px;
-  padding:.28rem .9rem;font-family:inherit;font-size:inherit;cursor:pointer}
-.dr{border-bottom:1px dashed var(--coral);color:var(--coral)}
-.dr::after{content:'▲';font-size:.55em;vertical-align:super;margin-left:.15em}
+/* ── CHAPTERS ── */
+.chapter{padding:var(--sect) 0;border-top:1px solid var(--line)}
+.chead{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;
+  margin-bottom:1.5rem;padding-bottom:.9rem;border-bottom:1.5px solid var(--ink)}
+.cno{font-size:var(--t-small);font-weight:600;color:var(--oxide);letter-spacing:.05em}
+.cnote{color:var(--ink2);max-width:52ch;margin-bottom:2rem}
 
 /* ── HERO ── */
-#hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;
-  padding:clamp(6rem,14vh,9rem) 0 var(--sect)}
-#hc{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.85}
-.hero-inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:0 var(--pad);width:100%}
-.hero-layout{display:flex;align-items:center;justify-content:space-between;
-  gap:clamp(2rem,5vw,4.5rem);flex-wrap:wrap}
-.hero-text{flex:1 1 min(100%,30rem);min-width:0}
+#hero{position:relative;min-height:100svh;display:flex;align-items:center;
+  padding:6rem 0 3rem;overflow:hidden}
+#field{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:.62}
+.hero-grid{display:grid;gap:clamp(1.8rem,3.5vw,3.5rem);align-items:center;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr))}
+.eyebrow{font-size:var(--t-small);font-weight:600;color:var(--oxide);
+  letter-spacing:.055em;text-transform:uppercase;margin-bottom:1rem}
+.name-native{display:block;font-size:var(--t-small);font-weight:400;color:var(--ink3);
+  margin-top:.9rem;font-family:var(--indic);letter-spacing:0}
+#hero h1{margin:0 0 1.1rem}
+.hero-lede{margin-bottom:1.5rem}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,9.5rem),1fr));
+  gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;margin-bottom:1.6rem}
+.fact{background:var(--bone);padding:.85rem 1rem}
+.fact dt{font-size:var(--t-small);font-weight:500;color:var(--ink3);margin-bottom:.3rem}
+.fact dd{font-size:var(--t-small);font-weight:600;line-height:1.4}
+.fact dd .hi{color:var(--oxide)}
+.ctas{display:flex;gap:1.3rem;flex-wrap:wrap;font-size:var(--t-small);font-weight:600}
 
-.hero-eyebrow{font-family:var(--mono);font-size:var(--micro);letter-spacing:.12em;
-  text-transform:uppercase;color:var(--petrol);margin-bottom:1.1rem}
-h1.hero-h{font-family:var(--display);font-size:var(--t-5);font-weight:500;
-  line-height:1.02;letter-spacing:-.035em;margin-bottom:1.1rem;text-wrap:balance}
-h1.hero-h em{font-style:normal;color:var(--petrol);display:block;font-weight:300}
-.name-native{display:block;font-size:clamp(.85rem,.8rem + .2vw,1rem);font-weight:400;
-  color:var(--ink-3);letter-spacing:.04em;margin-top:1rem;font-family:var(--indic)}
-.hero-sub{color:var(--ink-2);max-width:34rem;margin-bottom:1.9rem;text-wrap:pretty}
-.hero-sub strong{color:var(--ink);font-weight:600}
+/* ── HALFTONE PLATES ── */
+.plate{position:relative;overflow:hidden;cursor:crosshair;background:var(--bone);border-radius:2px}
+.plate canvas,.plate img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.plate canvas{filter:blur(.7px) contrast(1.03);transition:opacity .8s var(--e),filter .8s var(--e);z-index:2}
+.plate img{opacity:0;transition:opacity .8s var(--e);filter:saturate(.9) contrast(1.02);z-index:1}
+.plate:hover img{opacity:1}
+.plate:hover canvas{opacity:0;filter:blur(2.5px)}
+.plate figcaption{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:1.4rem .9rem .7rem;
+  font-size:var(--t-small);font-weight:500;color:var(--ink3);
+  background:linear-gradient(transparent,var(--bone) 80%);
+  display:flex;justify-content:space-between;gap:1rem}
+.plate--hero{aspect-ratio:4/5;width:min(100%,24rem);margin-inline:auto}
+.plate--wide{aspect-ratio:3/2}
+.plate--tall{aspect-ratio:4/5}
 
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,10rem),1fr));
-  gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--rad);
-  overflow:hidden;margin-bottom:1.9rem;max-width:40rem}
-.fact{background:var(--card);padding:.85rem 1.05rem}
-.fact dt{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--ink-3);margin-bottom:.3rem}
-.fact dd{font-size:var(--t--1);line-height:1.45;color:var(--ink);font-weight:500}
-.fact dd .ok{color:var(--petrol);font-weight:600}
+/* ── MARQUEE ── */
+.marq{border-block:1px solid var(--line);padding:.85rem 0;overflow:hidden;white-space:nowrap;
+  background:var(--bone2)}
+.marq-in{display:inline-flex;gap:2.2rem;font-size:var(--t-small);font-weight:500;
+  color:var(--ink3);will-change:transform}
+.marq-in span::before{content:'—';color:var(--oxide);margin-right:2.2rem}
 
-.hero-ctas{display:flex;gap:.75rem;flex-wrap:wrap}
-.btn-p,.btn-s{padding:.8rem 1.7rem;font-family:var(--mono);font-size:var(--micro);
-  letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-radius:40px;
-  display:inline-block;transition:transform .35s var(--ease),background .3s,border-color .3s,box-shadow .35s}
-.btn-p{background:var(--petrol);color:#fff;border:1px solid var(--petrol);font-weight:600}
-.btn-p:hover{background:var(--petrol-d);transform:translateY(-2px);box-shadow:0 8px 20px rgba(11,93,94,.24)}
-.btn-s{background:transparent;color:var(--ink);border:1px solid var(--line-2)}
-.btn-s:hover{border-color:var(--petrol);color:var(--petrol);transform:translateY(-2px)}
+/* ── STATS ── */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr));
+  gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px}
+.stat{background:var(--bone);padding:1.15rem 1.2rem 1.25rem}
+.stat dt{font-size:var(--t-small);font-weight:500;color:var(--ink3);margin-bottom:.45rem}
+.stat dd{font-size:clamp(1.75rem,1.15rem + 2vw,2.7rem);font-weight:600;letter-spacing:-.045em;
+  line-height:1;color:var(--ink)}
+.stat dd i{font-style:normal;color:var(--oxide)}
+.stat .sub{font-size:var(--t-small);color:var(--ink3);margin-top:.45rem}
 
-/* card stack */
-.hero-img-wrap{position:relative;width:clamp(15rem,26vw,21rem);aspect-ratio:34/42;
-  flex:0 1 auto;perspective:1200px;margin-inline:auto}
-.card-stack{position:relative;width:100%;height:100%;border:none;padding:0;background:none;
-  cursor:pointer;display:block}
-.card-stack picture{position:absolute;inset:0;display:block;transform-origin:bottom center;
-  transition:transform .65s var(--ease),filter .65s var(--ease)}
-.card-stack img{width:100%;height:100%;object-fit:cover;border-radius:var(--rad);
-  border:1px solid var(--line-2);box-shadow:0 10px 26px rgba(11,46,48,.16);
-  transition:box-shadow .6s var(--ease)}
-.card-stack picture:nth-child(1){transform:rotate(-2deg);z-index:5}
-.card-stack picture:nth-child(2){transform:rotate(1.5deg) translateY(2px);z-index:4;filter:saturate(.9) brightness(.97)}
-.card-stack picture:nth-child(3){transform:rotate(-1deg) translateY(4px);z-index:3;filter:saturate(.8) brightness(.94)}
-.card-stack picture:nth-child(4){transform:rotate(2.5deg) translateY(6px);z-index:2;filter:saturate(.7) brightness(.91)}
-.card-stack picture:nth-child(5){transform:rotate(-1.5deg) translateY(8px);z-index:1;filter:saturate(.6) brightness(.88)}
-.card-stack:hover picture:nth-child(1),.card-stack.fan picture:nth-child(1){transform:rotate(-19deg) translateX(-32%) translateY(-3%)}
-.card-stack:hover picture:nth-child(2),.card-stack.fan picture:nth-child(2){transform:rotate(-9.5deg) translateX(-15%) translateY(-1.5%)}
-.card-stack:hover picture:nth-child(3),.card-stack.fan picture:nth-child(3){transform:rotate(0deg)}
-.card-stack:hover picture:nth-child(4),.card-stack.fan picture:nth-child(4){transform:rotate(9.5deg) translateX(15%) translateY(-1.5%)}
-.card-stack:hover picture:nth-child(5),.card-stack.fan picture:nth-child(5){transform:rotate(19deg) translateX(32%) translateY(-3%)}
-.card-stack picture:hover,.card-stack picture.up{z-index:10;filter:none}
-.card-stack picture:hover img,.card-stack picture.up img{box-shadow:0 20px 42px rgba(11,46,48,.3)}
-.card-stack:hover picture:hover,.card-stack.fan picture.up{translate:0 -7%;scale:1.06}
-.stack-hint{font-family:var(--mono);font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;
-  color:var(--ink-3);text-align:center;margin-top:1rem}
+/* ── EVIDENCE ── */
+.tscroll{overflow-x:auto;scrollbar-width:thin}
+table{width:100%;border-collapse:collapse}
+th{text-align:left;font-size:var(--t-small);font-weight:500;color:var(--ink3);
+  padding:0 1.2rem .7rem 0;border-bottom:1px solid var(--line2);white-space:nowrap}
+td{padding:1.05rem 1.2rem 1.05rem 0;border-bottom:1px solid var(--line);
+  color:var(--ink2);vertical-align:top;font-size:var(--t-small)}
+th:last-child,td:last-child{padding-right:0;text-align:right;white-space:nowrap}
+tbody tr{transition:background .3s}
+tbody tr:hover{background:var(--card)}
+.e-what{display:block;font-size:var(--t-h3);font-weight:600;color:var(--ink);
+  letter-spacing:-.022em;line-height:1.2;margin-bottom:.2rem}
+.tag{font-size:var(--t-small);font-weight:500;color:var(--ink3);text-decoration:none}
+a.tag{color:var(--oxide)}
 
-/* ── SHARED ── */
-section{position:relative}
-.inner{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
-.s-label{font-family:var(--mono);font-size:var(--micro);letter-spacing:.14em;text-transform:uppercase;
-  color:var(--petrol);margin-bottom:.9rem;display:flex;align-items:center;gap:.7rem}
-.s-label::before{content:'';width:22px;height:1px;background:var(--petrol);flex-shrink:0}
-.s-title{font-family:var(--display);font-size:var(--t-4);font-weight:500;line-height:1.06;
-  letter-spacing:-.03em;margin-bottom:.9rem;text-wrap:balance}
-.s-title em{font-style:normal;color:var(--petrol);font-weight:300}
-.s-desc{color:var(--ink-2);max-width:38rem;margin-bottom:clamp(2rem,4vw,3.2rem);font-size:var(--t-0);text-wrap:pretty}
-.s-head{margin-bottom:clamp(2rem,4vw,3.2rem)}
+/* ── WORK ── */
+.cs{padding:1.6rem 0;border-bottom:1px solid var(--line);position:relative}
+.cs::after{content:'';position:absolute;bottom:-1px;left:0;height:1px;width:0;
+  background:var(--oxide);transition:width .6s var(--e)}
+.cs:hover::after{width:100%}
+.cs-top{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:baseline;margin-bottom:.7rem}
+.cs-lede{color:var(--ink2);max-width:64ch;margin-bottom:1.2rem}
+dl.f{display:grid;grid-template-columns:minmax(8rem,10.5rem) 1fr;gap:.35rem 2rem}
+dl.f dt{font-size:var(--t-small);font-weight:600;color:var(--oxide);padding-top:.2rem}
+dl.f dd{color:var(--ink2);margin-bottom:.75rem;max-width:70ch;font-size:var(--t-small)}
+dl.f dd p+p{margin-top:.55rem}
+dl.f dd ul{list-style:none;margin:.5rem 0 0}
+dl.f dd li{position:relative;padding-left:1rem;margin-bottom:.4rem}
+dl.f dd li::before{content:'';position:absolute;left:0;top:.7em;width:5px;height:1px;background:var(--oxide)}
+.stack{color:var(--ink3)}
 
-/* evidence chips */
-.ev{display:inline-flex;align-items:center;gap:.3rem;font-family:var(--mono);font-size:.7rem;
-  letter-spacing:.05em;text-transform:uppercase;padding:.24rem .6rem;border-radius:20px;
-  border:1px solid;text-decoration:none;white-space:nowrap;transition:background .3s,transform .3s var(--ease)}
-a.ev:hover{transform:translateY(-1px)}
-.ev--code{color:#1F6B4A;border-color:#9CC4B0}
-.ev--code:hover{background:#DCEDE3}
-.ev--write{color:#2B5A7A;border-color:#A2BFD1}
-.ev--write:hover{background:#DCE9F1}
-.ev--live{color:var(--coral);border-color:#DDAF9C}
-.ev--live:hover{background:#F8E6DE}
-.ev--private{color:var(--ink-3);border-color:var(--line-2);cursor:help}
-.ev-row{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.85rem}
+/* ── PROJECT ROWS ── */
+.row{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1.5fr) auto;gap:1.2rem;
+  align-items:baseline;padding:1.05rem 0;border-bottom:1px solid var(--line);
+  position:relative;text-decoration:none;color:inherit}
+.row::after{content:'';position:absolute;bottom:-1px;left:0;height:1px;width:0;
+  background:var(--oxide);transition:width .6s var(--e)}
+.row:hover::after{width:100%}
+.row h3{transition:transform .5s var(--e)}
+.row:hover h3{transform:translateX(.35rem)}
+.row-d{color:var(--ink2);font-size:var(--t-small)}
+.row-x{font-size:var(--t-small);font-weight:500;color:var(--ink3);white-space:nowrap}
+.row:hover .row-x{color:var(--oxide)}
 
-/* ── EVIDENCE TABLE ── */
-#evidence{padding:var(--sect) 0;background:var(--card);
-  border-block:1px solid var(--line)}
-.etable{width:100%;border-collapse:collapse;font-size:var(--t--1)}
-.etable caption{text-align:left;font-family:var(--mono);font-size:var(--micro);letter-spacing:.1em;
-  text-transform:uppercase;color:var(--ink-3);padding-bottom:.9rem}
-.etable th{text-align:left;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--ink-3);font-weight:400;padding:.65rem .85rem;
-  border-bottom:1px solid var(--line-2);white-space:nowrap}
-.etable td{padding:1rem .85rem;border-bottom:1px solid var(--line);color:var(--ink-2);vertical-align:top}
-.etable tbody tr{transition:background .3s}
-.etable tbody tr:hover{background:var(--card-hi)}
-.etable .e-what{color:var(--ink);font-family:var(--display);font-size:var(--t-1);
-  font-weight:500;line-height:1.2;letter-spacing:-.015em}
-.etable .e-org{font-family:var(--mono);font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;
-  color:var(--petrol);display:block;margin-top:.25rem}
-.etable .e-res b{color:var(--ink);font-weight:600}
-.tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;
-  scrollbar-width:thin;scrollbar-color:var(--line-2) transparent}
-
-/* ── CASE STUDIES ── */
-#work{padding:var(--sect) 0;background:var(--paper)}
-.cs{background:var(--card);border:1px solid var(--line);border-radius:var(--rad);
-  padding:clamp(1.4rem,3vw,3rem);margin-bottom:var(--gap);
-  container-type:inline-size;
-  transition:border-color .5s,box-shadow .5s var(--ease),transform .5s var(--ease)}
-.cs:hover{border-color:var(--line-2);box-shadow:0 14px 34px rgba(11,46,48,.07);transform:translateY(-2px)}
-.cs-head{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.2rem;flex-wrap:wrap}
-.cs-mark{width:48px;height:48px;border-radius:12px;flex-shrink:0;display:grid;place-items:center;
-  background:var(--petrol);color:#fff;font-family:var(--display);font-size:1.25rem;font-weight:600}
-.cs-meta{flex:1 1 14rem;min-width:0}
-.cs-org{font-family:var(--mono);font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;
-  color:var(--petrol);margin-bottom:.3rem}
-.cs-title{font-family:var(--display);font-size:var(--t-2);font-weight:500;line-height:1.14;letter-spacing:-.025em}
-.cs-when{font-family:var(--mono);font-size:.7rem;letter-spacing:.04em;color:var(--ink-3);
-  text-transform:uppercase;margin-top:.4rem;line-height:1.6}
-.cs-when b{color:var(--ink-2);font-weight:400}
-.cs-lede{color:var(--ink);font-size:var(--t-1);margin-bottom:1.2rem;text-wrap:pretty;font-weight:400}
-
-.forensic{display:grid;grid-template-columns:minmax(9rem,11rem) 1fr;gap:.5rem clamp(1rem,2.5vw,1.8rem);
-  margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--line)}
-.forensic dt{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--petrol);padding-top:.3rem}
-.forensic dd{color:var(--ink-2);margin-bottom:.5rem;font-size:var(--t--1);text-wrap:pretty}
-.forensic dd b{color:var(--ink);font-weight:600}
-.forensic .f-res{color:var(--ink)}
-.forensic dd ul{list-style:none;margin:.6rem 0 0}
-.forensic dd li{position:relative;padding-left:1.1rem;margin-bottom:.45rem}
-.forensic dd li::before{content:'';position:absolute;left:0;top:.7em;width:6px;height:1px;background:var(--coral)}
-.forensic dd li b{color:var(--ink);font-weight:600}
-.forensic dd p+p{margin-top:.6rem}
-.stack{font-family:var(--mono);font-size:.72rem;color:var(--ink-3);line-height:1.9}
-@container (max-width:34rem){
-  .forensic{grid-template-columns:1fr;gap:.1rem}
-  .forensic dt{padding-top:.85rem}
-}
-
-/* ── PROJECTS ── */
-#projects{padding:var(--sect) 0;background:var(--card);border-block:1px solid var(--line)}
-.proj-grid{display:grid;gap:var(--gap);
-  grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr))}
-.pj{background:var(--paper);padding:clamp(1.2rem,2.2vw,1.8rem);border-radius:var(--rad);
-  border:1px solid var(--line);display:flex;flex-direction:column;container-type:inline-size;
-  transition:transform .5s var(--ease),border-color .5s,box-shadow .5s var(--ease)}
-.pj:hover{transform:translateY(-5px);border-color:var(--line-2);box-shadow:0 14px 34px rgba(11,46,48,.09)}
-.pj-img-wrap{width:100%;aspect-ratio:16/10;margin-bottom:1.3rem;border-radius:10px;overflow:hidden;
-  position:relative;background:var(--sunken);display:grid;place-items:center}
-.pj-img-wrap img{width:100%;height:100%;object-fit:contain;padding:1.4rem;
-  mix-blend-mode:multiply;filter:saturate(.85);
-  transition:filter .6s var(--ease),transform .8s var(--ease)}
-.pj:hover .pj-img-wrap img{filter:none;transform:scale(1.03)}
-.pj-status{font-family:var(--mono);font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;
-  margin-bottom:.7rem;color:var(--coral)}
-.pj-status.done{color:#1F6B4A}
-.pj-title{font-family:var(--display);font-size:var(--t-2);font-weight:500;margin-bottom:.6rem;
-  line-height:1.16;letter-spacing:-.025em}
-.pj-body{color:var(--ink-2);margin-bottom:.9rem;font-size:var(--t--1);flex-grow:1;text-wrap:pretty}
-.pj-body b{color:var(--ink);font-weight:600}
-
-/* ── LIVE MODEL (dark instrument panel on light page) ── */
-#model{padding:var(--sect) 0;background:var(--paper)}
-.mw{background:var(--deep);border-radius:calc(var(--rad) + 4px);overflow:hidden;
-  container-type:inline-size;box-shadow:0 24px 60px rgba(8,38,40,.22)}
-.mw-head{padding:1.3rem clamp(1.2rem,2.5vw,2rem);border-bottom:1px solid var(--line-deep);
-  display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;background:var(--deep-2)}
-.mw-head h3{font-family:var(--display);font-size:var(--t-2);font-weight:500;color:var(--on-deep);letter-spacing:-.02em}
-.mw-note{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--on-deep-2)}
-.mw-grid{display:grid;grid-template-columns:minmax(15rem,19rem) 1fr}
-.mw-ctrl{padding:clamp(1.2rem,2.5vw,2rem);border-right:1px solid var(--line-deep);background:var(--deep-2)}
-.mw-out{padding:clamp(1.2rem,2.5vw,2rem);min-width:0}
-.ctl{margin-bottom:1.5rem}
+/* ── MODEL ── */
+.mw{background:var(--ink);border-radius:4px;overflow:hidden;container-type:inline-size;
+  box-shadow:0 20px 50px rgba(20,19,16,.16)}
+.mw-head{padding:1.2rem clamp(1.1rem,2.4vw,1.9rem);border-bottom:1px solid rgba(239,237,231,.13);
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.mw-head h3{color:var(--on-ink)}
+.mw-note{font-size:var(--t-small);color:var(--on-ink2)}
+.mw-grid{display:grid;grid-template-columns:minmax(14rem,18rem) 1fr}
+.mw-ctrl{padding:clamp(1.1rem,2.4vw,1.8rem);border-right:1px solid rgba(239,237,231,.13)}
+.mw-out{padding:clamp(1.1rem,2.4vw,1.8rem);min-width:0}
+.ctl{margin-bottom:1.35rem}
 .ctl label{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem;
-  font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--on-deep-2);margin-bottom:.55rem}
-.ctl label output{color:var(--coral-l);font-size:.8rem;letter-spacing:0}
+  font-size:var(--t-small);font-weight:500;color:var(--on-ink2);margin-bottom:.5rem}
+.ctl label output{color:var(--oxide-l);font-weight:600}
 .ctl input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:3px;
-  background:rgba(228,234,231,.2);border-radius:3px;outline:none}
-.ctl input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;
-  border-radius:50%;background:var(--coral-l);cursor:pointer;border:none;
-  transition:transform .2s var(--ease)}
-.ctl input[type=range]:hover::-webkit-slider-thumb{transform:scale(1.15)}
-.ctl input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;
-  background:var(--coral-l);cursor:pointer;border:none}
-.ctl .hint{font-size:.8rem;color:var(--on-deep-2);margin-top:.45rem;line-height:1.5}
-.mbtn{width:100%;background:none;border:1px solid rgba(228,234,231,.28);color:var(--on-deep-2);
-  border-radius:24px;padding:.55rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;
-  text-transform:uppercase;cursor:pointer;transition:background .3s,color .3s,border-color .3s}
-.mbtn:hover{background:rgba(228,234,231,.08);color:var(--on-deep);border-color:var(--on-deep-2)}
-/* flex, not grid: a wrapped row stretches to fill rather than leaving empty cells */
-.mrow{display:flex;flex-wrap:wrap;border:1px solid var(--line-deep);
-  border-radius:10px;overflow:hidden;margin-bottom:.9rem}
-.mstat{background:var(--deep);padding:.8rem .9rem;flex:1 1 6.5rem;min-width:0;
-  border-right:1px solid var(--line-deep);border-bottom:1px solid var(--line-deep)}
-.mstat .k{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--on-deep-2)}
-.mstat .v{font-family:var(--display);font-size:var(--t-2);color:var(--on-deep);line-height:1.2;
-  margin-top:.1rem;font-weight:500;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-.mstat .v.pos{color:#7FCFA4}.mstat .v.neg{color:#EE8B76}
-.mstat .d{font-family:var(--mono);font-size:.7rem;color:var(--on-deep-2)}
-.msub{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--on-deep-2);margin:0 0 .7rem}
+  background:rgba(239,237,231,.2);border-radius:3px;outline:none}
+.ctl input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;
+  border-radius:50%;background:var(--oxide-l);cursor:pointer;border:none}
+.ctl input[type=range]::-moz-range-thumb{width:15px;height:15px;border-radius:50%;
+  background:var(--oxide-l);cursor:pointer;border:none}
+.ctl .hint{font-size:var(--t-small);color:var(--on-ink2);margin-top:.4rem;line-height:1.5}
+.mbtn{width:100%;background:none;border:1px solid rgba(239,237,231,.28);color:var(--on-ink2);
+  border-radius:30px;padding:.5rem;font-family:inherit;font-size:var(--t-small);font-weight:500;
+  cursor:pointer;transition:background .3s,color .3s}
+.mbtn:hover{background:rgba(239,237,231,.08);color:var(--on-ink)}
+.mrow{display:flex;flex-wrap:wrap;border:1px solid rgba(239,237,231,.13);border-radius:3px;
+  overflow:hidden;margin-bottom:.8rem}
+.mstat{background:var(--ink);padding:.75rem .85rem;flex:1 1 6.5rem;min-width:0;
+  border-right:1px solid rgba(239,237,231,.13);border-bottom:1px solid rgba(239,237,231,.13)}
+.mstat .k{font-size:var(--t-small);color:var(--on-ink2)}
+.mstat .v{font-size:clamp(1.3rem,1rem + 1vw,1.75rem);font-weight:600;color:var(--on-ink);
+  line-height:1.2;letter-spacing:-.035em}
+.mstat .v.pos{color:#8FC9A2}.mstat .v.neg{color:#E58A72}
+.mstat .d{font-size:var(--t-small);color:var(--on-ink2)}
+.msub{font-size:var(--t-small);font-weight:500;color:var(--on-ink2);margin:0 0 .6rem}
 .mchart{width:100%;height:auto;display:block;overflow:visible}
-.mlegend{display:flex;gap:1rem;flex-wrap:wrap;font-family:var(--mono);font-size:.7rem;
-  letter-spacing:.04em;text-transform:uppercase;color:var(--on-deep-2);margin-top:.6rem}
+.mlegend{display:flex;gap:1rem;flex-wrap:wrap;font-size:var(--t-small);color:var(--on-ink2);margin-top:.5rem}
 .mlegend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:.35rem;vertical-align:-1px}
-.mfoot{font-size:.85rem;color:var(--on-deep-2);margin-top:1.4rem;padding-top:1.1rem;
-  border-top:1px solid var(--line-deep);line-height:1.65}
-.mfoot b{color:var(--on-deep);font-weight:600}
-#model .s-desc a{color:var(--petrol);text-decoration:underline;text-underline-offset:3px}
-@container (max-width:44rem){
-  .mw-grid{grid-template-columns:1fr}
-  .mw-ctrl{border-right:none;border-bottom:1px solid var(--line-deep)}
-}
+.mfoot{font-size:var(--t-small);color:var(--on-ink2);margin-top:1.3rem;padding-top:1rem;
+  border-top:1px solid rgba(239,237,231,.13);line-height:1.6}
+.mfoot b{color:var(--on-ink)}
+#model .cnote a{color:var(--oxide);text-decoration:underline;text-underline-offset:3px}
+@container (max-width:44rem){.mw-grid{grid-template-columns:1fr}
+  .mw-ctrl{border-right:none;border-bottom:1px solid rgba(239,237,231,.13)}}
 
-/* ── JOURNEY ── */
-#about{padding:var(--sect) 0;background:var(--card);border-block:1px solid var(--line)}
-.ti{background:var(--paper);border:1px solid var(--line);padding:clamp(1.3rem,2.5vw,2.4rem);
-  border-radius:var(--rad);margin-bottom:var(--gap);
-  transition:border-color .5s,transform .5s var(--ease),box-shadow .5s var(--ease)}
-.ti:hover{border-color:var(--petrol);transform:translateX(5px);box-shadow:0 10px 26px rgba(11,46,48,.07)}
-.ti-year{font-family:var(--mono);font-size:.72rem;color:var(--ink-3);letter-spacing:.1em;margin-bottom:.6rem}
-.ti-role{font-family:var(--display);font-size:var(--t-2);font-weight:500;margin-bottom:.25rem;letter-spacing:-.025em}
-.ti-org{font-family:var(--mono);font-size:.72rem;color:var(--petrol);letter-spacing:.05em;
-  margin-bottom:.8rem;text-transform:uppercase;line-height:1.6}
-.ti-desc{color:var(--ink-2);font-size:var(--t--1);text-wrap:pretty}
-
-/* ── CREATIVE ── */
-#creative{padding:var(--sect) 0;background:var(--paper)}
-.cr-grid{display:grid;gap:var(--gap);grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr))}
-.cr-card{background:var(--card);padding:clamp(1.4rem,2.8vw,2.6rem);border-radius:var(--rad);
-  border:1px solid var(--line);transition:transform .5s var(--ease),border-color .5s,box-shadow .5s var(--ease)}
-.cr-card:hover{transform:translateY(-5px);border-color:var(--line-2);box-shadow:0 14px 34px rgba(11,46,48,.08)}
-.cr-title{font-family:var(--display);font-size:var(--t-2);font-weight:500;margin-bottom:.7rem;
-  color:var(--petrol);letter-spacing:-.025em}
-.cr-body{color:var(--ink-2);font-size:var(--t--1);text-wrap:pretty}
-.cr-facts{list-style:none;margin-top:1rem;font-family:var(--mono);font-size:.74rem;
-  color:var(--ink-3);line-height:2}
-.cr-facts li::before{content:'— ';color:var(--coral)}
-.cr-facts a{text-decoration:none;transition:color .3s}
-.cr-facts a:hover{color:var(--petrol)}
-
-/* ── ROOTS (inverted) ── */
-#roots{padding:var(--sect) 0;background:var(--deep);color:var(--on-deep)}
-#roots .s-label{color:var(--coral-l)}
-#roots .s-label::before{background:var(--coral-l)}
-#roots .s-title{color:var(--on-deep)}
-#roots .s-title em{color:var(--coral-l)}
-#roots .s-desc{color:var(--on-deep-2)}
-.roots-grid{display:grid;gap:var(--gap);grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr))}
-.root-card{background:var(--deep-2);padding:clamp(1.3rem,2.6vw,2.3rem);border-radius:var(--rad);
-  border:1px solid var(--line-deep);transition:transform .5s var(--ease),background .5s,border-color .5s}
-.root-card:hover{transform:translateY(-5px);background:#134042;border-color:rgba(228,234,231,.24)}
-.root-place{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--coral-l);margin-bottom:.8rem}
-.root-title{font-family:var(--display);font-size:var(--t-2);font-weight:500;margin-bottom:.6rem;letter-spacing:-.025em}
-.root-body{color:var(--on-deep-2);font-size:var(--t--1);text-wrap:pretty}
+/* ── SPLITS ── */
+.split{display:grid;gap:clamp(1.5rem,3vw,3rem);
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));align-items:start}
+.split--media{grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr))}
+.blk h3{margin-bottom:.5rem}
+.blk p{color:var(--ink2);font-size:var(--t-small)}
+.blk ul{list-style:none;margin-top:.8rem;font-size:var(--t-small);color:var(--ink3)}
+.blk li{margin-bottom:.3rem}
+.blk li::before{content:'— ';color:var(--oxide)}
 
 /* ── CONTACT ── */
-#contact{padding:calc(var(--sect) * 1.2) 0;background:var(--paper);text-align:center}
-.contact-in{max-width:50rem;margin:0 auto;padding:0 var(--pad)}
-.contact-q{font-family:var(--display);font-size:var(--t-3);font-weight:300;line-height:1.2;
-  margin-bottom:1.1rem;letter-spacing:-.03em;text-wrap:balance}
-.contact-sub{color:var(--ink-2);margin-bottom:2.4rem;font-size:var(--t-0);text-wrap:pretty}
-.contact-links{display:flex;justify-content:center;gap:.7rem;flex-wrap:wrap}
-.cl{font-family:var(--mono);font-size:var(--micro);letter-spacing:.08em;text-transform:uppercase;
-  text-decoration:none;padding:.95rem 2rem;border:1px solid var(--line-2);border-radius:40px;
-  transition:background .4s,border-color .4s,transform .4s var(--ease),color .4s}
-.cl:hover{background:var(--petrol);border-color:var(--petrol);color:#fff;transform:translateY(-3px)}
+#contact{text-align:center;padding:calc(var(--sect) * 1.3) 0}
+#contact h2{max-width:22ch;margin:0 auto 1rem}
+.contact-sub{color:var(--ink2);margin-bottom:2rem}
+.contact-links{display:flex;justify-content:center;gap:1.4rem;flex-wrap:wrap;
+  font-size:var(--t-small);font-weight:600}
 
-/* ── FOOTER ── */
-footer{padding:2.6rem 0;background:var(--card);border-top:1px solid var(--line);
-  font-family:var(--mono);font-size:.72rem;color:var(--ink-3);line-height:2}
-footer .inner{display:flex;justify-content:space-between;gap:1.25rem;flex-wrap:wrap}
-footer a{color:var(--petrol)}
-footer .fr{text-align:right}
+footer{padding:2rem 0 2.6rem;border-top:1px solid var(--line);font-size:var(--t-small);color:var(--ink3)}
+footer .wrap{display:flex;justify-content:space-between;gap:1.2rem;flex-wrap:wrap}
+footer a{color:var(--oxide)}
 
-/* ── REVEALS ─────────────────────────────
-   Scroll-driven where supported; IntersectionObserver only as fallback.
-   No JS at all => everything visible.                                   */
-@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
-
-html.sda .reveal{animation:rise linear both;animation-timeline:view();
-  animation-range:entry 4% cover 24%}
-html.io .reveal{opacity:0;transform:translateY(26px);
-  transition:opacity .75s var(--ease),transform .75s var(--ease)}
-html.io .reveal.vis{opacity:1;transform:none}
-.delay-1{transition-delay:.08s}.delay-2{transition-delay:.16s}.delay-3{transition-delay:.24s}
-
-/* view transitions on the depth toggle */
-::view-transition-old(root),::view-transition-new(root){animation-duration:.32s;
-  animation-timing-function:cubic-bezier(.22,1,.36,1)}
-
-/* ── MOTION PREFERENCES ── */
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
-    transition-duration:.001ms!important}
-  html.sda .reveal,html.io .reveal{animation:none!important;opacity:1!important;transform:none!important}
-  #hc{display:none}
-  html.intro #intro{display:none}
-}
-
-/* ── NAV MODE SWITCH (a genuine layout change, so a query is right) ── */
 @media(max-width:60rem){
-  nav{flex-wrap:wrap;padding-inline:var(--pad)}
+  nav{flex-wrap:wrap}
   .nav-toggle{display:block;order:2}
-  .depth{order:3;width:100%;justify-content:center;padding-top:.15rem}
-  .depth-lab{display:none}
+  .depth{order:3;width:100%;justify-content:center;padding-top:.2rem}
   .nav-links{order:4;display:none;width:100%;flex-direction:column;gap:0;
     border-top:1px solid var(--line);margin-top:.5rem;padding-top:.3rem}
-  nav.open{background:var(--paper);backdrop-filter:none}
+  nav.open{background:var(--bone)}
   nav.open .nav-links{display:flex}
-  .nav-links a{display:block;padding:.7rem 0}
-  .nav-links a::after{display:none}
-  .hero-layout{flex-direction:column-reverse}
-  .hero-text{flex-basis:auto}
-  .facts{max-width:none}
-  /* the nav is two rows in this mode, so the hero needs more headroom */
-  #hero{padding-top:clamp(8.5rem,20vh,11rem);min-height:0}
+  .nav-links a{display:block;padding:.65rem 0}
+  #hero{padding-top:clamp(8rem,19vh,10.5rem);min-height:0}
+  .row{grid-template-columns:1fr;gap:.35rem;padding:.95rem 0}
+  dl.f{grid-template-columns:1fr;gap:.1rem}
+  dl.f dt{padding-top:.85rem}
 }
-
-/* ── PRINT ── */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition-duration:.001ms!important}
+  .rv{clip-path:none!important;transform:none!important}
+  #field,#grain{display:none}
+}
 @media print{
-  nav,#hc,#draftbar,.hero-img-wrap,#model,.skip,#intro{display:none!important}
+  nav,#field,#grain,#model,.skip,.marq,.plate{display:none!important}
   html,body{background:#fff;color:#000;font-size:10.5pt}
   .t-deep,.t-brief{display:block!important}
-  section,#evidence,#projects,#about,#roots,#creative,#work,#contact{
-    background:#fff!important;color:#000!important;padding:1.2rem 0!important;border:0}
-  #roots .s-title,#roots .root-title,.root-body,.root-place{color:#000!important}
-  .cs,.pj,.ti,.cr-card,.root-card{border:1px solid #ccc;background:#fff;
-    page-break-inside:avoid;box-shadow:none}
+  .chapter{padding:1rem 0;border-color:#ccc}
   a::after{content:' (' attr(href) ')';font-size:8pt;color:#555;word-break:break-all}
   a[href^="#"]::after{content:''}
 }
-
 </style>
 </head>
 <body>
-
 <script>
-/* runs before first paint: no flash, and no-JS still shows everything */
-(function(){
-  var h = document.documentElement;
-  h.className += ' js';
-  try { var d = localStorage.getItem('depth');
-        if (d === 'scan' || d === 'brief' || d === 'deep') h.setAttribute('data-depth', d); } catch(e){}
-
-  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* native scroll-driven animation where available, IntersectionObserver otherwise */
-  var sda = !!(window.CSS && CSS.supports && CSS.supports('animation-timeline', 'view()'));
-  h.classList.add(sda ? 'sda' : 'io');
-
-  /* intro plays once per session only */
-  var seen = false;
-  try { seen = sessionStorage.getItem('seenIntro') === '1'; } catch(e){}
-  if (!seen && !reduce) h.classList.add('intro');
-})();
+(function(){var h=document.documentElement;h.className+=' js';
+  try{var d=localStorage.getItem('depth');
+    if(d==='scan'||d==='brief'||d==='deep')h.setAttribute('data-depth',d);}catch(e){}
+  h.classList.add(window.CSS&&CSS.supports&&CSS.supports('animation-timeline','view()')?'sda':'io');})();
 </script>
 
-<div id="intro" aria-hidden="true"><span>Eshwar Nevedh</span></div>
+<svg id="grain" aria-hidden="true"><filter id="gr"><feTurbulence type="fractalNoise"
+  baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/>
+  </filter><rect width="100%" height="100%" filter="url(#gr)" opacity="0.42"/></svg>
 
 <a href="#main" class="skip">Skip to content</a>
 
 <nav id="nav">
   <a href="#hero" class="logo">Eshwar <span>Nevedh</span></a>
-
   <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
-
-  <div class="depth" role="group" aria-labelledby="depthLab">
-    <span class="depth-lab" id="depthLab">Read in</span>
+  <div class="depth" role="group" aria-label="Reading depth">
     <div class="depth-seg" id="depthSeg">
-      <button type="button" data-d="scan"  aria-pressed="false">30 sec</button>
+      <button type="button" data-d="scan" aria-pressed="false">30 sec</button>
       <button type="button" data-d="brief" aria-pressed="false">3 min</button>
-      <button type="button" data-d="deep"  aria-pressed="true">15 min</button>
+      <button type="button" data-d="deep" aria-pressed="true">15 min</button>
     </div>
   </div>
-
   <ul class="nav-links" id="navLinks">
     <li><a href="#evidence">Evidence</a></li>
     <li><a href="#work">Work</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#model" class="t-deep">Live Model</a></li>
-    <li><a href="#creative">Creative</a></li>
+    <li><a href="#built">Built</a></li>
+    <li><a href="#model" class="t-deep">Model</a></li>
+    <li><a href="#offclock">Off the clock</a></li>
+    <li><a href="#roots" class="t-deep">Roots</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -591,930 +383,708 @@ html.io .reveal.vis{opacity:1;transform:none}
 <main id="main">
 
 <header id="hero">
-  <canvas id="hc" aria-hidden="true"></canvas>
-  <div class="hero-inner">
-    <div class="hero-layout">
-      <div class="hero-text">
-        <p class="hero-eyebrow">London · MSc Analytics &amp; Management, London Business School</p>
-        <h1 class="hero-h">
-          I build the analytics<br/>layer between messy data<br/>
-          <em>and the person deciding.</em>
-          <span class="name-native">எஷ்வர் நேவேத் &nbsp;·&nbsp; ഈശ്വർ നേവേദ്</span>
-        </h1>
-        <p class="hero-sub">
-          <strong>Data &amp; AI consultant.</strong> Two years shipping enterprise ML and data platforms
-          at Thorogood &mdash; including a live platform for an FCA-regulated ~&pound;6bn fund &mdash; sole data
-          lead at The Sports Consultancy, and AI risk intelligence with EY. I am equally comfortable
-          writing the pipeline and defending it to a board.
-        </p>
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow rv">Eshwar Nevedh — London — available now</p>
+        <h1 class="rv">Data, and <em>the decision after it.</em>
+          <span class="name-native">எஷ்வர் நேவேத் · ഈശ്വർ നേവേദ്</span></h1>
+        <p class="lede hero-lede rv"><b>Data &amp; AI consultant.</b> Two years building enterprise
+          data platforms at Thorogood — including a live platform for an FCA-regulated
+          <span class="num">~£6bn</span> fund — sole data lead at The Sports Consultancy, and AI risk
+          intelligence with EY. Equally comfortable writing the pipeline and defending it to a board.</p>
 
-        <dl class="facts">
-          <div class="fact"><dt>Seeking</dt><dd>Data &amp; AI consulting · Data science / ML · Analytics strategy</dd></div>
-          <div class="fact"><dt>Available</dt><dd><span class="ok">Immediately</span> — MAM completed</dd></div>
-          <div class="fact"><dt>Work authorisation</dt><dd><span class="ok">UK Graduate Route eligible</span> — no sponsorship required</dd></div>
-          <div class="fact"><dt>Based</dt><dd>London, UK · open to relocation</dd></div>
+        <dl class="facts rv">
+          <div class="fact"><dt>Seeking</dt><dd>Data &amp; AI consulting · DS/ML · Analytics strategy</dd></div>
+          <div class="fact"><dt>Available</dt><dd><span class="hi">Immediately</span></dd></div>
+          <div class="fact"><dt>Work authorisation</dt><dd>UK Graduate Route — no sponsorship</dd></div>
+          <div class="fact"><dt>Based</dt><dd>London · open to relocation</dd></div>
         </dl>
 
-        <div class="hero-ctas">
-          <a href="assets/Eshwar-Nevedh-CV.pdf" class="btn-p" download>Download CV (PDF)</a>
-          <a href="#evidence" class="btn-s">See the evidence</a>
-          <a href="https://github.com/sken2002" class="btn-s" rel="me noopener">GitHub</a>
+        <div class="ctas rv">
+          <a class="u on" href="assets/Eshwar-Nevedh-CV.pdf" download>Download CV</a>
+          <a class="u" href="https://github.com/sken2002" target="_blank" rel="me noopener">GitHub</a>
+          <a class="u" href="https://in.linkedin.com/in/eshwar-nevedh-41b697196" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="u" href="mailto:eshwarnevedh@gmail.com">Email</a>
         </div>
       </div>
 
-      <div class="hero-img-wrap">
-        <button class="card-stack" id="stack" aria-label="Photo stack: professional portrait, Arsenal, EY, keyboards, band. Activate to fan out.">
-          <picture>
-            <source type="image/avif" srcset="assets/portrait@1x.avif 445w, assets/portrait@2x.avif 890w" sizes="340px"/>
-            <source type="image/webp" srcset="assets/portrait@1x.webp 445w, assets/portrait@2x.webp 890w" sizes="340px"/>
-            <img src="assets/portrait@2x.jpg" width="890" height="890" fetchpriority="high" decoding="async" alt="Eshwar Nevedh, professional portrait"/>
-          </picture>
-          <picture>
-            <source type="image/avif" srcset="assets/arsenal@1x.avif 360w, assets/arsenal@2x.avif 721w" sizes="340px"/>
-            <source type="image/webp" srcset="assets/arsenal@1x.webp 360w, assets/arsenal@2x.webp 721w" sizes="340px"/>
-            <img src="assets/arsenal@2x.jpg" width="721" height="1281" loading="lazy" decoding="async" alt="Eshwar at the Emirates Stadium"/>
-          </picture>
-          <picture>
-            <source type="image/avif" srcset="assets/ey@1x.avif 360w, assets/ey@2x.avif 721w" sizes="340px"/>
-            <source type="image/webp" srcset="assets/ey@1x.webp 360w, assets/ey@2x.webp 721w" sizes="340px"/>
-            <img src="assets/ey@2x.jpg" width="721" height="961" loading="lazy" decoding="async" alt="Eshwar at the EY LondonLAB project"/>
-          </picture>
-          <picture>
-            <source type="image/avif" srcset="assets/keys@1x.avif 360w, assets/keys@2x.avif 721w" sizes="340px"/>
-            <source type="image/webp" srcset="assets/keys@1x.webp 360w, assets/keys@2x.webp 721w" sizes="340px"/>
-            <img src="assets/keys@2x.jpg" width="721" height="961" loading="lazy" decoding="async" alt="Eshwar playing keyboards"/>
-          </picture>
-          <picture>
-            <source type="image/avif" srcset="assets/band@1x.avif 360w, assets/band@2x.avif 721w" sizes="340px"/>
-            <source type="image/webp" srcset="assets/band@1x.webp 360w, assets/band@2x.webp 721w" sizes="340px"/>
-            <img src="assets/band@2x.jpg" width="721" height="940" loading="lazy" decoding="async" alt="Eshwar performing on synth with his band"/>
-          </picture>
-        </button>
-        <p class="stack-hint" id="stackHint">Hover to fan out</p>
-      </div>
+      <figure class="plate plate--hero rv" data-screen="dot">
+        <canvas aria-hidden="true"></canvas>
+        <img src="assets/portrait@2x.avif" width="890" height="890" fetchpriority="high" alt="Eshwar Nevedh"/>
+        <figcaption><span>Fig. 01 — the CV photo</span><span>Hover to resolve</span></figcaption>
+      </figure>
     </div>
   </div>
 </header>
 
-<!-- ═══════════ EVIDENCE ═══════════ -->
-<section id="evidence">
-  <div class="inner">
-    <div class="reveal">
-      <p class="s-label">The 30-second version</p>
-      <h2 class="s-title">What I have <em>actually shipped</em></h2>
-      <p class="s-desc">
-        Every row says what the thing was, what changed because of it, and how far you can verify it.
-        Client work is labelled private because it is — I would rather tell you that than imply otherwise.
-      </p>
-    </div>
+<div class="marq" aria-hidden="true">
+  <div class="marq-in" id="marq">
+    <span>Python</span><span>SQL Server</span><span>PySpark</span><span>Azure Databricks</span>
+    <span>Markov decision processes</span><span>Retrieval-augmented generation</span>
+    <span>LangGraph</span><span>Gurobi</span><span>Power BI</span><span>FinBERT</span>
+    <span>SSIS</span><span>CI/CD</span><span>Monte Carlo</span><span>Optimisation</span>
+  </div>
+</div>
 
-    <div class="tscroll reveal delay-1">
-      <table class="etable">
-        <caption>Selected work, most recent first</caption>
-        <thead>
-          <tr><th scope="col">What</th><th scope="col">Where</th><th scope="col">Result</th><th scope="col">Verifiable?</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="e-what">AI risk-intelligence tool</span><span class="e-org">EY &middot; via LBS LondonLAB</span></td>
-            <td>2026</td>
-            <td class="e-res">Sole technical builder across a synthetic &pound;1.13bn portfolio: a Composite Risk Index and a graph-based model. Faculty commendation; presented to the client sponsor.</td>
-            <td><span class="ev ev--private" title="Client engagement — code and data cannot be shared">Client &middot; private</span></td>
-          </tr>
-          <tr>
-            <td><span class="e-what">19 years of records, made usable</span><span class="e-org">The Sports Consultancy</span></td>
-            <td>2025&ndash;26</td>
-            <td class="e-res">Sole data lead. Consolidated ~19 years of siloed, unstructured records into one analysis-ready asset the commercial team now builds on.</td>
-            <td><span class="ev ev--private" title="Client engagement — code and data cannot be shared">Client &middot; private</span></td>
-          </tr>
-          <tr>
-            <td><span class="e-what">Platform for an FCA-regulated ~&pound;6bn fund</span><span class="e-org">Thorogood Associates</span></td>
-            <td>2023&ndash;25</td>
-            <td class="e-res">Developer and de-facto lead (L3 owner) on a live platform. 40+ features across cash-flow, XIRR, liquidity and valuation logic.</td>
-            <td><span class="ev ev--private" title="Client engagement — code and data cannot be shared">Client &middot; private</span></td>
-          </tr>
-          <tr>
-            <td><span class="e-what">Pricing process automated into SAP</span><span class="e-org">Thorogood Associates</span></td>
-            <td>2024</td>
-            <td class="e-res">Removed <b>~500 hours a year</b> of manual work. Separately self-sourced a ~&pound;70,000 opportunity by spotting reusable data nobody had flagged.</td>
-            <td><span class="ev ev--private" title="Client engagement — code and data cannot be shared">Client &middot; private</span></td>
-          </tr>
-          <tr>
-            <td><span class="e-what">Customer P&amp;L data product</span><span class="e-org">Thorogood Associates</span></td>
-            <td>2024</td>
-            <td class="e-res">18+ sources integrated into the daily dashboards a FTSE-100 consumer-healthcare multinational's commercial teams decided on. Sole client contact.</td>
-            <td><span class="ev ev--private" title="Client engagement — code and data cannot be shared">Client &middot; private</span></td>
-          </tr>
-          <tr>
-            <td><span class="e-what">CARVIS &mdash; LangGraph agent</span><span class="e-org">Independent</span></td>
-            <td>2025</td>
-            <td class="e-res">AI career agent. <b>Top 3, LBS AI Agent Cup.</b></td>
-            <td><a class="ev ev--code" href="https://github.com/sken2002/carvis-ai-job-agent" rel="noopener" target="_blank">Code</a></td>
-          </tr>
-          <tr>
-            <td><span class="e-what">Axiom &mdash; 3-stage ML pipeline</span><span class="e-org">London Business School</span></td>
-            <td>2026</td>
-            <td class="e-res">K-Means, logistic regression and Gurobi optimisation over 100k records, reaching <b>99.7% of maximum economic value</b>.</td>
-            <td><a class="ev ev--code" href="https://github.com/sken2002/axiom-decision-analytics-modelling" rel="noopener" target="_blank">Code</a></td>
-          </tr>
-          <tr>
-            <td><span class="e-what">FinPulse market intelligence</span><span class="e-org">Independent</span></td>
-            <td>2025&ndash;</td>
-            <td class="e-res">Cross-asset risk platform built solo: ingestion, scoring, portfolio signals. Deployed and running.</td>
-            <td><a class="ev ev--live" href="https://finpulse-intelligence.onrender.com/" rel="noopener" target="_blank">Live</a></td>
-          </tr>
-          <tr>
-            <td><span class="e-what">Geopolitical risk tracker</span><span class="e-org">Independent</span></td>
-            <td>2026</td>
-            <td class="e-res">FinBERT news sentiment into a tension index; conflict escalation modelled as an MDP with Monte Carlo sizing. Open source.</td>
-            <td>
-              <a class="ev ev--code" href="https://github.com/sken2002/geopolitical-stock-risk-tracker" rel="noopener" target="_blank">Code</a>
-              <a class="ev ev--live" href="#model">Demo</a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+<div class="wrap">
+
+<section class="chapter" id="evidence" style="border-top:none">
+  <div class="chead rv"><h2>What I have <em>actually shipped</em></h2><span class="cno">01 — Evidence</span></div>
+  <p class="cnote rv">Start here. Everything below this is elaboration. Each row says what the thing
+    was, what changed because of it, and how far you can verify it — client work is labelled private
+    because it is, and I would rather tell you that than imply otherwise.</p>
+
+  <dl class="stats rv" style="margin-bottom:2rem">
+    <div class="stat"><dt>Manual work removed</dt><dd><i>~</i><span class="ct" data-to="500">0</span></dd>
+      <div class="sub">hours per year, via SAP automation</div></div>
+    <div class="stat"><dt>Opportunity self-sourced</dt><dd><i>£</i><span class="ct" data-to="70">0</span><i>k</i></dd>
+      <div class="sub">from data nobody had flagged</div></div>
+    <div class="stat"><dt>Axiom pipeline</dt><dd><span class="ct" data-to="99.7" data-dp="1">0</span><i>%</i></dd>
+      <div class="sub">of maximum economic value</div></div>
+    <div class="stat"><dt>Records consolidated</dt><dd><span class="ct" data-to="19">0</span></dd>
+      <div class="sub">years, at The Sports Consultancy</div></div>
+  </dl>
+
+  <div class="tscroll rv">
+    <table>
+      <thead><tr><th>What</th><th>When</th><th>Result</th><th>Verifiable?</th></tr></thead>
+      <tbody>
+        <tr><td><span class="e-what">AI risk-intelligence tool</span><span class="meta">EY — via LBS LondonLAB</span></td>
+          <td>2026</td><td>Sole technical builder across a synthetic <span class="num">£1.13bn</span> portfolio:
+          a Composite Risk Index and a graph-based model. Faculty commendation; presented to the client sponsor.</td>
+          <td><span class="tag">Client — private</span></td></tr>
+        <tr><td><span class="e-what">19 years of records, made usable</span><span class="meta">The Sports Consultancy</span></td>
+          <td>2025–26</td><td>Sole data lead. Consolidated ~19 years of siloed, unstructured records into
+          one analysis-ready asset the commercial team now builds on.</td>
+          <td><span class="tag">Client — private</span></td></tr>
+        <tr><td><span class="e-what">Platform for an FCA-regulated ~£6bn fund</span><span class="meta">Thorogood Associates</span></td>
+          <td>2023–25</td><td>Developer and de-facto lead (L3 owner). <span class="num">40+ features</span>
+          across cash-flow, XIRR, liquidity and valuation logic.</td>
+          <td><span class="tag">Client — private</span></td></tr>
+        <tr><td><span class="e-what">Pricing automated into SAP</span><span class="meta">Thorogood Associates</span></td>
+          <td>2024</td><td>Removed <span class="num">~500 hours a year</span> of manual work. Separately
+          self-sourced a <span class="num">~£70,000</span> opportunity by spotting reusable data nobody had flagged.</td>
+          <td><span class="tag">Client — private</span></td></tr>
+        <tr><td><span class="e-what">Customer P&amp;L data product</span><span class="meta">Thorogood Associates</span></td>
+          <td>2024</td><td><span class="num">18+ sources</span> into the daily dashboards a FTSE-100
+          consumer-healthcare multinational's commercial teams decided on. Sole client contact.</td>
+          <td><span class="tag">Client — private</span></td></tr>
+        <tr><td><span class="e-what">CARVIS — LangGraph agent</span><span class="meta">Independent</span></td>
+          <td>2025</td><td>AI career agent. <span class="num">Top 3, LBS AI Agent Cup.</span></td>
+          <td><a class="tag u" href="https://github.com/sken2002/carvis-ai-job-agent" target="_blank" rel="noopener">Code →</a></td></tr>
+        <tr><td><span class="e-what">Axiom — 3-stage ML pipeline</span><span class="meta">London Business School</span></td>
+          <td>2026</td><td>K-Means, logistic regression and Gurobi over 100k records, reaching
+          <span class="num">99.7%</span> of maximum economic value.</td>
+          <td><a class="tag u" href="https://github.com/sken2002/axiom-decision-analytics-modelling" target="_blank" rel="noopener">Code →</a></td></tr>
+        <tr><td><span class="e-what">FinPulse market intelligence</span><span class="meta">Independent</span></td>
+          <td>2025–</td><td>Cross-asset risk platform built solo: ingestion, scoring, portfolio signals.</td>
+          <td><a class="tag u" href="https://finpulse-intelligence.onrender.com/" target="_blank" rel="noopener">Live →</a></td></tr>
+        <tr><td><span class="e-what">Geopolitical risk tracker</span><span class="meta">Independent</span></td>
+          <td>2026</td><td>FinBERT news sentiment into a tension index; escalation modelled as an MDP
+          with Monte Carlo sizing.</td>
+          <td><a class="tag u" href="https://github.com/sken2002/geopolitical-stock-risk-tracker" target="_blank" rel="noopener">Code →</a></td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
-<!-- ═══════════ WORK ═══════════ -->
-<section id="work">
-  <div class="inner">
-    <div class="reveal">
-      <p class="s-label">Case studies</p>
-      <h2 class="s-title">The work, with the <em>parts that went wrong</em></h2>
-      <p class="s-desc">
-        Anyone can list outcomes. These include the alternative I rejected and what broke in
-        production, because that is the part that tells you whether I was actually there.
-      </p>
+<section class="chapter t-brief" id="work">
+  <div class="chead rv"><h2>The work, with <em>the parts that went wrong</em></h2><span class="cno">02 — Experience</span></div>
+  <p class="cnote rv">Anyone can list outcomes. These include the alternative I rejected and what broke
+    in production, because that is the part that tells you whether I was actually there.</p>
+
+  <div class="split" style="margin-bottom:2rem">
+    <figure class="plate plate--wide rv" data-screen="cross">
+      <canvas aria-hidden="true"></canvas>
+      <img src="assets/ey@2x.avif" width="721" height="961" loading="lazy" alt="Eshwar at the EY LondonLAB project"/>
+      <figcaption><span>Fig. 02 — EY LondonLAB</span><span>Cross-hatch screen</span></figcaption>
+    </figure>
+    <div class="blk rv">
+      <h3>Three engagements, one thread</h3>
+      <p>Every one of them came down to the same thing: somebody had data they could not act on, and
+        needed a person who could go all the way from the storage layer to the slide. That is the job
+        I want to keep doing.</p>
     </div>
-
-    <article class="cs reveal">
-      <div class="cs-head">
-        <div class="cs-mark" aria-hidden="true">T</div>
-        <div class="cs-meta">
-          <p class="cs-org">Thorogood Associates &middot; Bangalore, India</p>
-          <h3 class="cs-title">Data &amp; AI Consultant</h3>
-          <p class="cs-when"><b>2023 &ndash; 2025</b> &middot; Full-time &middot; UK consultancy delivering data platforms for global enterprise clients</p>
-        </div>
-      </div>
-      <p class="cs-lede">
-        Developer and de-facto lead on a live platform for an FCA-regulated ~&pound;6bn fund, and owner
-        of a customer P&amp;L data product for a FTSE-100 multinational. Two years of owning things in
-        production, and owning the client relationship that comes with that.
-      </p>
-
-      <dl class="forensic t-brief">
-        <dt>Context</dt>
-        <dd>A live platform for an <b>FCA-regulated ~&pound;6bn fund</b>. I was developer and de-facto lead
-            &mdash; L3 owner &mdash; which meant production ownership and being the client's trusted final
-            check before anything shipped.</dd>
-
-        <dt>Constraint</dt>
-        <dd>A regulated environment. Cash-flow, XIRR, liquidity and valuation logic have to be right,
-            and "right" means auditable rather than approximately correct.</dd>
-
-        <dt>What I built</dt>
-        <dd><b>40+ features</b> across that cash-flow, XIRR, liquidity and valuation logic, and
-            <b>20+ production data pipelines</b> on Azure Databricks. Separately, I automated a manual
-            pricing process directly into the client's enterprise SAP.</dd>
-
-        <dt class="t-deep">Alternative I rejected</dt>
-        <dd class="t-deep"><p>Two of the client's internal tools had already been half-modernised: the SSIS packages and
-            the C#/.NET front end were in source control and running through CI/CD. The SQL layer &mdash;
-            the tables, stored procedures and views that everything actually sat on &mdash; had never been put
-            in a repo at all. It was still being changed directly on the server.</p>
-            <p>The path of least resistance was to leave it that way and keep adding features on top.
-            Nobody was asking me to change it. I turned that down and pushed to bring the SQL into
-            version control and CI/CD alongside the rest. It was short-term pain for long-term gain:
-            slower delivery for a stretch, and a fair amount of persuading. But shipping features onto
-            an unversioned database is how you end up unable to reproduce your own production
-            environment. I got it done before I left.</p></dd>
-
-        <dt class="t-deep">What broke</dt>
-        <dd class="t-deep"><p>The analytics cube stopped refreshing. The cause was a stored procedure computing XIRR across
-            every fund &mdash; it had grown slow enough that the refresh no longer fit inside its window, so
-            the whole cube would overrun and fail to process.</p>
-            <p>I brought that procedure's runtime down, but the bigger fix was re-sequencing the table
-            refreshes so the cube's dependencies completed in an order that shortened the overall window
-            rather than just the one procedure. The lesson I kept: the slow query is the symptom you can
-            see, not necessarily the constraint that is actually binding.</p></dd>
-
-        <dt>Result</dt>
-        <dd class="f-res">The pricing automation removed <b>~500 hours a year</b> of manual work. I
-            self-sourced a <b>~&pound;70,000</b> opportunity by spotting reusable data nobody had flagged.
-            The customer P&amp;L product integrated <b>18+ data sources</b> into the daily dashboards a
-            FTSE-100 consumer-healthcare multinational's commercial teams made decisions on, with me
-            as sole client contact.</dd>
-
-        <dt class="t-deep">Also shipped</dt>
-        <dd class="t-deep">Designed and delivered a three-day SQL and data-modelling training to
-            <b>40+ new joiners</b>.</dd>
-
-        <dt class="t-deep">Stack</dt>
-        <dd class="t-deep stack">Python &middot; SQL Server &middot; T-SQL &middot; SSIS &middot; SSAS cubes &middot; PySpark &middot;
-            Azure Databricks &middot; Power BI &middot; C#/.NET &middot; CI&#47;CD &middot; SAP integration</dd>
-      </dl>
-      <div class="ev-row">
-        <span class="ev ev--private" title="Client engagement &mdash; code and data cannot be shared">Client work &middot; private</span>
-      </div>
-    </article>
-
-    <article class="cs reveal">
-      <div class="cs-head">
-        <div class="cs-mark" aria-hidden="true">S</div>
-        <div class="cs-meta">
-          <p class="cs-org">The Sports Consultancy &middot; London</p>
-          <h3 class="cs-title">Data Consultant</h3>
-          <p class="cs-when"><b>2025 &ndash; Feb 2026</b> &middot; Part-time, alongside the MAM &middot; Rights holders, leagues, clubs</p>
-        </div>
-      </div>
-      <p class="cs-lede">
-        Sole data lead for a global sports consultancy, part-time, while doing a full-time Masters.
-      </p>
-
-      <dl class="forensic t-brief">
-        <dt>Context</dt>
-        <dd><b>~19 years</b> of siloed, unstructured records spread across systems and formats &mdash;
-            the accumulated exhaust of a firm that had been busy rather than tidy.</dd>
-
-        <dt>Constraint</dt>
-        <dd>Part-time hours, alongside a full-time Masters, as the only data person in the building.</dd>
-
-        <dt>What I built</dt>
-        <dd>A single consolidated, analysis-ready asset out of those nineteen years.</dd>
-
-        <dt class="t-deep">The hard part</dt>
-        <dd class="t-deep"><p>The auditing. Nineteen years of files in different formats, different structures and different
-            conventions, with no reliable record of what existed or what any of it meant. There was no
-            clever technique available &mdash; it was opening things, cataloguing them, and working out what
-            each one actually was.</p>
-            <p>It was the least interesting part of the engagement and it took the most time, which is
-            usually the honest answer about data work. What came out of it was a proposal for getting from
-            nothing to a first structured baseline: what to keep, what to reorganise, and in what order.</p></dd>
-
-        <dt>Result</dt>
-        <dd class="f-res">The commercial team now builds on it.</dd>
-      </dl>
-      <div class="ev-row">
-        <span class="ev ev--private" title="Client engagement &mdash; cannot be shared">Client work &middot; private</span>
-      </div>
-    </article>
-
-    <article class="cs reveal">
-      <div class="cs-head">
-        <div class="cs-mark" aria-hidden="true">E</div>
-        <div class="cs-meta">
-          <p class="cs-org">EY &middot; via LBS LondonLAB</p>
-          <h3 class="cs-title">AI Risk Intelligence</h3>
-          <p class="cs-when"><b>2026</b> &middot; Student consultant &middot; Eight weeks &middot; Team of five</p>
-        </div>
-      </div>
-      <p class="cs-lede">
-        Sole technical builder of an AI risk-intelligence tool over a synthetic <b>&pound;1.13bn</b> portfolio.
-      </p>
-
-      <dl class="forensic t-brief">
-        <dt>Context</dt>
-        <dd>Portfolio and capital-project risk shows up in the financials long before anyone escalates
-            it. The question was whether it could be surfaced early enough to act on.</dd>
-
-        <dt>Constraint</dt>
-        <dd>Synthetic data only, and an output a partner could read in ninety seconds without being
-            asked to trust a black box.</dd>
-
-        <dt>What I built</dt>
-        <dd>A <b>Composite Risk Index</b> and a <b>graph-based model</b> over a synthetic &pound;1.13bn
-            portfolio, as sole technical builder. I also led delivery for a team of five on an Agile
-            board across eight weeks, turning an ambiguous brief into scoped, on-time work.</dd>
-
-        <dt class="t-deep">Design tension</dt>
-        <dd class="t-deep"><p>The obvious alternative was a tabular risk register &mdash; each work package scored independently,
-            rolled up into a portfolio average, red/amber/green. That is how most project dashboards work.</p>
-            <p>We rejected it because infrastructure risk is systemic rather than isolated. A table can tell
-            you a work package has a poor Cost Performance Index. A graph lets you quantify blast radius: a
-            breadth-first traversal showed that one failing work package cascaded <b>three levels deep</b>,
-            hit <b>six downstream entities</b>, and pushed the go-live milestone out by <b>54 days</b>. You
-            cannot run that on a flat table &mdash; you need the topology.</p>
-            <p>What we gave up:</p>
-            <ul>
-              <li><b>Lenient ingestion.</b> A tabular dashboard needs entities and scores. The graph needs
-                  explicit, correct dependency edges &mdash; if the source data does not link a contract to a
-                  milestone, the cascade simply is not predicted. We traded ease of ingestion for
-                  topological accuracy.</li>
-              <li><b>Familiarity.</b> Project directors read spreadsheets and top-ten lists, not
-                  force-directed networks. We had to build a five-step investigation workflow so the graph
-                  did not just land as spaghetti.</li>
-              <li><b>Cheap arithmetic.</b> No <span class="stack">SUM</span> and
-                  <span class="stack">GROUP BY</span>. Every time a user moved a mitigation lever we ran an
-                  <span class="stack">O(V+E)</span> traversal client-side to recompute cascading exposure
-                  in real time.</li>
-            </ul></dd>
-
-        <dt>Result</dt>
-        <dd class="f-res"><b>Commended by faculty</b> and presented to the client sponsor.</dd>
-      </dl>
-      <div class="ev-row">
-        <span class="ev ev--private" title="Client engagement &mdash; cannot be shared">Client work &middot; private</span>
-      </div>
-    </article>
-
-    <article class="cs reveal t-brief">
-      <div class="cs-head">
-        <div class="cs-mark" aria-hidden="true">L</div>
-        <div class="cs-meta">
-          <p class="cs-org">London Business School</p>
-          <h3 class="cs-title">MSc Analytics &amp; Management</h3>
-          <p class="cs-when"><b>2025 – 2026</b> · Full-time · Completed</p>
-        </div>
-      </div>
-      <p class="cs-lede">
-        Deliberately chosen to put quantitative finance and strategy around the engineering I already had.
-      </p>
-      <dl class="forensic t-deep">
-        <dt>Coursework</dt>
-        <dd class="stack">Financial Analytics &middot; Data Science for Business &middot; Decision Analytics &amp; Modelling &middot; Generative AI Product Design</dd>
-      </dl>
-    </article>
   </div>
+
+  <article class="cs rv">
+    <div class="cs-top"><div><h3>Data &amp; AI Consultant</h3>
+      <span class="meta">Thorogood Associates — Bangalore, India</span></div>
+      <span class="meta">2023 – 2025 · Full-time</span></div>
+    <p class="cs-lede">Developer and de-facto lead on a live platform for an FCA-regulated ~£6bn fund,
+      and owner of a customer P&amp;L data product for a FTSE-100 multinational.</p>
+    <dl class="f">
+      <dt>Context</dt><dd>A live platform for an <b>FCA-regulated ~£6bn fund</b>. I was developer and
+        de-facto lead — L3 owner — which meant production ownership and being the client's trusted
+        final check before anything shipped.</dd>
+      <dt>Constraint</dt><dd>A regulated environment. Cash-flow, XIRR, liquidity and valuation logic
+        have to be right, and "right" means auditable rather than approximately correct.</dd>
+      <dt>What I built</dt><dd><b>40+ features</b> across that logic, and <b>20+ production data
+        pipelines</b> on Azure Databricks. Separately, I automated a manual pricing process directly
+        into the client's enterprise SAP.</dd>
+      <dt class="t-deep">Alternative I rejected</dt>
+      <dd class="t-deep"><p>Two of the client's internal tools had already been half-modernised: the
+        SSIS packages and the C#/.NET front end were in source control and running through CI/CD. The
+        SQL layer — the tables, stored procedures and views that everything actually sat on — had never
+        been put in a repo at all. It was still being changed directly on the server.</p>
+        <p>The path of least resistance was to leave it that way and keep adding features on top.
+        Nobody was asking me to change it. I turned that down and pushed to bring the SQL into version
+        control and CI/CD alongside the rest. Short-term pain for long-term gain: slower delivery for a
+        stretch, and a fair amount of persuading. But shipping features onto an unversioned database is
+        how you end up unable to reproduce your own production environment. I got it done before I left.</p></dd>
+      <dt class="t-deep">What broke</dt>
+      <dd class="t-deep"><p>The analytics cube stopped refreshing. The cause was a stored procedure
+        computing XIRR across every fund — it had grown slow enough that the refresh no longer fit
+        inside its window, so the whole cube would overrun and fail to process.</p>
+        <p>I brought that procedure's runtime down, but the bigger fix was re-sequencing the table
+        refreshes so the cube's dependencies completed in an order that shortened the overall window
+        rather than just the one procedure. <b>The slow query is the symptom you can see, not
+        necessarily the constraint that is actually binding.</b></p></dd>
+      <dt>Result</dt><dd>The pricing automation removed <b>~500 hours a year</b> of manual work. I
+        self-sourced a <b>~£70,000</b> opportunity by spotting reusable data nobody had flagged. The
+        customer P&amp;L product integrated <b>18+ data sources</b> into daily dashboards a FTSE-100
+        consumer-healthcare multinational's commercial teams decided on, with me as sole client contact.</dd>
+      <dt class="t-deep">Also shipped</dt><dd class="t-deep">A three-day SQL and data-modelling training
+        delivered to <b>40+ new joiners</b>.</dd>
+      <dt class="t-deep">Stack</dt><dd class="t-deep stack">Python · SQL Server · T-SQL · SSIS · SSAS cubes ·
+        PySpark · Azure Databricks · Power BI · C#/.NET · CI/CD · SAP integration</dd>
+    </dl>
+  </article>
+
+  <article class="cs rv">
+    <div class="cs-top"><div><h3>Data Consultant</h3>
+      <span class="meta">The Sports Consultancy — London</span></div>
+      <span class="meta">2025 – Feb 2026 · Part-time, alongside the MAM</span></div>
+    <p class="cs-lede">Sole data lead for a global sports consultancy, part-time, while doing a
+      full-time Masters.</p>
+    <dl class="f">
+      <dt>Context</dt><dd><b>~19 years</b> of siloed, unstructured records spread across systems and
+        formats — the accumulated exhaust of a firm that had been busy rather than tidy.</dd>
+      <dt>Constraint</dt><dd>Part-time hours, alongside a full-time Masters, as the only data person
+        in the building.</dd>
+      <dt>What I built</dt><dd>A single consolidated, analysis-ready asset out of those nineteen years.</dd>
+      <dt class="t-deep">The hard part</dt>
+      <dd class="t-deep"><p>The auditing. Nineteen years of files in different formats, different
+        structures and different conventions, with no reliable record of what existed or what any of it
+        meant. There was no clever technique available — it was opening things, cataloguing them, and
+        working out what each one actually was.</p>
+        <p>It was the least interesting part of the engagement and it took the most time, which is
+        usually the honest answer about data work. What came out of it was a proposal for getting from
+        nothing to a first structured baseline: what to keep, what to reorganise, and in what order.</p></dd>
+      <dt>Result</dt><dd>The commercial team now builds on it.</dd>
+    </dl>
+  </article>
+
+  <article class="cs rv">
+    <div class="cs-top"><div><h3>AI Risk Intelligence</h3>
+      <span class="meta">EY — via LBS LondonLAB</span></div>
+      <span class="meta">2026 · Eight weeks · Team of five</span></div>
+    <p class="cs-lede">Sole technical builder of an AI risk-intelligence tool over a synthetic
+      <b>£1.13bn</b> portfolio.</p>
+    <dl class="f">
+      <dt>Context</dt><dd>Portfolio and capital-project risk shows up in the financials long before
+        anyone escalates it. The question was whether it could be surfaced early enough to act on.</dd>
+      <dt>Constraint</dt><dd>Synthetic data only, and an output a partner could read in ninety seconds
+        without being asked to trust a black box.</dd>
+      <dt>What I built</dt><dd>A <b>Composite Risk Index</b> and a <b>graph-based model</b>, as sole
+        technical builder. I also led delivery for a team of five on an Agile board across eight weeks,
+        turning an ambiguous brief into scoped, on-time work.</dd>
+      <dt class="t-deep">Design tension</dt>
+      <dd class="t-deep"><p>The obvious alternative was a tabular risk register — each work package
+        scored independently, rolled up into a portfolio average, red/amber/green. That is how most
+        project dashboards work.</p>
+        <p>We rejected it because infrastructure risk is systemic rather than isolated. A table can tell
+        you a work package has a poor Cost Performance Index. A graph lets you quantify blast radius: a
+        breadth-first traversal showed that one failing work package cascaded <b>three levels deep</b>,
+        hit <b>six downstream entities</b>, and pushed the go-live milestone out by <b>54 days</b>. You
+        cannot run that on a flat table — you need the topology.</p>
+        <p>What we gave up:</p>
+        <ul>
+          <li><b>Lenient ingestion.</b> A tabular dashboard needs entities and scores. The graph needs
+            explicit, correct dependency edges — if the source data does not link a contract to a
+            milestone, the cascade simply is not predicted.</li>
+          <li><b>Familiarity.</b> Project directors read spreadsheets and top-ten lists, not
+            force-directed networks. We built a five-step investigation workflow so the graph did not
+            just land as spaghetti.</li>
+          <li><b>Cheap arithmetic.</b> No <span class="stack">SUM</span> and
+            <span class="stack">GROUP BY</span>. Every mitigation lever ran an
+            <span class="stack">O(V+E)</span> traversal client-side to recompute cascading exposure live.</li>
+        </ul></dd>
+      <dt>Result</dt><dd><b>Commended by faculty</b> and presented to the client sponsor.</dd>
+    </dl>
+  </article>
+
+  <article class="cs rv t-deep">
+    <div class="cs-top"><div><h3>MSc Analytics &amp; Management</h3>
+      <span class="meta">London Business School</span></div>
+      <span class="meta">2025 – 2026 · Completed</span></div>
+    <p class="cs-lede">Deliberately chosen to put quantitative finance and strategy around the
+      engineering I already had.</p>
+    <dl class="f">
+      <dt>Coursework</dt><dd class="stack">Financial Analytics · Data Science for Business ·
+        Decision Analytics &amp; Modelling · Generative AI Product Design</dd>
+      <dt>Before that</dt><dd>B.E. Electronics &amp; Communication, SSN College of Engineering, Chennai
+        — First Class with Distinction, CGPA 8.97/10. President of the quiz club, keyboards in the
+        music society.</dd>
+    </dl>
+  </article>
 </section>
 
-<!-- ═══════════ PROJECTS ═══════════ -->
-<section id="projects">
-  <div class="inner">
-    <div class="reveal">
-      <p class="s-label">Independent</p>
-      <h2 class="s-title">Things I built <em>nobody asked for</em></h2>
-      <p class="s-desc">Where the client work is private, this is what you can actually open and poke at.</p>
-    </div>
+<section class="chapter t-brief" id="built">
+  <div class="chead rv"><h2>Things I built <em>nobody asked for</em></h2><span class="cno">03 — Independent</span></div>
+  <p class="cnote rv">Where the client work is private, this is what you can open and poke at.</p>
 
-    <div class="proj-grid">
-      <div class="pj reveal">
-        <div class="pj-img-wrap">
-          <picture>
-            <source type="image/avif" srcset="assets/finpulse@2x.avif"/>
-            <source type="image/webp" srcset="assets/finpulse@2x.webp"/>
-            <img src="assets/finpulse@2x.jpg" width="183" height="180" loading="lazy" decoding="async" alt="FinPulse logo"/>
-          </picture>
-        </div>
-        <p class="pj-status">Live · actively developed</p>
-        <h3 class="pj-title">FinPulse</h3>
-        <p class="pj-body">
-          A market intelligence platform built solo end to end: ingesting unstructured sources,
-          scoring cross-asset risk, and generating portfolio signals. The interesting problem was
-          not the model — it was making a signal that stays useful when the source data is late,
-          missing or wrong.
-        </p>
-        <div class="ev-row">
-          <a class="ev ev--live" href="https://finpulse-intelligence.onrender.com/" target="_blank" rel="noopener">Live site</a>
-          <span class="ev ev--private" title="Source not currently public">Source not public</span>
-        </div>
+  <a class="row rv" href="https://finpulse-intelligence.onrender.com/" target="_blank" rel="noopener">
+    <div><h3>FinPulse</h3><span class="meta">Independent — 2025 to present</span></div>
+    <div class="row-d">A market intelligence platform built solo end to end: ingesting unstructured
+      sources, scoring cross-asset risk, generating portfolio signals. The interesting problem was not
+      the model — it was keeping a signal useful when the source data is late, missing or wrong.</div>
+    <div class="row-x">Live →</div></a>
+
+  <a class="row rv" href="https://github.com/sken2002/geopolitical-stock-risk-tracker" target="_blank" rel="noopener">
+    <div><h3>Geopolitical Risk Tracker</h3><span class="meta">Independent — 2026</span></div>
+    <div class="row-d">FinBERT reads global news into a tension index; conflict escalation is modelled
+      as a Markov decision process with Monte Carlo sizing, plus a political beta for how individual
+      names respond. Backtested on 2024–26 data, with the caveats that implies.</div>
+    <div class="row-x">Code →</div></a>
+
+  <a class="row rv" href="https://github.com/sken2002/carvis-ai-job-agent" target="_blank" rel="noopener">
+    <div><h3>CARVIS</h3><span class="meta">Independent — 2025 · Top 3, LBS AI Agent Cup</span></div>
+    <div class="row-d">A LangGraph agent that runs the tedious half of a job search — parsing roles,
+      matching them against a profile, drafting the application.</div>
+    <div class="row-x">Code →</div></a>
+
+  <a class="row rv" href="https://github.com/sken2002/axiom-decision-analytics-modelling" target="_blank" rel="noopener">
+    <div><h3>Axiom</h3><span class="meta">London Business School — 2026</span></div>
+    <div class="row-d">A three-stage ML pipeline over 100k records — K-Means segmentation, logistic
+      regression, then Gurobi optimisation on top. Reached <b>99.7% of the maximum achievable economic
+      value</b>, which is the number that matters when a model feeds a decision.</div>
+    <div class="row-x">Code →</div></a>
+
+  <a class="row rv" href="https://github.com/sken2002/mind-the-gender-gap-uk-census-analysis" target="_blank" rel="noopener">
+    <div><h3>Mind the Gender Gap</h3><span class="meta">Independent — 2025</span></div>
+    <div class="row-d">Exploratory and geospatial analysis of the 2011 UK Census — how the gender gap
+      varies by place rather than in aggregate. The kind of analysis where the finding lives in the
+      disaggregation.</div>
+    <div class="row-x">Code →</div></a>
+
+  <div class="row rv" style="cursor:default">
+    <div><h3>Zane</h3><span class="meta">Independent — 2025</span></div>
+    <div class="row-d">A production RAG chatbot using hybrid retrieval — ChromaDB for dense vectors,
+      BM25 for the lexical half. The hybrid exists because pure embeddings quietly miss exact terms,
+      and in a document corpus those are usually the ones that matter.</div>
+    <div class="row-x">Source not public</div></div>
+</section>
+
+<section class="chapter t-deep" id="model">
+  <div class="chead rv"><h2>Rather than describe it, <em>run it</em></h2><span class="cno">04 — Runnable</span></div>
+  <p class="cnote rv">Written for this page as a companion to the
+    <a href="https://github.com/sken2002/geopolitical-stock-risk-tracker" target="_blank" rel="noopener">geopolitical risk tracker</a>
+    — same technique, stripped to something you can interrogate in a browser. A three-regime Markov
+    decision process with rebalancing costs. Because trading is not free, the best allocation depends
+    on what you already hold, which is what makes this a control problem rather than a sequence of
+    independent optimisations. It solves by value iteration over 198 states, then simulates 30 years
+    against a static 60/40. No server, no network call.</p>
+
+  <div class="mw rv">
+    <div class="mw-head"><h3>Macro Volatility Tracker</h3>
+      <span class="mw-note">Illustrative · synthetic parameters · not investment advice</span></div>
+    <div class="mw-grid">
+      <div class="mw-ctrl">
+        <div class="ctl"><label for="cLam">Risk aversion λ <output id="oLam">4.0</output></label>
+          <input type="range" id="cLam" min="1" max="12" step="0.5" value="4"/>
+          <p class="hint">How much variance costs you. Higher λ pushes the policy toward cash.</p></div>
+        <div class="ctl"><label for="cGam">Discount γ <output id="oGam">0.95</output></label>
+          <input type="range" id="cGam" min="0.80" max="0.99" step="0.01" value="0.95"/>
+          <p class="hint">How far ahead the policy looks. <span id="gBind" style="color:var(--oxide-l)"></span></p></div>
+        <div class="ctl"><label for="cPer">Crisis persistence <output id="oPer">0.64</output></label>
+          <input type="range" id="cPer" min="0.35" max="0.92" step="0.01" value="0.64"/>
+          <p class="hint">P(crisis next | crisis now). Raising it makes crises longer, so the policy de-risks earlier.</p></div>
+        <div class="ctl"><label for="cTc">Rebalancing cost <output id="oTc">50 bps</output></label>
+          <input type="range" id="cTc" min="0" max="120" step="5" value="50"/>
+          <p class="hint">Cost per unit of one-way turnover. At zero the policy chases every regime; raise it and it holds through.</p></div>
+        <button class="mbtn" id="mReset" type="button">Reset assumptions</button>
+        <p class="msub" style="margin-top:1.4rem">Stationary distribution</p>
+        <div id="statDist"></div>
       </div>
-
-      <div class="pj reveal delay-1">
-        <div class="pj-img-wrap">
-          <picture>
-            <source type="image/avif" srcset="assets/agentic@1x.avif 388w, assets/agentic@2x.avif 556w" sizes="(max-width:900px) 90vw, 300px"/>
-            <source type="image/webp" srcset="assets/agentic@1x.webp 388w, assets/agentic@2x.webp 556w" sizes="(max-width:900px) 90vw, 300px"/>
-            <img src="assets/agentic@2x.jpg" width="556" height="304" loading="lazy" decoding="async" alt="Agentic risk intelligence dashboard"/>
-          </picture>
-        </div>
-        <p class="pj-status">In progress</p>
-        <h3 class="pj-title">Agentic Risk Intelligence</h3>
-        <p class="pj-body">
-          Agentic system reading synthetic capital-project financials and ranking vulnerabilities,
-          with deterministic scoring underneath so every flag is reproducible by hand.
-        </p>
-        <div class="ev-row">
-          <span class="ev ev--private" title="EY engagement — cannot be shared publicly">EY engagement · private</span>
-        </div>
-      </div>
-
-      <div class="pj reveal delay-2">
-        <div class="pj-img-wrap" id="mvtThumb"></div>
-        <p class="pj-status done">Completed · open source</p>
-        <h3 class="pj-title">Geopolitical Risk Tracker</h3>
-        <p class="pj-body">
-          Reads global news with FinBERT to build a tension index, models conflict escalation as a
-          Markov decision process, and sizes exposure via Monte Carlo — plus a "political beta"
-          for how individual names respond to geopolitical stress. Backtested on 2024–26 data,
-          with the caveats that implies.
-        </p>
-        <div class="ev-row">
-          <a class="ev ev--code" href="https://github.com/sken2002/geopolitical-stock-risk-tracker" target="_blank" rel="noopener">Code</a>
-          <a class="ev ev--write" href="https://www.linkedin.com/pulse/pricing-unpriceable-tool-model-geopolitical-risk-eshwar-nevedh-u0q0e" target="_blank" rel="noopener">Write-up</a>
-          <a class="ev ev--live" href="#model">Related demo</a>
-        </div>
-      </div>
-
-      <div class="pj reveal delay-3">
-        <div class="pj-img-wrap">
-          <svg viewBox="0 0 300 100" style="width:100%;height:100%;padding:1.4rem" aria-hidden="true">
-            <line x1="150" y1="6" x2="150" y2="94" stroke="#AEC0BC" stroke-width="1"/>
-            <g fill="#C1502E" opacity=".8">
-              <rect x="150" y="10" width="62" height="7" rx="1.5"/>
-              <rect x="150" y="26" width="41" height="7" rx="1.5"/>
-              <rect x="150" y="42" width="78" height="7" rx="1.5"/>
-              <rect x="150" y="58" width="28" height="7" rx="1.5"/>
-              <rect x="150" y="74" width="53" height="7" rx="1.5"/>
-            </g>
-            <g fill="#0B5D5E" opacity=".8">
-              <rect x="106" y="10" width="44" height="7" rx="1.5"/>
-              <rect x="82"  y="26" width="68" height="7" rx="1.5"/>
-              <rect x="119" y="42" width="31" height="7" rx="1.5"/>
-              <rect x="64"  y="58" width="86" height="7" rx="1.5"/>
-              <rect x="111" y="74" width="39" height="7" rx="1.5"/>
-            </g>
-          </svg>
-        </div>
-        <p class="pj-status done">Completed · open source</p>
-        <h3 class="pj-title">Mind the Gender Gap</h3>
-        <p class="pj-body">
-          Exploratory and geospatial analysis of the 2011 UK Census — demographics, work, and how
-          the gender gap varies by place rather than in aggregate. The kind of analysis where the
-          finding lives in the disaggregation.
-        </p>
-        <div class="ev-row">
-          <a class="ev ev--code" href="https://github.com/sken2002/mind-the-gender-gap-uk-census-analysis" target="_blank" rel="noopener">Code</a>
-        </div>
-      </div>
-
-      <div class="pj reveal">
-        <div class="pj-img-wrap">
-          <svg viewBox="0 0 300 100" style="width:100%;height:100%;padding:1.4rem" aria-hidden="true">
-            <g fill="none" stroke="#C1502E" stroke-width="1.4" opacity=".85">
-              <circle cx="42" cy="50" r="13"/><circle cx="150" cy="24" r="13"/>
-              <circle cx="150" cy="76" r="13"/><circle cx="258" cy="50" r="13"/>
-            </g>
-            <g stroke="#0B5D5E" stroke-width="1.2" opacity=".65">
-              <line x1="55" y1="45" x2="137" y2="28"/><line x1="55" y1="55" x2="137" y2="72"/>
-              <line x1="163" y1="28" x2="245" y2="45"/><line x1="163" y1="72" x2="245" y2="55"/>
-              <line x1="150" y1="37" x2="150" y2="63"/>
-            </g>
-          </svg>
-        </div>
-        <p class="pj-status done">Top 3 &middot; LBS AI Agent Cup</p>
-        <h3 class="pj-title">CARVIS</h3>
-        <p class="pj-body">
-          A LangGraph agent that runs the tedious half of a job search &mdash; parsing roles, matching
-          them against a profile, and drafting the application. Placed top 3 at the LBS AI Agent Cup.
-        </p>
-        <div class="ev-row">
-          <a class="ev ev--code" href="https://github.com/sken2002/carvis-ai-job-agent" target="_blank" rel="noopener">Code</a>
-        </div>
-      </div>
-
-      <div class="pj reveal delay-1">
-        <div class="pj-img-wrap">
-          <svg viewBox="0 0 300 100" style="width:100%;height:100%;padding:1.4rem" aria-hidden="true">
-            <g opacity=".85">
-              <circle cx="52"  cy="66" r="4" fill="#C1502E"/><circle cx="70" cy="52" r="4" fill="#C1502E"/>
-              <circle cx="60"  cy="38" r="4" fill="#C1502E"/><circle cx="84" cy="70" r="4" fill="#C1502E"/>
-              <circle cx="152" cy="30" r="4" fill="#0B5D5E"/><circle cx="170" cy="46" r="4" fill="#0B5D5E"/>
-              <circle cx="140" cy="52" r="4" fill="#0B5D5E"/><circle cx="164" cy="20" r="4" fill="#0B5D5E"/>
-              <circle cx="238" cy="60" r="4" fill="#1F6B4A"/><circle cx="252" cy="44" r="4" fill="#1F6B4A"/>
-              <circle cx="226" cy="44" r="4" fill="#1F6B4A"/>
-            </g>
-            <path d="M30 88 L270 88" stroke="#AEC0BC" stroke-width="1"/>
-            <path d="M30 82 L100 82" stroke="#C1502E" stroke-width="3" opacity=".8"/>
-          </svg>
-        </div>
-        <p class="pj-status done">Completed &middot; open source</p>
-        <h3 class="pj-title">Axiom</h3>
-        <p class="pj-body">
-          A three-stage ML pipeline over 100k records &mdash; K-Means segmentation, logistic regression,
-          then Gurobi optimisation on top. Reached <b>99.7% of the maximum achievable economic
-          value</b>, which is the number that matters when the model feeds a decision.
-        </p>
-        <div class="ev-row">
-          <a class="ev ev--code" href="https://github.com/sken2002/axiom-decision-analytics-modelling" target="_blank" rel="noopener">Code</a>
-        </div>
-      </div>
-
-      <div class="pj reveal delay-2">
-        <div class="pj-img-wrap">
-          <svg viewBox="0 0 300 100" style="width:100%;height:100%;padding:1.4rem" aria-hidden="true">
-            <g fill="#C1502E" opacity=".75">
-              <rect x="40" y="30" width="58" height="8" rx="2"/>
-              <rect x="40" y="44" width="44" height="8" rx="2"/>
-              <rect x="40" y="58" width="52" height="8" rx="2"/>
-            </g>
-            <path d="M112 48 L142 48 M134 42 L142 48 L134 54" stroke="#0B5D5E" stroke-width="1.6" fill="none"/>
-            <rect x="156" y="26" width="104" height="48" rx="6" fill="none" stroke="#0B5D5E" stroke-width="1.4" opacity=".8"/>
-            <g fill="#0B5D5E" opacity=".6">
-              <rect x="168" y="38" width="58" height="5" rx="1.5"/>
-              <rect x="168" y="48" width="76" height="5" rx="1.5"/>
-              <rect x="168" y="58" width="40" height="5" rx="1.5"/>
-            </g>
-          </svg>
-        </div>
-        <p class="pj-status">Completed</p>
-        <h3 class="pj-title">Zane</h3>
-        <p class="pj-body">
-          A production RAG chatbot using hybrid retrieval &mdash; ChromaDB for dense vectors, BM25 for
-          the lexical half. The hybrid exists because pure embeddings quietly miss exact terms, and
-          in a document corpus those are usually the ones that matter.
-        </p>
-        <div class="ev-row">
-          <span class="ev ev--private" title="Source not currently public">Source not public</span>
-        </div>
+      <div class="mw-out">
+        <div class="mrow" id="mStats"></div>
+        <p class="msub" id="mStatNote" style="margin:-.4rem 0 1.4rem"></p>
+        <p class="msub">Resting allocation by regime — where the policy settles if that regime holds</p>
+        <svg class="mchart" id="allocChart" viewBox="0 0 560 150" role="img" aria-labelledby="allocDesc"></svg>
+        <p id="allocDesc" class="mlegend">
+          <span><i style="background:var(--ch-eq)"></i>Equity</span>
+          <span><i style="background:var(--ch-cr)"></i>Credit</span>
+          <span><i style="background:var(--ch-ca)"></i>Cash</span></p>
+        <p class="msub" style="margin-top:1.6rem">One representative path, 30 years — MDP policy vs static 60/40</p>
+        <svg class="mchart" id="pathChart" viewBox="0 0 560 230" role="img" aria-labelledby="pathDesc"></svg>
+        <p id="pathDesc" class="mlegend">
+          <span><i style="background:var(--ch-eq)"></i>MDP policy</span>
+          <span><i style="background:var(--ch-static)"></i>Static 60/40</span>
+          <span><i style="background:#43292A"></i>Crisis regime</span>
+          <span><i style="background:#243C3E"></i>Stress regime</span></p>
+        <p class="mfoot"><b>How to read this.</b> The state is <em>(regime, portfolio you currently
+          hold)</em> — 3 × 66 = 198 states, with 66 candidate allocations on a 10% simplex grid. Value
+          iteration runs to convergence, then the policy is applied forward through a seeded 30-year
+          simulation, so the path is identical on every reload and the only thing that moves it is you.
+          <b>The reason holdings belong in the state:</b> with zero rebalancing cost the problem
+          decomposes into 3 independent one-period optimisations and the discount rate becomes
+          irrelevant. Set the cost slider to zero and watch γ go inert; that degeneracy is the point.
+          <br/><br/>
+          <b>What this deliberately does not claim.</b> The chart is one path — the headline statistics
+          are medians over 120 independent draws, because a single seed is an anecdote. The policy also
+          observes the regime exactly, which is the strongest assumption here: in practice you would
+          infer it from noisy data with a hidden Markov filter, and most of the apparent edge would go
+          to paying for that uncertainty. Parameters are synthetic and chosen to be plausible, not
+          fitted to history.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ LIVE MODEL ═══════════ -->
-<section id="model" class="t-deep">
-  <div class="inner">
-    <div class="reveal">
-      <p class="s-label">Runnable</p>
-      <h2 class="s-title">Regime-aware allocation, <em>solved in your browser</em></h2>
-      <p class="s-desc">
-        Written for this page as a companion to the
-        <a href="https://github.com/sken2002/geopolitical-stock-risk-tracker" target="_blank" rel="noopener" style="color:var(--petrol)">geopolitical risk tracker</a>
-        — same technique, stripped to something you can actually interrogate in a browser.
-        A three-regime Markov decision process with rebalancing costs. Because trading is not free,
-        the best allocation depends on what you are already holding — which is what makes this a
-        control problem rather than a sequence of independent optimisations. It solves by value
-        iteration over 198 states, then simulates 30 years against a static 60/40. Move the
-        assumptions; everything recomputes. No server, no network call.
-      </p>
+<section class="chapter t-brief" id="offclock">
+  <div class="chead rv"><h2>Off the clock</h2><span class="cno">05 — The other half</span></div>
+  <p class="cnote rv">Not analogies for the work. Just things I am seriously good at.</p>
+
+  <div class="split split--media">
+    <figure class="plate plate--tall rv" data-screen="coarse">
+      <canvas aria-hidden="true"></canvas>
+      <img src="assets/keys@2x.avif" width="721" height="961" loading="lazy" alt="Eshwar playing keyboards"/>
+      <figcaption><span>Fig. 03 — keys</span><span>Coarse screen</span></figcaption>
+    </figure>
+    <div class="blk rv">
+      <h3>Keys &amp; synthesis</h3>
+      <p>I play keyboards and synth in a band. Grade 8 Distinction, Trinity College London. Mostly I am
+        the person building the pad underneath everything else.</p>
+      <ul>
+        <li>Grade 8 Distinction — Trinity College London</li>
+        <li>Synth &amp; keys, gigging band</li>
+        <li>Executive Committee, LBS Music Club — including a sold-out showcase at Notting Hill Arts Club</li>
+      </ul>
     </div>
-
-    <div class="mw reveal delay-1">
-      <div class="mw-head">
-        <h3>Macro Volatility Tracker</h3>
-        <span class="mw-note">Illustrative · synthetic parameters · not investment advice</span>
-      </div>
-      <div class="mw-grid">
-        <div class="mw-ctrl">
-          <div class="ctl">
-            <label for="cLam">Risk aversion λ <output id="oLam">4.0</output></label>
-            <input type="range" id="cLam" min="1" max="12" step="0.5" value="4"/>
-            <p class="hint">How much variance costs you. Higher λ pushes the policy toward cash.</p>
-          </div>
-          <div class="ctl">
-            <label for="cGam">Discount γ <output id="oGam">0.95</output></label>
-            <input type="range" id="cGam" min="0.80" max="0.99" step="0.01" value="0.95"/>
-            <p class="hint">How far ahead the policy looks. <span id="gBind" style="color:var(--coral-l)"></span></p>
-          </div>
-          <div class="ctl">
-            <label for="cPer">Crisis persistence <output id="oPer">0.64</output></label>
-            <input type="range" id="cPer" min="0.35" max="0.92" step="0.01" value="0.64"/>
-            <p class="hint">P(crisis next | crisis now). Raising it makes crises longer, so the policy de-risks earlier.</p>
-          </div>
-          <div class="ctl">
-            <label for="cTc">Rebalancing cost <output id="oTc">50 bps</output></label>
-            <input type="range" id="cTc" min="0" max="120" step="5" value="50"/>
-            <p class="hint">Cost per unit of one-way turnover. At zero the policy chases every regime; raise it and it starts holding through.</p>
-          </div>
-          <button class="mbtn" id="mReset" type="button">Reset assumptions</button>
-          <p class="msub" style="margin-top:1.7rem">Stationary distribution</p>
-          <div id="statDist"></div>
-        </div>
-
-        <div class="mw-out">
-          <div class="mrow" id="mStats"></div>
-          <p class="msub" id="mStatNote" style="margin:-1rem 0 1.7rem"></p>
-
-          <p class="msub">Resting allocation by regime <span style="text-transform:none;letter-spacing:0">— where the policy settles if that regime holds</span></p>
-          <svg class="mchart" id="allocChart" viewBox="0 0 560 150" role="img" aria-labelledby="allocDesc"></svg>
-          <p id="allocDesc" class="mlegend">
-            <span><i style="background:var(--ch-eq)"></i>Equity</span>
-            <span><i style="background:var(--ch-cr)"></i>Credit</span>
-            <span><i style="background:var(--ch-ca)"></i>Cash</span>
-          </p>
-
-          <p class="msub" style="margin-top:2rem">One representative path, 30 years · MDP policy vs static 60/40</p>
-          <svg class="mchart" id="pathChart" viewBox="0 0 560 230" role="img" aria-labelledby="pathDesc"></svg>
-          <p id="pathDesc" class="mlegend">
-            <span><i style="background:var(--ch-eq)"></i>MDP policy</span>
-            <span><i style="background:var(--ch-static)"></i>Static 60/40</span>
-            <span><i style="background:#43292A"></i>Crisis regime</span>
-            <span><i style="background:#243C3E"></i>Stress regime</span>
-          </p>
-
-          <p class="mfoot">
-            <b>How to read this.</b> The state is <em>(regime, portfolio you currently hold)</em> — 3 × 66 = 198
-            states, with 66 candidate allocations on a 10% simplex grid. Value iteration runs to
-            convergence, then the policy is applied forward through a seeded 30-year simulation, so the
-            path is identical on every reload and the only thing that moves it is you.
-            <b>The reason holdings belong in the state:</b> with zero rebalancing cost the problem
-            decomposes into 3 independent one-period optimisations and the discount rate becomes
-            irrelevant. Add costs and it stops decomposing — the policy has to weigh a known cost now
-            against an uncertain regime later, which is where γ starts to bite. Set the cost slider
-            to zero and watch γ go inert; that degeneracy is the point.
-            <br/><br/>
-            <b>What this deliberately does not claim.</b> The chart is one path — the headline
-            statistics are medians over 120 independent draws, because a single seed is an anecdote.
-            The policy also observes the regime exactly, which is the strongest assumption here:
-            in practice you would infer it from noisy data with a hidden Markov filter, and most of
-            the apparent edge would go to paying for that uncertainty. Regime parameters are
-            synthetic and chosen to be plausible, not fitted to history. The point is the machinery,
-            not a return forecast, and none of this is investment advice.
-          </p>
-        </div>
-      </div>
+    <figure class="plate plate--tall rv" data-screen="dither">
+      <canvas aria-hidden="true"></canvas>
+      <img src="assets/band@2x.avif" width="721" height="940" loading="lazy" alt="Eshwar performing on synth with his band"/>
+      <figcaption><span>Fig. 04 — the band</span><span>Ordered dither</span></figcaption>
+    </figure>
+    <div class="blk rv">
+      <h3>Editing &amp; writing</h3>
+      <p>I edit video and have built an audience on YouTube. I write on Substack — markets, film, and
+        whatever else has been bothering me.</p>
+      <ul>
+        <li><a class="u" href="https://www.youtube.com/@skencomps5214" target="_blank" rel="noopener">YouTube — @skencomps5214</a></li>
+        <li><a class="u" href="https://eshwarnevedh.substack.com/" target="_blank" rel="noopener">Substack — essays</a></li>
+        <li>Panel speaker, Wembley (2025) · Executive Committee, LBS Sports Business Club</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ JOURNEY ═══════════ -->
-<section id="about" class="t-brief">
-  <div class="inner">
-    <div class="reveal">
-      <p class="s-label">The route</p>
-      <h2 class="s-title">How I got <em>here</em></h2>
-    </div>
-    <div class="ti reveal">
-      <p class="ti-year">2019 – 2023</p>
-      <h3 class="ti-role">B.E. Electronics &amp; Communication</h3>
-      <p class="ti-org">SSN College of Engineering &middot; Chennai &middot; First Class with Distinction (CGPA 8.97/10)</p>
-      <p class="ti-desc">Linear algebra, probability, signals, and the first machine learning that made
-        sense to me. President of the quiz club, keyboards in the music society.</p>
-    </div>
-    <div class="ti reveal">
-      <p class="ti-year">2023 – 2025</p>
-      <h3 class="ti-role">Data &amp; AI/ML Consultant</h3>
-      <p class="ti-org">Thorogood Associates &middot; Bangalore, India</p>
-      <p class="ti-desc">Enterprise clients, real deadlines, and the discovery that the hard part of
-        analytics is almost never the analytics.</p>
-    </div>
-    <div class="ti reveal">
-      <p class="ti-year">2025 – 2026</p>
-      <h3 class="ti-role">MSc Analytics &amp; Management</h3>
-      <p class="ti-org">London Business School</p>
-      <p class="ti-desc">Quantitative finance and strategy layered onto the engineering, plus the
-        Sports Consultancy and EY engagements alongside it.</p>
+<section class="chapter t-deep" id="roots">
+  <div class="chead rv"><h2>Where I am <em>from</em></h2><span class="cno">06 — Roots</span></div>
+  <p class="cnote rv">Tamil and Malayali, born in one former French enclave and raised in the other, and never more than an hour from a coastline until London.</p>
+
+  <div class="split">
+    <figure class="plate plate--wide rv" data-screen="line">
+      <canvas aria-hidden="true"></canvas>
+      <img src="assets/arsenal@2x.avif" width="721" height="1281" loading="lazy" alt="Eshwar at the Emirates Stadium"/>
+      <figcaption><span>Fig. 05 — the Emirates</span><span>Line screen</span></figcaption>
+    </figure>
+    <div class="blk rv">
+      <h3>Mahé → Pondicherry → Chennai → London</h3>
+      <p>Born in Mahé — a former French enclave on the Malabar Coast, Malayalam-speaking, and
+        administratively part of Puducherry despite sitting inside Kerala. Raised in Pondicherry: the
+        other former French India, this time Tamil. Two French towns, two languages, neither of which
+        ever resolved the contradiction and both of which were better for it. Then four formative
+        years in Chennai — my first language, and an intellectual tradition where mathematics, music
+        and literature were never treated as separate subjects.</p>
+      <p style="margin-top:.7rem">London is the latest coast. Grey, tidal, and more crowded with other
+        people's elsewheres than anywhere I have lived. Also, for my sins, Arsenal.</p>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ CREATIVE ═══════════ -->
-<section id="creative" class="t-brief">
-  <div class="inner">
-    <div class="reveal">
-      <p class="s-label">Off the clock</p>
-      <h2 class="s-title">The <em>other half</em></h2>
-      <p class="s-desc">Not analogies for my work. Just things I am seriously good at.</p>
-    </div>
-    <div class="cr-grid">
-      <div class="cr-card reveal">
-        <h3 class="cr-title">Keys &amp; Synthesis</h3>
-        <p class="cr-body">I play keyboards and synth in a band. Grade 8 Distinction, Trinity College London.
-          Mostly I am the person building the pad underneath everything else.</p>
-        <ul class="cr-facts">
-          <li>Grade 8 Distinction — Trinity College London</li>
-          <li>Synth &amp; keys, gigging band</li>
-          <li>Music society, SSN</li>
-        </ul>
-      </div>
-      <div class="cr-card reveal delay-1">
-        <h3 class="cr-title">Editing &amp; Writing</h3>
-        <p class="cr-body">I edit video and have built an audience on YouTube. I write on Substack —
-          markets, film, and whatever else has been bothering me.</p>
-        <ul class="cr-facts">
-          <li><a href="https://www.youtube.com/@skencomps5214" target="_blank" rel="noopener" style="color:var(--ink-3)">YouTube — @skencomps5214</a></li>
-          <li><a href="https://eshwarnevedh.substack.com/" target="_blank" rel="noopener" style="color:var(--ink-3)">Substack — essays, published irregularly</a></li>
-          <li>Committed to publishing more in 2026</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════ ROOTS ═══════════ -->
-<section id="roots" class="t-deep">
-  <div class="inner">
-    <div class="reveal">
-      <p class="s-label">Heritage</p>
-      <h2 class="s-title">Where I am <em>from</em></h2>
-      <p class="s-desc">Tamil and Malayali, and never more than an hour from a coastline until London.</p>
-    </div>
-    <div class="roots-grid">
-      <div class="root-card reveal">
-        <p class="root-place">Kozhikode, Kerala</p>
-        <h3 class="root-title">Malayali roots</h3>
-        <p class="root-body">Born on the Malabar Coast, in the old cradle of the spice trade — a place
-          built entirely on the assumption that the interesting things are somewhere over the horizon.</p>
-      </div>
-      <div class="root-card reveal delay-1">
-        <p class="root-place">Pondicherry</p>
-        <h3 class="root-title">The French coast</h3>
-        <p class="root-body">Raised Tamil and French at the same time, in a town that never resolved the
-          contradiction and was better for it.</p>
-      </div>
-      <div class="root-card reveal">
-        <p class="root-place">Chennai, Tamil Nadu</p>
-        <h3 class="root-title">Tamil identity</h3>
-        <p class="root-body">Four formative years. My first language, and an intellectual tradition where
-          mathematics, music and literature were never treated as separate subjects.</p>
-      </div>
-      <div class="root-card reveal delay-1">
-        <p class="root-place">London, UK</p>
-        <h3 class="root-title">The furthest shore</h3>
-        <p class="root-body">The latest coast. Grey, tidal, and more crowded with other people's
-          elsewheres than anywhere I have lived.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════ CONTACT ═══════════ -->
-<section id="contact">
-  <div class="contact-in reveal">
-    <h2 class="contact-q">If you have a problem where the data is messy and the decision is expensive, that is the conversation I want.</h2>
-    <p class="contact-sub">Also happy to talk about Tamil cinema, Arsenal, or which synth patch belongs in a minor key.</p>
+<section class="chapter" id="contact">
+  <div class="rv">
+    <p class="cno" style="margin-bottom:1rem">07 — Say hello</p>
+    <h2>If you have a problem where the data is messy and the decision is expensive, that is the
+      conversation I want.</h2>
+    <p class="contact-sub">Also happy to talk about Tamil cinema, Arsenal, or which synth patch belongs
+      in a minor key.</p>
     <div class="contact-links">
-      <a href="mailto:eshwarnevedh@gmail.com" class="cl">Email</a>
-      <a href="https://in.linkedin.com/in/eshwar-nevedh-41b697196" class="cl" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/sken2002" class="cl" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://eshwarnevedh.substack.com/" class="cl" target="_blank" rel="noopener">Substack</a>
-      <a href="assets/Eshwar-Nevedh-CV.pdf" class="cl" download>CV</a>
+      <a class="u on" href="mailto:eshwarnevedh@gmail.com">eshwarnevedh@gmail.com</a>
+      <a class="u" href="assets/Eshwar-Nevedh-CV.pdf" download>Download CV</a>
+      <a class="u" href="https://in.linkedin.com/in/eshwar-nevedh-41b697196" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="u" href="https://github.com/sken2002" target="_blank" rel="noopener">GitHub</a>
+      <a class="u" href="https://eshwarnevedh.substack.com/" target="_blank" rel="noopener">Substack</a>
     </div>
   </div>
 </section>
 
+</div>
 </main>
 
 <footer>
-  <div class="inner">
-    <div>
-      <div>Eshwar Nevedh · London · <a href="mailto:eshwarnevedh@gmail.com">eshwarnevedh@gmail.com</a></div>
-      <div>Last updated July 2026</div>
-    </div>
-    <div style="text-align:right">
-      <div>One HTML file. No framework, no build step, no analytics, no third-party requests.</div>
-      <div>Fonts self-hosted · images AVIF · model solved client-side</div>
-    </div>
+  <div class="wrap">
+    <div>Eshwar Nevedh — London — <a href="mailto:eshwarnevedh@gmail.com">eshwarnevedh@gmail.com</a><br/>
+      Last updated August 2026</div>
+    <div style="text-align:right">One HTML file. No framework, no build step, no analytics, no third-party requests.<br/>
+      Hero is a live vector field; every photograph is screened into ink in the browser.</div>
   </div>
 </footer>
 
-<div id="draftbar" role="status">
-  <span><b id="drCount">0</b> unverified draft figures on this page — marked <span class="dr">like this</span>. Replace them before publishing.</span>
-  <button type="button" id="drJump">Jump to first</button>
-</div>
-
 <script>
 "use strict";
+const REDUCE = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* ─────────────── NAV ─────────────── */
 const nav = document.getElementById('nav');
-addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60), {passive:true});
-
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50), {passive:true});
 const navToggle = document.getElementById('navToggle');
 navToggle.addEventListener('click', () => {
   const open = nav.classList.toggle('open');
   navToggle.setAttribute('aria-expanded', String(open));
 });
-document.querySelectorAll('#navLinks a').forEach(a =>
-  a.addEventListener('click', () => {
-    nav.classList.remove('open');
-    navToggle.setAttribute('aria-expanded','false');
-  }));
+document.querySelectorAll('#navLinks a').forEach(a => a.addEventListener('click', () => {
+  nav.classList.remove('open'); navToggle.setAttribute('aria-expanded','false'); }));
 
-/* ─────────────── DEPTH CONTROL ─────────────── */
 const seg = document.getElementById('depthSeg');
 function setDepth(d){
-  const apply = () => {
-    document.documentElement.setAttribute('data-depth', d);
-    seg.querySelectorAll('button').forEach(b =>
-      b.setAttribute('aria-pressed', String(b.dataset.d === d)));
-  };
-  /* cross-fade the tier change instead of snapping it */
-  if (document.startViewTransition && !matchMedia('(prefers-reduced-motion: reduce)').matches)
-    document.startViewTransition(apply);
-  else apply();
+  const apply = () => { document.documentElement.setAttribute('data-depth', d);
+    seg.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.d === d))); };
+  if (document.startViewTransition && !REDUCE) document.startViewTransition(apply); else apply();
   try { localStorage.setItem('depth', d); } catch(e){}
 }
-seg.addEventListener('click', e => {
-  const b = e.target.closest('button');
-  if (b) setDepth(b.dataset.d);
-});
+seg.addEventListener('click', e => { const b = e.target.closest('button'); if (b) setDepth(b.dataset.d); });
 setDepth(document.documentElement.getAttribute('data-depth') || 'deep');
 
-/* ─────────────── REVEALS ─────────────── */
-const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-/* CSS scroll-driven animation handles reveals wherever animation-timeline exists.
-   This branch only runs on browsers that lack it. */
-if (document.documentElement.classList.contains('io') && !reduce) {
-  const io = new IntersectionObserver((es) => {
-    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
-  }, {threshold: .12, rootMargin: '0px 0px -40px 0px'});
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-  setTimeout(() => document.querySelectorAll('.reveal:not(.vis)').forEach(el => {
-    if (el.getBoundingClientRect().top < innerHeight) el.classList.add('vis');
-  }), 2500);
+document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+  const id = a.getAttribute('href'); if (id.length < 2) return;
+  const t = document.querySelector(id); if (!t) return;
+  e.preventDefault();
+  scrollTo({top: t.getBoundingClientRect().top + scrollY - 70, behavior: REDUCE ? 'auto' : 'smooth'});
+}));
+
+if (document.documentElement.classList.contains('io') && !REDUCE) {
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }),
+    {threshold:.1, rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
 }
 
-/* retire the intro overlay once it has played */
+/* ══════════ FLOW FIELD ══════════
+   A vector field: every point has an angle from layered value-noise, and particles
+   trace its streamlines. Decorative, but it is the same object you would plot. */
 (() => {
-  const h = document.documentElement;
-  if (!h.classList.contains('intro')) return;
-  try { sessionStorage.setItem('seenIntro', '1'); } catch(e){}
-  setTimeout(() => h.classList.remove('intro'), 1600);
-})();
-
-/* ─────────────── SMOOTH SCROLL ─────────────── */
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const id = a.getAttribute('href');
-    if (id.length < 2) return;
-    const t = document.querySelector(id);
-    if (!t) return;
-    e.preventDefault();
-    scrollTo({top: t.getBoundingClientRect().top + scrollY - 76, behavior: reduce ? 'auto' : 'smooth'});
-  });
-});
-
-/* ─────────────── CARD STACK (touch + keyboard) ─────────────── */
-(() => {
-  const stack = document.getElementById('stack');
-  const hint  = document.getElementById('stackHint');
-  const cards = [...stack.querySelectorAll('picture')];
-  const touch = matchMedia('(hover: none)').matches || navigator.maxTouchPoints > 0;
-  if (touch) hint.textContent = 'Tap to fan out';
-
-  let i = 0;
-  stack.addEventListener('click', () => {
-    if (!stack.classList.contains('fan')) {
-      stack.classList.add('fan');
-      hint.textContent = touch ? 'Tap again to cycle' : 'Click to cycle';
-      return;
-    }
-    cards.forEach(c => c.classList.remove('up'));
-    i = (i + 1) % cards.length;
-    cards[i].classList.add('up');
-  });
-  stack.addEventListener('mouseleave', () => {
-    if (!touch) { stack.classList.remove('fan'); cards.forEach(c => c.classList.remove('up')); }
-  });
-})();
-
-/* ─────────────── HERO CONTOURS (DPR-aware, pauses offscreen) ───────────────
-   Slow-drifting sine contours — a depth chart rather than a particle field. */
-(() => {
-  const cv = document.getElementById('hc');
-  if (!cv || reduce) return;
+  const cv = document.getElementById('field');
+  if (!cv || REDUCE) return;
   const ctx = cv.getContext('2d');
-  let W = 0, H = 0, raf = 0, running = false, t = 0;
-  const LINES = 9;
-
-  const resize = () => {
-    const dpr = Math.min(devicePixelRatio || 1, 2);
-    W = cv.offsetWidth; H = cv.offsetHeight;
-    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  };
-
-  const draw = () => {
-    ctx.clearRect(0, 0, W, H);
-    ctx.lineWidth = 1;
-    const step = W > 900 ? 6 : 9;
-    for (let i = 0; i < LINES; i++) {
-      const p = i / (LINES - 1);
-      const baseY = H * (0.34 + p * 0.70);
-      const amp = 9 + p * 27;
-      const k = 0.0016 + p * 0.0011;
-      const sp = 0.18 + p * 0.12;
-      ctx.beginPath();
-      for (let x = 0; x <= W; x += step) {
-        const y = baseY
-          + Math.sin(x * k + t * sp * 0.01 + i) * amp
-          + Math.sin(x * k * 2.3 + t * sp * 0.006 - i) * amp * 0.32;
-        x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
-      }
-      ctx.strokeStyle = `rgba(11, 93, 94, ${(0.15 - p * 0.095).toFixed(3)})`;
-      ctx.stroke();
-    }
-    t += 1;
-    raf = requestAnimationFrame(draw);
-  };
-
-  const start = () => { if (!running) { running = true; raf = requestAnimationFrame(draw); } };
-  const stop  = () => { running = false; cancelAnimationFrame(raf); };
-
-  let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(resize, 150); });
+  let W=0,H=0,parts=[],raf=0,running=false,t=0;
+  const mouse={x:-1e5,y:-1e5,on:false};
+  const perm=new Uint8Array(512);
+  (()=>{const p=new Uint8Array(256);let s=1337;
+    const r=()=>(s=(s*1664525+1013904223)>>>0)/4294967296;
+    for(let i=0;i<256;i++)p[i]=i;
+    for(let i=255;i>0;i--){const j=(r()*(i+1))|0;[p[i],p[j]]=[p[j],p[i]];}
+    for(let i=0;i<512;i++)perm[i]=p[i&255];})();
+  const fd=a=>a*a*a*(a*(a*6-15)+10), lp=(a,b,k)=>a+(b-a)*k;
+  const gd=(h,x,y)=>((h&1)?x:-x)+((h&2)?y:-y);
+  const nz=(x,y)=>{const X=Math.floor(x)&255,Y=Math.floor(y)&255;
+    x-=Math.floor(x);y-=Math.floor(y);const u=fd(x),v=fd(y);
+    const A=perm[X]+Y,B=perm[X+1]+Y;
+    return lp(lp(gd(perm[A],x,y),gd(perm[B],x-1,y),u),
+              lp(gd(perm[A+1],x,y-1),gd(perm[B+1],x-1,y-1),u),v);};
+  const ang=(x,y)=>(nz(x*.0015,y*.0015)+nz(x*.0039,y*.0039)*.45+nz(x*.0092,y*.0092)*.16)*Math.PI*1.6+t*.0014;
+  const spawn=p=>{p.x=Math.random()*W;p.y=Math.random()*H;
+    p.life=70+Math.random()*200;p.w=Math.random()<.05?1:.5;p.ox=Math.random()<.05;};
+  const resize=()=>{const d=Math.min(devicePixelRatio||1,2);
+    W=cv.offsetWidth;H=cv.offsetHeight;
+    cv.width=Math.round(W*d);cv.height=Math.round(H*d);
+    ctx.setTransform(d,0,0,d,0,0);ctx.clearRect(0,0,W,H);
+    parts=Array.from({length:Math.round(900*Math.min(1,W/1200))},()=>{
+      const p={};spawn(p);p.life=Math.random()*220;return p;});};
+  const step=()=>{
+    ctx.globalCompositeOperation='destination-out';
+    ctx.fillStyle='rgba(0,0,0,0.011)';ctx.fillRect(0,0,W,H);
+    ctx.globalCompositeOperation='source-over';
+    for(const p of parts){
+      const px=p.x,py=p.y;let a=ang(p.x,p.y);
+      if(mouse.on){const dx=p.x-mouse.x,dy=p.y-mouse.y,d2=dx*dx+dy*dy;
+        if(d2<44000)a+=Math.atan2(dy,dx)*(1-d2/44000)*1.4;}
+      p.x+=Math.cos(a)*1.3;p.y+=Math.sin(a)*1.3;
+      ctx.strokeStyle=p.ox?'rgba(185,60,18,0.17)':'rgba(20,19,16,0.12)';
+      ctx.lineWidth=p.w;
+      ctx.beginPath();ctx.moveTo(px,py);ctx.lineTo(p.x,p.y);ctx.stroke();
+      if(--p.life<0||p.x<-20||p.x>W+20||p.y<-20||p.y>H+20)spawn(p);}
+    t++;raf=requestAnimationFrame(step);};
+  const start=()=>{if(!running){running=true;raf=requestAnimationFrame(step);}};
+  const stop=()=>{running=false;cancelAnimationFrame(raf);};
+  let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(resize,160);});
+  addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();
+    mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;mouse.on=true;},{passive:true});
+  addEventListener('pointerleave',()=>mouse.on=false);
   resize();
-  new IntersectionObserver(es => es[0].isIntersecting ? start() : stop()).observe(cv);
-  document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
+  new IntersectionObserver(es=>es[0].isIntersecting?start():stop()).observe(cv);
+  document.addEventListener('visibilitychange',()=>document.hidden?stop():start());
 })();
 
-/* ─────────────── DRAFT-FIGURE TRACKER ─────────────── */
+/* ══════════ HALFTONE PLATES ══════════
+   Five screens, one per photograph, all drawn in the browser from the AVIF.
+   dot · cross · coarse · dither · line                                     */
 (() => {
-  const bar0 = document.getElementById('draftbar');
-  const drafts = [...document.querySelectorAll('.dr')].filter(el => !bar0.contains(el));
-  if (!drafts.length) return;
-  const bar = document.getElementById('draftbar');
-  document.getElementById('drCount').textContent = drafts.length;
-  bar.classList.add('on');
-  let n = 0;
-  document.getElementById('drJump').addEventListener('click', () => {
-    const el = drafts[n % drafts.length]; n++;
-    el.scrollIntoView({block:'center', behavior: reduce ? 'auto' : 'smooth'});
-    el.animate([{background:'rgba(229,169,61,.6)'},{background:'transparent'}], {duration:1400});
-  });
+  const BONE = '#EFEDE7', INK = [20,19,16], OX = [185,60,18];
+  const sample = (img, W, H, ow, oh, blur) => {
+    const off = document.createElement('canvas');
+    off.width = ow; off.height = oh;
+    const o = off.getContext('2d', {willReadFrequently:true});
+    if (blur) o.filter = 'blur(' + blur + 'px)';
+    const ir = img.naturalWidth/img.naturalHeight, br = W/H;
+    let sw,sh,sx,sy;
+    if (ir > br) { sh = img.naturalHeight; sw = sh*br; sx = (img.naturalWidth-sw)/2; sy = 0; }
+    else { sw = img.naturalWidth; sh = sw/br; sx = 0; sy = (img.naturalHeight-sh)/2*0.7; }
+    o.drawImage(img, sx, sy, sw, sh, 0, 0, ow, oh);
+    return o.getImageData(0,0,ow,oh).data;
+  };
+  const lumAt = (d,i) => (d[i]*.299 + d[i+1]*.587 + d[i+2]*.114)/255;
+  const mixInk = m => [INK[0]+(OX[0]-INK[0])*m, INK[1]+(OX[1]-INK[1])*m, INK[2]+(OX[2]-INK[2])*m];
+  const rgba = (c,a) => `rgba(${c[0]|0},${c[1]|0},${c[2]|0},${a})`;
+
+  const SCREENS = {
+    dot(ctx, img, W, H){
+      const ow = 300, oh = Math.max(1, Math.round(300*H/W));
+      const d = sample(img, W, H, ow, oh, 0.4), cell = W/ow;
+      for (let y=0;y<oh;y++) for (let x=0;x<ow;x++){
+        const k = Math.pow(1-lumAt(d,(y*ow+x)*4), 1.12);
+        if (k < .11) continue;
+        const r = Math.max(k*cell*1.05, .35), cx = (x+.5)*cell, cy = (y+.5)*cell;
+        const c = mixInk(Math.max(0,Math.min(1,(k-.80)/.20)));
+        const g = ctx.createRadialGradient(cx,cy,0,cx,cy,r);
+        g.addColorStop(0, rgba(c, Math.min(.95,k+.15)));
+        g.addColorStop(.55, rgba(c, Math.min(.7,k*.8)));
+        g.addColorStop(1, rgba(c,0));
+        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx,cy,r,0,6.2832); ctx.fill();
+      }
+    },
+    cross(ctx, img, W, H){
+      const ow = 150, oh = Math.max(1, Math.round(150*H/W));
+      const d = sample(img, W, H, ow, oh, 0.5), cell = W/ow;
+      ctx.lineCap = 'round';
+      for (let y=0;y<oh;y++) for (let x=0;x<ow;x++){
+        const k = Math.pow(1-lumAt(d,(y*ow+x)*4), 1.05);
+        if (k < .16) continue;
+        const cx = (x+.5)*cell, cy = (y+.5)*cell, L = cell*1.5;
+        const c = mixInk(Math.max(0,Math.min(1,(k-.82)/.18)));
+        ctx.strokeStyle = rgba(c, Math.min(.75, .18+k*.5));
+        ctx.lineWidth = Math.max(.4, cell*.28);
+        const angles = k > .74 ? [0.79,-0.79,0] : k > .46 ? [0.79,-0.79] : [0.79];
+        for (const a of angles){
+          ctx.beginPath();
+          ctx.moveTo(cx-Math.cos(a)*L/2, cy-Math.sin(a)*L/2);
+          ctx.lineTo(cx+Math.cos(a)*L/2, cy+Math.sin(a)*L/2);
+          ctx.stroke();
+        }
+      }
+    },
+    coarse(ctx, img, W, H){
+      const ow = 96, oh = Math.max(1, Math.round(96*H/W));
+      const d = sample(img, W, H, ow, oh, 0.3), cell = W/ow;
+      for (let y=0;y<oh;y++) for (let x=0;x<ow;x++){
+        const k = Math.pow(1-lumAt(d,(y*ow+x)*4), 1.0);
+        if (k < .1) continue;
+        const r = Math.max(k*cell*.78, .4);
+        const c = mixInk(Math.max(0,Math.min(1,(k-.78)/.22)));
+        ctx.fillStyle = rgba(c, Math.min(.92, .35+k*.6));
+        ctx.beginPath(); ctx.arc((x+.5)*cell, (y+.5)*cell, r, 0, 6.2832); ctx.fill();
+      }
+    },
+    dither(ctx, img, W, H){
+      const M = [[0,8,2,10],[12,4,14,6],[3,11,1,9],[15,7,13,5]];
+      const ow = 190, oh = Math.max(1, Math.round(190*H/W));
+      const d = sample(img, W, H, ow, oh, 0.25), cell = W/ow;
+      for (let y=0;y<oh;y++) for (let x=0;x<ow;x++){
+        const k = 1-lumAt(d,(y*ow+x)*4);
+        const thr = (M[y&3][x&3]+.5)/16;
+        if (k <= thr) continue;
+        const c = mixInk(k > .86 ? 1 : 0);
+        ctx.fillStyle = rgba(c, .82);
+        ctx.fillRect(x*cell, y*cell, Math.max(cell*.95,.6), Math.max(cell*.95,.6));
+      }
+    },
+    line(ctx, img, W, H){
+      const ow = 260, oh = Math.max(1, Math.round(120*H/W));
+      const d = sample(img, W, H, ow, oh, 0.45);
+      const cw = W/ow, ch = H/oh;
+      for (let y=0;y<oh;y++) for (let x=0;x<ow;x++){
+        const k = Math.pow(1-lumAt(d,(y*ow+x)*4), 1.08);
+        if (k < .1) continue;
+        const c = mixInk(Math.max(0,Math.min(1,(k-.8)/.2)));
+        ctx.fillStyle = rgba(c, Math.min(.9, .3+k*.6));
+        const h = Math.max(k*ch*.95, .5);
+        ctx.fillRect(x*cw, (y+.5)*ch - h/2, cw+.35, h);
+      }
+    }
+  };
+
+  const render = fig => {
+    const cv = fig.querySelector('canvas'), img = fig.querySelector('img');
+    const kind = fig.dataset.screen || 'dot';
+    const go = () => {
+      const b = fig.getBoundingClientRect();
+      if (!b.width || !b.height || !img.naturalWidth) return;
+      const dpr = Math.min(devicePixelRatio||1, 2);
+      cv.width = Math.round(b.width*dpr); cv.height = Math.round(b.height*dpr);
+      const ctx = cv.getContext('2d');
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+      ctx.fillStyle = BONE; ctx.fillRect(0,0,b.width,b.height);
+      (SCREENS[kind] || SCREENS.dot)(ctx, img, b.width, b.height);
+    };
+    if (img.complete && img.naturalWidth) go(); else img.addEventListener('load', go);
+    fig._redraw = go;
+  };
+
+  /* Driven by image load rather than an IntersectionObserver: loading="lazy"
+     already defers the fetch, and this cannot leave a plate blank if an
+     observer misses. A late safety sweep covers anything still undrawn. */
+  const figs = [...document.querySelectorAll('.plate')];
+  figs.forEach(render);
+  addEventListener('load', () => figs.forEach(f => f._redraw && f._redraw()));
+  setTimeout(() => figs.forEach(f => {
+    const c = f.querySelector('canvas');
+    if (c.width <= 300 && f._redraw) f._redraw();
+  }), 2500);
+  let rt; addEventListener('resize', () => { clearTimeout(rt);
+    rt = setTimeout(() => figs.forEach(f => f._redraw && f._redraw()), 260); });
+})();
+
+/* ══════════ MARQUEE ══════════ */
+(() => {
+  const el = document.getElementById('marq');
+  if (!el || REDUCE) return;
+  el.innerHTML += el.innerHTML;
+  let x = 0, last = scrollY, vel = 0;
+  addEventListener('scroll', () => { vel += (scrollY-last)*.32; last = scrollY; }, {passive:true});
+  const loop = () => { vel *= .92; x -= .3 + vel*.055;
+    const w = el.scrollWidth/2;
+    if (x <= -w) x += w; if (x > 0) x -= w;
+    el.style.transform = `translateX(${x.toFixed(2)}px)`;
+    requestAnimationFrame(loop); };
+  loop();
+})();
+
+/* ══════════ COUNTERS ══════════ */
+(() => {
+  const els = [...document.querySelectorAll('.ct')];
+  if (!els.length) return;
+  const run = el => { const to = parseFloat(el.dataset.to), dp = +(el.dataset.dp||0);
+    if (REDUCE) { el.textContent = to.toFixed(dp); return; }
+    const t0 = performance.now(), D = 1250;
+    const tick = now => { const k = Math.min(1,(now-t0)/D), e = 1-Math.pow(1-k,4);
+      el.textContent = (to*e).toFixed(dp); if (k < 1) requestAnimationFrame(tick); };
+    requestAnimationFrame(tick); };
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { run(e.target); io.unobserve(e.target); } }), {threshold:.6});
+  els.forEach(e => io.observe(e));
 })();
 
 /* ═══════════════════════════════════════════════════════════
@@ -1786,7 +1356,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     resting.forEach((a, s) => {
       const y = 12 + s*(ROW + GAP);
       const lab = el('text', {x: 0, y: y + ROW/2 + 4, fill: 'var(--ch-text)',
-        'font-family': 'var(--mono)', 'font-size': '12'});
+        'font-size': '12'});
       lab.textContent = REG[s];
       svg.appendChild(lab);
       let x = X0;
@@ -1797,7 +1367,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
           fill: cols[i], rx: 2, opacity: .88}));
         if (bw > 42) {
           const t = el('text', {x: x + bw/2, y: y + ROW/2 + 4, 'text-anchor': 'middle',
-            fill: '#082628', 'font-family': 'var(--mono)', 'font-size': '12'});
+            fill: '#141310', 'font-size': '12'});
           t.textContent = Math.round(w*100) + '%';
           svg.appendChild(t);
         }
@@ -1829,13 +1399,13 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
       svg.appendChild(el('line', {x1: L, x2: L+W, y1: yS(v), y2: yS(v),
         stroke: 'var(--ch-grid)', 'stroke-width': 1}));
       const t = el('text', {x: L-8, y: yS(v)+4, 'text-anchor': 'end', fill: 'var(--ch-text)',
-        'font-family': 'var(--mono)', 'font-size': '12'});
+        'font-size': '12'});
       t.textContent = v + '×';
       svg.appendChild(t);
     });
     for (let y = 0; y <= 30; y += 10) {
       const t = el('text', {x: xS(y*12), y: 224, 'text-anchor': y === 0 ? 'start' : 'middle',
-        fill: 'var(--ch-text)', 'font-family': 'var(--mono)', 'font-size': '12'});
+        fill: 'var(--ch-text)', 'font-size': '12'});
       t.textContent = 'yr ' + y;
       svg.appendChild(t);
     }
@@ -1872,11 +1442,11 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   function drawStationary(pi) {
     document.getElementById('statDist').innerHTML = REG.map((r, i) => `
       <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.45rem">
-        <span style="font-family:var(--mono);font-size:.72rem;color:var(--on-deep-2);width:3.4rem">${r}</span>
+        <span style="font-size:.72rem;color:var(--on-ink2);width:3.4rem">${r}</span>
         <span style="flex:1;height:6px;background:rgba(228,234,231,.12);border-radius:3px;overflow:hidden">
-          <span style="display:block;height:100%;width:${(pi[i]*100).toFixed(1)}%;background:var(--coral-l);opacity:${.4 + i*.3}"></span>
+          <span style="display:block;height:100%;width:${(pi[i]*100).toFixed(1)}%;background:var(--oxide-l);opacity:${.4 + i*.3}"></span>
         </span>
-        <span style="font-family:var(--mono);font-size:.72rem;color:var(--on-deep);width:2.6rem;text-align:right">${(pi[i]*100).toFixed(0)}%</span>
+        <span style="font-size:.72rem;color:var(--on-ink);width:2.6rem;text-align:right">${(pi[i]*100).toFixed(0)}%</span>
       </div>`).join('');
   }
 
@@ -1924,25 +1494,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (es[0].isIntersecting) { run(); o.disconnect(); }
   }, {rootMargin: '400px'});
   mio.observe(document.getElementById('model'));
-})();
-
-/* ─────────────── PROJECT-CARD SPARK THUMBNAIL ─────────────── */
-(() => {
-  const box = document.getElementById('mvtThumb');
-  if (!box) return;
-  const rnd = (s => () => (s = Math.imul(s ^ s>>>15, 1|s), ((s ^ s>>>14)>>>0)/4294967296))(7);
-  let v = 1; const pts = [];
-  for (let i = 0; i < 120; i++) { v *= 1 + (rnd()-.42)*.05; pts.push(v); }
-  const lo = Math.min(...pts), hi = Math.max(...pts);
-  const d = pts.map((p,i) => `${i?'L':'M'}${(i/119*300).toFixed(1)} ${(90-(p-lo)/(hi-lo)*70).toFixed(1)}`).join(' ');
-  box.innerHTML =
-    `<svg viewBox="0 0 300 100" style="width:100%;height:100%;padding:1.4rem" aria-hidden="true">
-       <path d="${d}" fill="none" stroke="#C1502E" stroke-width="1.6" opacity=".75"/>
-       <path d="${d} L300 100 L0 100 Z" fill="url(#g1)" opacity=".18"/>
-       <defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
-         <stop offset="0" stop-color="#C1502E"/><stop offset="1" stop-color="#C1502E" stop-opacity="0"/>
-       </linearGradient></defs>
-     </svg>`;
 })();
 </script>
 </body>

@@ -9,7 +9,7 @@ interactive model runs entirely client-side.
 ## Structure
 
 ```
-index.html          all markup, CSS and JS (~100 KB)
+index.html          all markup, CSS and JS (~78 KB)
 assets/
   fonts/            self-hosted woff2, latin + latin-ext subsets
   *.avif|webp|jpg   responsive image variants at 1x and 2x
@@ -20,30 +20,36 @@ assets/
 
 **Images.** Sources are downscaled to the actual rendered box at 1x and 2x and encoded to
 AVIF, WebP and JPEG. `<picture>` serves the smallest format the browser accepts. The
-above-the-fold payload is ~296 KB including fonts; the original version of this site shipped
+above-the-fold payload is ~200 KB including fonts; the original version of this site shipped
 7.1 MB of eagerly-loaded JPEG.
 
-**Type.** Outfit for display, Plus Jakarta Sans for text, JetBrains Mono for labels and data —
-self-hosted rather than loaded from Google Fonts, which removes a third-party request, a GDPR
-question, and a render-blocking round trip. `unicode-range` splits latin from latin-ext so
-English readers fetch ~169 KB. See [`assets/fonts/NOTICE.md`](assets/fonts/NOTICE.md).
+**Type.** One typeface — Geist, at four sizes. Hierarchy comes from weight and colour rather
+than a long size ramp: headings at 600 in near-black, de-emphasised clauses at 400 in grey,
+eyebrows at 600 in oxide. Self-hosted, so the page makes no third-party request. See
+[`assets/fonts/NOTICE.md`](assets/fonts/NOTICE.md).
+
+**Imagery.** Every photograph is screened into ink in the browser from the AVIF — five different
+screens, one per image: a soft AM dot screen, cross-hatch engraving, a coarse graphic screen, an
+ordered Bayer dither, and a line screen. Hover any plate and it resolves back to the photograph.
+Nothing is pre-rendered; the plates are drawn to canvas at device pixel ratio on load.
 
 **Layout.** Fluid rather than breakpointed: a `clamp()` type scale, `clamp()` spacing, and
-`repeat(auto-fit, minmax(min(100%, …), 1fr))` grids that cannot overflow their container.
-Container queries let the case-study definition lists and the model panel respond to their own
-width instead of the viewport. Verified with no horizontal overflow from 360 px to 2560 px.
-Media queries are reserved for genuine mode changes — the navigation and print.
+`repeat(auto-fit, minmax(min(100%, …), 1fr))` grids that cannot overflow. Container queries let
+the model panel respond to its own width. Media queries handle only genuine mode changes — the
+navigation and print.
 
-**Motion.** Reveals use native CSS scroll-driven animation (`animation-timeline: view()`), with
-IntersectionObserver only as a fallback on browsers that lack it, chosen at boot via
-`CSS.supports`. The reading-depth control uses the View Transitions API so tier changes
-cross-fade rather than snap. The hero canvas draws drifting sine contours, is DPR-scaled, and
-pauses when scrolled out of view or when the tab is hidden. A first-visit intro plays once per
-session. All of it is disabled under `prefers-reduced-motion`.
 
-**Reading depth.** A `30 sec / 3 min / 15 min` control sets `data-depth` on `<html>`; CSS hides
-tiers via `.t-brief` and `.t-deep`. The choice persists in `localStorage`. With JavaScript
-disabled the attribute stays at `deep`, so everything renders.
+
+**Motion.** One idea, applied everywhere: content arrives by unmasking upward via CSS
+scroll-driven animation (`animation-timeline: view()`, with `animation-duration: auto` — a time
+value silently breaks a progress-based timeline), and anything interactive answers with a line
+wiping left to right. Nothing lifts, scales or shadows. IntersectionObserver is a fallback only,
+selected at boot via `CSS.supports`. The reading-depth control uses the View Transitions API. The
+hero is a live vector field — layered value-noise traced by ~900 particles, cursor-reactive,
+DPR-scaled, paused when offscreen or when the tab is hidden. All of it is disabled under
+`prefers-reduced-motion`.
+
+
 
 **The interactive model.** A three-regime Markov decision process solving for a regime-aware
 allocation policy. State is *(regime, currently-held portfolio)* — 3 × 66 = 198 states — because
